@@ -11,14 +11,14 @@
 
 <?php
 
-    print_r($_GET); // Show data
+    print_r($_POST); // Show data
 
     // Get data
-    $title = mysqli_real_escape_string($conn, $_GET['title']);
-    $description = mysqli_real_escape_string($conn, $_GET['description']);
-    $release_date = $_GET['release_date'];
-    $price = $_GET['price'];
-    $stock = $_GET['stock'];
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $release_date = $_POST['release_date'];
+    $price = $_POST['price'];
+    $stock = $_POST['stock'];
 
     // Insert data
     $sql = "INSERT INTO videogames (title, description, release_date, price, stock) 

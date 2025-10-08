@@ -12,15 +12,13 @@
     ?>
 
     <main class="container my-5">
-        <!-- Título principal -->
+        
         <h1 class="text-center mb-5" style="color: #FCFCFC; font-weight: 700;">Videojuegos</h1>
         
-        <!-- Menú de opciones -->
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="list-group">
                     
-                    <!-- Opción: Insertar Videojuego -->
                     <a href="/student006/shop/backend/forms/form_product_insert.php" 
                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                        style="background-color: #1A1A1A; border: 1px solid #2A2A2A; color: #E6E6E6;">
@@ -28,7 +26,6 @@
                         <i class="bi bi-chevron-right" style="color: #FF3366;"></i>
                     </a>
                     
-                    <!-- Opción: Listar Videojuegos -->
                     <a href="/student006/shop/backend/forms/form_product_select.php" 
                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                        style="background-color: #1A1A1A; border: 1px solid #2A2A2A; color: #E6E6E6;">
@@ -36,7 +33,6 @@
                         <i class="bi bi-chevron-right" style="color: #FF3366;"></i>
                     </a>
                     
-                    <!-- Opción: Actualizar Videojuego -->
                     <a href="/student006/shop/backend/forms/form_product_update_call.php" 
                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                        style="background-color: #1A1A1A; border: 1px solid #2A2A2A; color: #E6E6E6;">
@@ -44,7 +40,6 @@
                         <i class="bi bi-chevron-right" style="color: #FF3366;"></i>
                     </a>
                     
-                    <!-- Opción: Eliminar Videojuego -->
                     <a href="/student006/shop/backend/forms/form_product_delete_call.php" 
                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                        style="background-color: #1A1A1A; border: 1px solid #2A2A2A; color: #E6E6E6;">
@@ -56,13 +51,43 @@
             </div>
         </div>
         
-        <!-- Botón para volver al panel principal -->
         <div class="text-center mt-4">
             <a href="/student006/shop/backend/php/index.php" class="btn btn-back">
                 <i class="bi bi-arrow-left me-2"></i> Volver al Panel Principal
             </a>
         </div>
     </main>
+
+    <style>
+
+        .list-group-item:hover {
+            background-color: #2A2A2A !important;
+            border-color: #FF3366 !important;
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .list-group-item {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back {
+            background-color: #1A1A1A;
+            border: 2px solid #2A2A2A;
+            color: #E6E6E6;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-back:hover {
+            background-color: #2A2A2A;
+            border-color: #00CCFF;
+            color: #FCFCFC;
+        }
+    </style>
 
     <?php 
         $root_DIR = $_SERVER['DOCUMENT_ROOT'];

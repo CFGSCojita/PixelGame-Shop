@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>Añadir Videojuego</h1>
-    <form action="/student006/shop/backend/db/db_product_insert.php" method="GET">
+    <form action="/student006/shop/backend/db/db_product_insert.php" method="POST">
         <label for="title">Título:</label>
         <input type="text" id="title" name="title" maxlength="200">
         <br/>
