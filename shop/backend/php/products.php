@@ -60,6 +60,20 @@
 
     <style>
 
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+
         .list-group-item:hover {
             background-color: #2A2A2A !important;
             border-color: #FF3366 !important;

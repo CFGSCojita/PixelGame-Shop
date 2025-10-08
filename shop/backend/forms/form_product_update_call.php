@@ -12,6 +12,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Videojuego - PixelGame Shop</title>
     <style>
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
         .form-container {
             max-width: 600px;
             margin: 3rem auto;
@@ -19,6 +30,7 @@
             padding: 2rem;
             border-radius: 8px;
             border: 2px solid #2A2A2A;
+            flex: 1;
         }
         
         .form-container h1 {
@@ -110,8 +122,6 @@
 </html>
 
 <?php
-
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/php/footer.php');
-
 ?>

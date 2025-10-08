@@ -10,6 +10,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añadir un Videojuego (concepto)</title>
+    <style>
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form {
+            flex: 1;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Añadir Videojuego</h1>
