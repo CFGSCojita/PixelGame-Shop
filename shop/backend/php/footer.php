@@ -1,5 +1,6 @@
 
-    <footer class="py-4 mt-5" style="background-color: #1A1A1A; border-top: 2px solid #2A2A2A;">
+    <!-- Footer -->
+    <footer class="py-4" style="background-color: #1A1A1A; border-top: 2px solid #2A2A2A; flex-shrink: 0;">
         <div class="container">
             <p class="text-center m-0" style="color: #E6E6E6;">
                 PixelGame Shop - Copyright © 2025 by Stefan Cojita (Project DIW-DWEC-DWES)

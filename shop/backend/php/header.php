@@ -16,18 +16,20 @@
         :root {
             --color-primary: #FF3366;
             --color-accent: #00CCFF;
-            --color-bg: #1A1A1A;
-            --color-text: #FFFFFF;
+            --color-bg: #0A0A0A;
+            --color-card-bg: #1A1A1A;
+            --color-text: #FCFCFC;
             --color-text-secondary: #E6E6E6;
         }
         
         body {
             background-color: var(--color-bg);
             color: var(--color-text-secondary);
+            min-height: 100vh;
         }
         
         .header-custom {
-            background-color: var(--color-bg);
+            background-color: var(--color-card-bg);
             border-bottom: 2px solid #2A2A2A;
         }
         
@@ -42,43 +44,15 @@
         .brand-logo:hover {
             color: var(--color-primary);
         }
-        
-        .nav-link-custom {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link-custom:hover {
-            color: var(--color-primary);
-        }
 
     </style>
 </head>
 <body>
     <header class="header-custom py-3">
         <div class="container">
-            <nav class="d-flex justify-content-between align-items-center">
-                
-                <!-- Administration panel text -->
-                <a href="../php/index.php" class="brand-logo">
-                    Panel de administración
+            <div class="text-center">
+                <a href="/student006/shop/backend/php/index.php" class="brand-logo">
+                    Panel de Administración
                 </a>
-                
-                <!-- Navigation menu, for the moment we're not going to need the options... -->
-                <div class="d-flex gap-3">
-                    <a href="../forms/form_product_insert.php" class="nav-link-custom">
-                        Añadir Videojuego
-                    </a>
-                    <a href="#" class="nav-link-custom">
-                        #
-                    </a>
-                    <a href="#" class="nav-link-custom">
-                        #
-                    </a>
-                </div>
-                
-            </nav>
-        </div>
-    </header>
+            </div>
+        </header>

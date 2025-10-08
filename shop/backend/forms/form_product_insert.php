@@ -1,6 +1,7 @@
 
 <?php
-    include('C:\wamp64\www\student006\shop\backend\php\header.php')
+    $root_DIR = $_SERVER['DOCUMENT_ROOT'];
+    include($root_DIR . '/student006/shop/backend/php/header.php');
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@
         <br/>
         <br/>
         <label for="stock">Stock:</label>
-        <input type="number" id="stock" name="stock">
+        <input type="number" id="stock" name="stock" step="10">
         <br/>
         <br/>
         <button type="submit">Insertar</button>
@@ -39,5 +40,6 @@
 </html>
 
 <?php
-    include('C:\wamp64\www\student006\shop\backend\php\footer.php')
+    $root_DIR = $_SERVER['DOCUMENT_ROOT'];
+    include($root_DIR . '/student006/shop/backend/php/footer.php');
 ?>
