@@ -9,7 +9,7 @@
 <h1>Consulta Simple de Videojuegos</h1>
 
 <!-- Formulario para listar todos los videojuegos -->
-<form action="/student006/shop/backend/db/db_product_select.php" method="POST">
+<form action="/student006/shop/backend/db/db_videogame_select.php" method="POST">
     
     <p>Presiona el botón para listar todos los videojuegos en la base de datos.</p>
     

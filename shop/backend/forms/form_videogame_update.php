@@ -14,7 +14,7 @@
 <h1>Actualizar Videojuego</h1>
 
 <!-- Formulario para actualizar los datos del videojuego -->
-<form action="/student006/shop/backend/db/db_product_update.php" method="POST">
+<form action="/student006/shop/backend/db/db_videogame_update.php" method="POST">
     <input type="hidden" name="videogame_id" value="<?php echo $videogame['videogame_id']; ?>">
     
     <label for="title">Título:</label>

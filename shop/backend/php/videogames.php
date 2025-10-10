@@ -9,22 +9,22 @@
 <h1>Videojuegos</h1>
 
 <!-- Enlaces a las diferentes operaciones CRUD para gestionar videojuegos. -->
-<a href="/student006/shop/backend/forms/form_product_insert.php">
+<a href="/student006/shop/backend/forms/form_videogame_insert.php">
     <span>Insertar Videojuego</span>
     <span>&gt;</span>
 </a>
 <br/>
-<a href="/student006/shop/backend/forms/form_product_select.php">
+<a href="/student006/shop/backend/forms/form_videogame_select.php">
     <span>Listar Videojuegos</span>
     <span>&gt;</span>
 </a>
 <br/>
-<a href="/student006/shop/backend/forms/form_product_update_call.php">
+<a href="/student006/shop/backend/forms/form_videogame_update_call.php">
     <span>Actualizar Videojuego</span>
     <span>&gt;</span>
 </a>
 <br/>
-<a href="/student006/shop/backend/forms/form_product_delete_call.php">
+<a href="/student006/shop/backend/forms/form_videogame_delete_call.php">
     <span>Eliminar Videojuego</span>
     <span>&gt;</span>
 </a>

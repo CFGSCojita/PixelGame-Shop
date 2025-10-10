@@ -20,7 +20,7 @@
         <p>Esta acción es permanente y no se puede deshacer.</p>
 
         <!-- Formulario para confirmar la eliminación del videojuego -->
-        <form action="/student006/shop/backend/db/db_product_delete.php" method="POST">
+        <form action="/student006/shop/backend/db/db_videogame_delete.php" method="POST">
             <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
             
             <button type="submit">
@@ -31,7 +31,7 @@
         <br/>
 
         <!-- Enlace para volver al formulario de búsqueda -->
-        <a href="/student006/shop/backend/forms/form_product_delete.php">← Volver</a>
+        <a href="/student006/shop/backend/forms/form_videogame_delete.php">← Volver</a>
         
         <?php
     } else {
@@ -40,7 +40,7 @@
         <p>Introduce el ID del videojuego que deseas eliminar</p>
 
         <!-- Formulario para introducir el ID del videojuego a eliminar -->
-        <form action="/student006/shop/backend/forms/form_product_delete.php" method="POST">
+        <form action="/student006/shop/backend/forms/form_videogame_delete.php" method="POST">
             <label for="videogame_id">ID del Videojuego:</label>
             <input type="number" id="videogame_id" name="videogame_id" required>
             <br><br>
