@@ -1,61 +1,38 @@
 
+<!-- Llamada a la base de datos y el header a través del directorio root. -->
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/php/header.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir un Videojuego (concepto)</title>
-    <style>
+<h1>Añadir Videojuego</h1>
 
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-        
-        body {
-            display: flex;
-            flex-direction: column;
-        }
+<!-- Formulario para añadir un nuevo videojuego -->
+<form action="/student006/shop/backend/db/db_product_insert.php" method="POST">
+    <label for="title">Título:</label>
+    <input type="text" id="title" name="title" maxlength="200">
+    <br/>
+    <br/>
+    <label for="description">Descripción:</label>
+    <textarea id="description" name="description" rows="4" cols="50"></textarea>
+    <br/>
+    <br/>
+    <label for="release_date">Fecha de lanzamiento:</label>
+    <input type="date" id="release_date" name="release_date">
+    <br/>
+    <br/>
+    <label for="price">Precio:</label>
+    <input type="number" id="price" name="price">
+    <br/>
+    <br/>
+    <label for="stock">Stock:</label>
+    <input type="number" id="stock" name="stock">
+    <br/>
+    <br/>
+    <button type="submit">Añadir</button>
+</form>
 
-        form {
-            flex: 1;
-        }
-
-    </style>
-</head>
-<body>
-    <h1>Añadir Videojuego</h1>
-    <form action="/student006/shop/backend/db/db_product_insert.php" method="POST">
-        <label for="title">Título:</label>
-        <input type="text" id="title" name="title" maxlength="200">
-        <br/>
-        <br/>
-        <label for="description">Descripción:</label>
-        <textarea id="description" name="description" rows="4" cols="50"></textarea>
-        <br/>
-        <br/>
-        <label for="release_date">Fecha de lanzamiento:</label>
-        <input type="date" id="release_date" name="release_date">
-        <br/>
-        <br/>
-        <label for="price">Precio:</label>
-        <input type="number" id="price" name="price" step="4.99">
-        <br/>
-        <br/>
-        <label for="stock">Stock:</label>
-        <input type="number" id="stock" name="stock" step="10">
-        <br/>
-        <br/>
-        <button type="submit">Insertar</button>
-    </form>
-</body>
-</html>
-
+<!-- Llamada al footer a través del directorio root. -->
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/php/footer.php');

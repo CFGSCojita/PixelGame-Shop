@@ -1,126 +1,27 @@
-<?php
 
+<!-- Llamada a la base de datos y el header a través del directorio root. -->
+<?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/php/header.php');
-
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Videojuego - PixelGame Shop</title>
-    <style>
+<h1>Actualizar Videojuego</h1>
+<p>Introduce el ID del videojuego que deseas actualizar</p>
 
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-        
-        body {
-            display: flex;
-            flex-direction: column;
-        }
+<!-- Formulario para introducir el ID del videojuego a actualizar -->
+<form action="/student006/shop/backend/forms/form_product_update.php" method="POST">
+    <label for="videogame_id">ID del Videojuego:</label>
+    <input type="number" id="videogame_id" name="videogame_id" required>
+    
+    <button type="submit"">Buscar Videojuego</button>
+</form>
 
-        .form-container {
-            max-width: 600px;
-            margin: 3rem auto;
-            background-color: #1A1A1A;
-            padding: 2rem;
-            border-radius: 8px;
-            border: 2px solid #2A2A2A;
-            flex: 1;
-        }
-        
-        .form-container h1 {
-            color: #FCFCFC;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            color: #E6E6E6;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 0.75rem;
-            background-color: #0A0A0A;
-            border: 1px solid #2A2A2A;
-            border-radius: 5px;
-            color: #FCFCFC;
-            font-size: 1rem;
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: #00CCFF;
-        }
-        
-        .btn-submit {
-            width: 100%;
-            padding: 0.75rem;
-            background-color: #FF3366;
-            color: #FCFCFC;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-submit:hover {
-            background-color: #cc2952;
-            transform: translateY(-2px);
-        }
-        
-        .btn-back {
-            display: block;
-            text-align: center;
-            margin-top: 1rem;
-            color: #00CCFF;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .btn-back:hover {
-            color: #FF3366;
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h1>Actualizar Videojuego</h1>
-        <p style="color: #E6E6E6; text-align: center; margin-bottom: 2rem;">
-            Introduce el ID del videojuego que deseas actualizar
-        </p>
-        
-        <form action="/student006/shop/backend/forms/form_product_update.php" method="GET">
-            <div class="form-group">
-                <label for="videogame_id">ID del Videojuego:</label>
-                <input type="number" id="videogame_id" name="videogame_id" required min="1">
-            </div>
-            
-            <button type="submit" class="btn-submit">Buscar Videojuego</button>
-        </form>
-        
-        <a href="/student006/shop/backend/php/products.php" class="btn-back">
-            ← Volver a Videojuegos
-        </a>
-    </div>
-</body>
-</html>
+<!-- Enlace para volver a la lista de videojuegos -->
+<a href=" /student006/shop/backend/php/videogames.php">
+    ← Volver
+</a>
 
+<!-- Llamada al footer a través del directorio root. -->
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/php/footer.php');

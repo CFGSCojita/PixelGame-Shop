@@ -11,8 +11,10 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
+    <!-- CSS Personalizado -->
     <style>
         
+        /* Guardamsos la paleta de colores del proyecto. */
         :root {
             --color-primary: #FF3366;
             --color-accent: #00CCFF;
@@ -21,19 +23,22 @@
             --color-text: #FCFCFC;
             --color-text-secondary: #E6E6E6;
         }
-        
+
+        /* Cuerpo de la página. */
         body {
             background-color: var(--color-bg);
             color: var(--color-text-secondary);
             min-height: 100vh;
         }
-        
-        .header-custom {
+
+        /* Encabezado de la página. */
+        .encabezado-personalizado {
             background-color: var(--color-card-bg);
             border-bottom: 2px solid #2A2A2A;
         }
         
-        .brand-logo {
+        /* Texto que sale en el encabezado.  */
+        .titulo {
             color: var(--color-text);
             font-size: 1.5rem;
             font-weight: 700;
@@ -41,18 +46,21 @@
             transition: color 0.3s ease;
         }
         
-        .brand-logo:hover {
+        /* Al pasar el cursor cambiamos el color */
+        .titulo:hover {
             color: var(--color-primary);
         }
 
     </style>
 </head>
 <body>
-    <header class="header-custom py-3">
+    <!-- Llamamos a la clase de encabezado-personalizado y le asignamos un padding vertical de 3 con Bootstrap -->
+    <header class="encabezado-personalizado py-3">
         <div class="container">
             <div class="text-center">
-                <a href="/student006/shop/backend/php/index.php" class="brand-logo">
-                    Panel de Administración
+                <a href="/student006/shop/backend/php/index.php" class="titulo">
+                    Panel de Administración - PixelGame Shop
                 </a>
             </div>
-        </header>
+        </div>
+    </header>
