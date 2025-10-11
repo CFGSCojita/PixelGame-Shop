@@ -8,7 +8,7 @@
 
 <h1>Videojuegos</h1>
 
-<!-- Enlaces a las diferentes operaciones CRUD para gestionar videojuegos. -->
+<!-- Enlaces a las diferentes operaciones para gestionar videojuegos. -->
 <a href="/student006/shop/backend/forms/form_videogame_insert.php">
     <span>Insertar Videojuego</span>
     <span>&gt;</span>
