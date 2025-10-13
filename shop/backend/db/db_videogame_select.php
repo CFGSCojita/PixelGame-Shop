@@ -6,7 +6,7 @@
     include($root_DIR . '/student006/shop/backend/php/header.php');
 
     // Preparamos la consulta SQL para seleccionar los videojuegos en la base de datos.
-    $sql = "SELECT videogame_id, title, description, release_date, price, stock FROM videogames ORDER BY videogame_id DESC";
+    $sql = "SELECT videogame_id, title, description, release_date, price, stock FROM 006_videogames ORDER BY videogame_id DESC";
 
     $result = mysqli_query($conn, $sql); // Ejecutamos la consulta y almacenamos el resultado en una variable.
 

@@ -16,7 +16,7 @@
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
 
     // Preparamos la consulta SQL para actualizar el usuario con los nuevos datos.
-    $sql = "UPDATE users 
+    $sql = "UPDATE 006_users 
             SET name = '$name', 
                 email = '$email', 
                 address = '$address', 

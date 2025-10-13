@@ -20,7 +20,7 @@
 
     // Preparamos la consulta SQL para insertar un nuevo pedido en la base de datos.
     // La consulta ahora usa los IDs recibidos del formulario.
-    $sql = "INSERT INTO orders (user_id, videogame_id, quantity, unit_price, total, order_date) 
+    $sql = "INSERT INTO 006_orders (user_id, videogame_id, quantity, unit_price, total, order_date) 
             VALUES ('$user_id', '$videogame_id', '$quantity', '$unit_price', '$total', '$order_date')";
 
     // Estructura de control 'if'.

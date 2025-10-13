@@ -17,7 +17,7 @@
     $order_date = mysqli_real_escape_string($conn, $_POST['order_date']); 
 
     // Preparamos la consulta SQL para actualizar el pedido.
-    $sql = "UPDATE orders 
+    $sql = "UPDATE 006_orders 
             SET user_id = '$user_id', 
                 videogame_id = '$videogame_id', 
                 quantity = '$quantity', 

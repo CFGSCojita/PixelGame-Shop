@@ -17,7 +17,7 @@
     $stock = $_POST['stock'];
 
     // Preparamos la consulta SQL para actualizar el videojuego con los nuevos datos.
-    $sql = "UPDATE videogames 
+    $sql = "UPDATE 006_videogames 
             SET title = '$title', 
                 description = '$description', 
                 release_date = '$release_date', 

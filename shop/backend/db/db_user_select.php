@@ -6,7 +6,7 @@
     include($root_DIR . '/student006/shop/backend/php/header.php');
 
     // Preparamos la consulta SQL para seleccionar los usuarios en la base de datos.
-    $sql = "SELECT user_id, name, email, address, phone FROM users ORDER BY user_id DESC";
+    $sql = "SELECT user_id, name, email, address, phone FROM 006_users ORDER BY user_id DESC";
 
     $result = mysqli_query($conn, $sql); // Ejecutamos la consulta y almacenamos el resultado en una variable.
 

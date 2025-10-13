@@ -16,7 +16,7 @@
     $stock = $_POST['stock'];
 
     // Preparamos la consulta SQL para insertar un nuevo videojuego en la base de datos.
-    $sql = "INSERT INTO videogames (title, description, release_date, price, stock) 
+    $sql = "INSERT INTO 006_videogames (title, description, release_date, price, stock) 
             VALUES ('$title', '$description', '$release_date', '$price', '$stock')";
 
     // Estructura de control 'if'.

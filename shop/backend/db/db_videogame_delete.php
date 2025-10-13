@@ -9,7 +9,7 @@
     $videogame_id = mysqli_real_escape_string($conn, $_POST['videogame_id']); // Limpiamos el valor recibido por el POST.
 
     // Declaramos la consulta SQL para eliminar el videojuego con el ID proporcionado.
-    $sql = "DELETE FROM videogames 
+    $sql = "DELETE FROM 006_videogames 
             WHERE videogame_id = '$videogame_id'";
 
     // Estructura de control 'if'.

@@ -11,7 +11,7 @@
     $user_id = mysqli_real_escape_string($conn, $_POST['user_id']); 
 
     // Declaramos la consulta SQL para eliminar el usuario con el ID proporcionado.
-    $sql = "DELETE FROM users 
+    $sql = "DELETE FROM 006_users 
             WHERE user_id = '$user_id'";
 
     // Estructura de control 'if'.

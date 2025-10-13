@@ -16,7 +16,7 @@
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
 
     // Preparamos la consulta SQL para insertar un nuevo usuario en la base de datos.
-    $sql = "INSERT INTO users (name, email, password, address, phone) 
+    $sql = "INSERT INTO 006_users (name, email, password, address, phone) 
             VALUES ('$name', '$email', '$password', '$address', '$phone')";
 
     // Estructura de control 'if'.

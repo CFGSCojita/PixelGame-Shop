@@ -18,11 +18,11 @@
                 u.name AS user_name,      
                 v.title AS videogame_title
             FROM 
-                orders o
+                006_orders o
             JOIN 
-                users u ON o.user_id = u.user_id
+                006_users u ON o.user_id = u.user_id
             JOIN 
-                videogames v ON o.videogame_id = v.videogame_id
+                006_videogames v ON o.videogame_id = v.videogame_id
             ORDER BY 
                 o.order_id DESC";
 

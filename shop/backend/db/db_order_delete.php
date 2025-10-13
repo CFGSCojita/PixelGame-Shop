@@ -11,7 +11,7 @@
     $order_id = mysqli_real_escape_string($conn, $_POST['order_id']); 
 
     // Declaramos la consulta SQL para eliminar el pedido con el ID proporcionado.
-    $sql = "DELETE FROM orders 
+    $sql = "DELETE FROM 006_orders 
             WHERE order_id = '$order_id'"; 
 
     // Estructura de control 'if'.
