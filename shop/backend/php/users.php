@@ -31,7 +31,7 @@
 <br/>
 <br/>
 <!-- Enlace para volver al panel principal. -->
-<a href="/student006/shop/backend/php/index.php">
+<a href="/student006/shop/backend/index.php">
     Volver al Panel Principal
 </a>
 
