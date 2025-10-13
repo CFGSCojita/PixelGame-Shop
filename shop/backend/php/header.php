@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration Panel - PixelGame Shop</title>
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
-    <!-- CSS Personalizado -->
     <style>
         
         /* Guardamsos la paleta de colores del proyecto. */
@@ -28,16 +25,24 @@
         body {
             background-color: var(--color-bg);
             color: var(--color-text-secondary);
+            /* MODIFICADO: Mantiene Flexbox para la estructura principal */
+            display: flex; 
+            flex-direction: column; 
             min-height: 100vh;
         }
+        
+        /* AÑADIDO: Este contenedor genérico se expandirá para empujar el footer */
+        .content-wrapper {
+            flex-grow: 1;
+        }
 
-        /* Encabezado de la página. */
-        .encabezado-personalizado {
+        /* Navbar unificado */
+        .navbar-unificado {
             background-color: var(--color-card-bg);
             border-bottom: 2px solid #2A2A2A;
         }
         
-        /* Texto que sale en el encabezado.  */
+        /* Texto del título (Panel de Administración) */
         .titulo {
             color: var(--color-text);
             font-size: 1.5rem;
@@ -51,16 +56,44 @@
             color: var(--color-primary);
         }
 
+        /* Enlaces de navegación */
+        .nav-link-personalizado {
+            color: var(--color-text-secondary) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link-personalizado:hover {
+            color: var(--color-primary) !important;
+        }
+
     </style>
 </head>
 <body>
-    <!-- Llamamos a la clase de encabezado-personalizado y le asignamos un padding vertical de 3 con Bootstrap -->
-    <header class="encabezado-personalizado py-3">
+    <nav class="navbar navbar-expand-lg navbar-unificado py-3">
         <div class="container">
-            <div class="text-center">
-                <a href="/student006/shop/backend/php/index.php" class="titulo">
-                    Panel de Administración - PixelGame Shop
-                </a>
+            <a href="/student006/shop/backend/index.php" class="navbar-brand titulo p-0">
+                Panel de Administración - PixelGame Shop
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border-color: var(--color-primary);">
+                <i class="bi bi-list" style="color: var(--color-primary);"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link nav-link-personalizado" aria-current="page" href="/student006/shop/backend/php/videogames.php">Videojuegos <i class="bi bi-controller"></i></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/users.php">Usuarios <i class="bi bi-people"></i></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/orders.php">Pedidos <i class="bi bi-box-seam"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
+    
+    <div class="content-wrapper">
