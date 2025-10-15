@@ -1,4 +1,3 @@
-
 <?php
 
     // Llamada a la base de datos y el header a través del directorio root.
@@ -11,14 +10,18 @@
     // Recogemos los datos del formulario de actualización y los escapamos para evitar inyecciones SQL.
     $videogame_id = $_POST['videogame_id'];
     $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $category_id = $_POST['category_id'];
+    $platform_id = $_POST['platform_id'];
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $release_date = $_POST['release_date'];
     $price = $_POST['price'];
     $stock = $_POST['stock'];
 
-    // Preparamos la consulta SQL para actualizar el videojuego con los nuevos datos.
+    // Preparamos la consulta SQL para actualizar el videojuego con los nuevos datos, incluyendo categoría y plataforma.
     $sql = "UPDATE 006_videogames 
-            SET title = '$title', 
+            SET category_id = '$category_id',
+                platform_id = '$platform_id',
+                title = '$title', 
                 description = '$description', 
                 release_date = '$release_date', 
                 price = '$price', 

@@ -5,9 +5,21 @@
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
     include($root_DIR . '/student006/shop/backend/php/header.php');
 
-    // Preparamos la consulta SQL para seleccionar los videojuegos en la base de datos.
-    $sql = "SELECT videogame_id, title, description, release_date, price, stock FROM 006_videogames ORDER BY videogame_id DESC";
-
+    // Preparamos la consulta SQL para obtener todos los videojuegos junto con sus categorías y plataformas.
+    $sql = "SELECT 
+                v.videogame_id, 
+                v.title, 
+                v.description, 
+                v.release_date, 
+                v.price, 
+                v.stock,
+                c.name AS category_name,
+                p.name AS platform_name
+            FROM 006_videogames AS v
+            LEFT JOIN 006_categories AS c ON v.category_id = c.category_id
+            LEFT JOIN 006_platforms AS p ON v.platform_id = p.platform_id
+            ORDER BY v.videogame_id ASC";
+            
     $result = mysqli_query($conn, $sql); // Ejecutamos la consulta y almacenamos el resultado en una variable.
 
     // Estructura de control 'if'.
@@ -18,17 +30,19 @@
 
         mysqli_free_result($result); // Liberamos el resultado de la consulta.
         
-        echo "<h2>Listado Simple de Videojuegos</h2>"; 
+        echo "<h2>Listado Completo de Videojuegos</h2>"; 
         
         // Si hay videojuegos, los mostramos. Si no, indicamos que no se encontraron.
         if (count($videogames) > 0) {
             foreach ($videogames as $game) {
                 echo "<div style='border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;'>";
                 echo "<h3>ID: " . htmlspecialchars($game['videogame_id']) . " - " . htmlspecialchars($game['title']) . "</h3>";
-                echo "<p><strong>Descripción:</strong> " . htmlspecialchars($game['description']) . ".</p>";
+                echo "<p><strong>Categoría:</strong> " . htmlspecialchars($game['category_name']) . "</p>";
+                echo "<p><strong>Plataforma:</strong> " . htmlspecialchars($game['platform_name']) . "</p>";
+                echo "<p><strong>Descripción:</strong> " . htmlspecialchars($game['description']) . "</p>";
                 echo "<p><strong>Fecha de Lanzamiento:</strong> " . htmlspecialchars($game['release_date']) . "</p>";
                 echo "<p><strong>Precio:</strong> $" . htmlspecialchars($game['price']) . "</p>";
-                echo "<p><strong>Stock:</strong> " . htmlspecialchars($game['stock']) . " unidades.</p>";
+                echo "<p><strong>Stock:</strong> " . htmlspecialchars($game['stock']) . " unidades</p>";
                 echo "</div>";
             }
         } else {

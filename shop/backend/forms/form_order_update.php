@@ -4,11 +4,11 @@
     include($root_DIR . '/student006/shop/backend/php/header.php');
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
-    $order_id = $_POST['order_id']; // Obtener el ID del pedido desde el formulario
+    $order_id = $_POST['order_id']; // Obtenemos el ID del pedido desde el formulario.
 
-    $sql = "SELECT * FROM orders WHERE order_id = $order_id"; // Consulta para obtener los datos del pedido
-    $result = mysqli_query($conn, $sql); // Ejecutar la consulta
-    $order = mysqli_fetch_assoc($result); // Obtener los datos del pedido
+    $sql = "SELECT * FROM 006_orders WHERE order_id = $order_id"; // Consultamos para obtener los datos del pedido.
+    $result = mysqli_query($conn, $sql); // Ejecutamos la consulta.
+    $order = mysqli_fetch_assoc($result); // Obtenemos los datos del pedido.
 ?>
 
 <h1>Actualizar Pedido</h1>
