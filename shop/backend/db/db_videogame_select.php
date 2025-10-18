@@ -1,61 +1,28 @@
 <?php
 
-    // Llamada a la base de datos y el header a través del directorio root.
-    $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/config/db_connect.php');
-    include($root_DIR . '/student006/shop/backend/php/header.php');
-
-    // Preparamos la consulta SQL para obtener todos los videojuegos junto con sus categorías y plataformas.
-    $sql = "SELECT 
-                v.videogame_id, 
-                v.title, 
-                v.description, 
-                v.release_date, 
-                v.price, 
-                v.stock,
-                c.name AS category_name,
-                p.name AS platform_name
-            FROM 006_videogames AS v
-            LEFT JOIN 006_categories AS c ON v.category_id = c.category_id
-            LEFT JOIN 006_platforms AS p ON v.platform_id = p.platform_id
-            ORDER BY v.videogame_id ASC";
-            
-    $result = mysqli_query($conn, $sql); // Ejecutamos la consulta y almacenamos el resultado en una variable.
-
-    // Estructura de control 'if'.
-    // Si hay un resultado, obtenemos los registros y los mostramos en un formato sencillo. En caso contrario, mostramos un mensaje de error.
-    if ($result) {
+// Preparamos la consulta SQL para obtener todos los videojuegos.
+$sql = "SELECT 
+            v.videogame_id, 
+            v.title, 
+            v.description, 
+            v.price, 
+            c.name AS category_name,
+            p.name AS platform_name
+        FROM 006_videogames AS v
+        LEFT JOIN 006_categories AS c ON v.category_id = c.category_id
+        LEFT JOIN 006_platforms AS p ON v.platform_id = p.platform_id
+        ORDER BY v.videogame_id ASC";
         
-        $videogames = mysqli_fetch_all($result, MYSQLI_ASSOC); // Obtenemos todos los registros como un array asociativo.
+$result = mysqli_query($conn, $sql); // Ejecutamos la consulta.
 
-        mysqli_free_result($result); // Liberamos el resultado de la consulta.
-        
-        echo "<h2>Listado Completo de Videojuegos</h2>"; 
-        
-        // Si hay videojuegos, los mostramos. Si no, indicamos que no se encontraron.
-        if (count($videogames) > 0) {
-            foreach ($videogames as $game) {
-                echo "<div style='border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;'>";
-                echo "<h3>ID: " . htmlspecialchars($game['videogame_id']) . " - " . htmlspecialchars($game['title']) . "</h3>";
-                echo "<p><strong>Categoría:</strong> " . htmlspecialchars($game['category_name']) . "</p>";
-                echo "<p><strong>Plataforma:</strong> " . htmlspecialchars($game['platform_name']) . "</p>";
-                echo "<p><strong>Descripción:</strong> " . htmlspecialchars($game['description']) . "</p>";
-                echo "<p><strong>Fecha de Lanzamiento:</strong> " . htmlspecialchars($game['release_date']) . "</p>";
-                echo "<p><strong>Precio:</strong> $" . htmlspecialchars($game['price']) . "</p>";
-                echo "<p><strong>Stock:</strong> " . htmlspecialchars($game['stock']) . " unidades</p>";
-                echo "</div>";
-            }
-        } else {
-            echo "<p>No se encontraron videojuegos en la base de datos.</p>";
-        }
+$videogames = []; // Inicializamos un array.
 
-    } else {
-        echo "Error en la consulta: " . mysqli_error($conn);
-    }
+if ($result) {
+    // Obtenemos todos los registros como un array asociativo.
+    $videogames = mysqli_fetch_all($result, MYSQLI_ASSOC); 
+    mysqli_free_result($result); // Liberamos el resultado de la consulta.
+}
 
-    mysqli_close($conn); // Cerramos la conexión con la base de datos.
-
-    // Llamada al footer a través del directorio root.
-    include($root_DIR . '/student006/shop/backend/php/footer.php');
-
+// La variable $videogames ahora contiene los datos y está disponible en videogames.php.
+// NO cerramos la conexión $conn aquí.
 ?>
