@@ -1,6 +1,6 @@
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/header.php');
+    require($root_DIR . '/student006/shop/backend/php/header.php');
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
 
@@ -73,5 +73,5 @@
 <?php
     mysqli_close($conn); 
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/footer.php');
+    require($root_DIR . '/student006/shop/backend/php/footer.php');
 ?>

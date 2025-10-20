@@ -2,7 +2,7 @@
 <!-- Llamada a la base de datos y el header a través del directorio root. -->
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/header.php');
+    require($root_DIR . '/student006/shop/backend/php/header.php');
 ?>
 
 <h1>Añadir Pedido</h1>
@@ -39,5 +39,5 @@
 <!-- Llamada al footer a través del directorio root. -->
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/footer.php');
+    require($root_DIR . '/student006/shop/backend/php/footer.php');
 ?>

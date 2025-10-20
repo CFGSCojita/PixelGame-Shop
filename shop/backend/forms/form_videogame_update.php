@@ -1,7 +1,7 @@
 <?php
     // Llamada a la base de datos y el header a través del directorio root.
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/header.php');
+    require($root_DIR . '/student006/shop/backend/php/header.php');
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
     $videogame_id = $_POST['videogame_id'];
@@ -91,5 +91,5 @@
 <?php
     mysqli_close($conn);
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/footer.php');
+    require($root_DIR . '/student006/shop/backend/php/footer.php');
 ?>

@@ -1,6 +1,6 @@
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/header.php');
+    require($root_DIR . '/student006/shop/backend/php/header.php');
 ?>
 
 <h1>Eliminar Videojuego</h1>
@@ -38,5 +38,5 @@
 
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/footer.php');
+    require($root_DIR . '/student006/shop/backend/php/footer.php');
 ?>

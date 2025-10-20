@@ -4,7 +4,7 @@
     // Llamada a la base de datos y el header a través del directorio root.
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
-    include($root_DIR . '/student006/shop/backend/php/header.php');
+    require($root_DIR . '/student006/shop/backend/php/header.php');
 
     print_r($_POST); // Mostramos los datos recibidos por el POST.
 
@@ -30,6 +30,6 @@
     mysqli_close($conn); // Cerramos la conexión con la base de datos.
 
     // Llamada al footer a través del directorio root.
-    include($root_DIR . '/student006/shop/backend/php/footer.php');
+    require($root_DIR . '/student006/shop/backend/php/footer.php');
 
 ?>

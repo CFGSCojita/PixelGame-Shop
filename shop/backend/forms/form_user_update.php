@@ -1,7 +1,7 @@
 <?php
     // Llamada a la base de datos y el header a través del directorio root.
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/header.php');
+    require($root_DIR . '/student006/shop/backend/php/header.php');
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
     $user_id = $_POST['user_id']; // Obtenemos el ID del usuario desde el formulario
@@ -41,5 +41,5 @@
 <!-- Enlace para volver a la lista de usuarios -->
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/php/footer.php');
+    require($root_DIR . '/student006/shop/backend/php/footer.php');
 ?>
