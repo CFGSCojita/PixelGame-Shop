@@ -1,17 +1,28 @@
+<?php
+    // Incluimos la configuración de sesión y verificamos autenticación
+    $root_DIR = $_SERVER['DOCUMENT_ROOT'];
+    include_once($root_DIR . '/student006/shop/backend/config/session_config.php');
+    
+    requireLogin();
+    
+    requireAdmin();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration Panel - PixelGame Shop</title>
-    
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
     <style>
         
-        /* Guardamsos la paleta de colores del proyecto. */
+        /* Guardamos la paleta de colores del proyecto. */
         :root {
             --color-primary: #FF3366;
             --color-accent: #00CCFF;
@@ -25,13 +36,11 @@
         body {
             background-color: var(--color-bg);
             color: var(--color-text-secondary);
-            /* MODIFICADO: Mantiene Flexbox para la estructura principal */
             display: flex; 
             flex-direction: column; 
             min-height: 100vh;
         }
         
-        /* AÑADIDO: Este contenedor genérico se expandirá para empujar el footer */
         .content-wrapper {
             flex-grow: 1;
         }
@@ -42,7 +51,7 @@
             border-bottom: 2px solid #2A2A2A;
         }
         
-        /* Texto del título (Panel de Administración) */
+        /* Texto del título */
         .titulo {
             color: var(--color-text);
             font-size: 1.5rem;
@@ -51,7 +60,6 @@
             transition: color 0.3s ease;
         }
         
-        /* Al pasar el cursor cambiamos el color */
         .titulo:hover {
             color: var(--color-primary);
         }
@@ -65,6 +73,17 @@
         
         .nav-link-personalizado:hover {
             color: var(--color-primary) !important;
+        }
+
+        /* Estilos simples para logout */
+        .logout-link {
+            color: var(--color-primary) !important;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .logout-link:hover {
+            text-decoration: underline;
         }
 
     </style>
@@ -90,6 +109,16 @@
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/orders.php">Pedidos <i class="bi bi-box-seam"></i></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <span style="color: var(--color-accent);">
+                            <i class="bi bi-person-circle"></i>
+                            <?php echo htmlspecialchars(getCurrentUserName()); ?>
+                        </span>
+                        |
+                        <a href="/student006/shop/backend/php/logout.php" class="logout-link">
+                            Cerrar Sesión
+                        </a>
                     </li>
                 </ul>
             </div>
