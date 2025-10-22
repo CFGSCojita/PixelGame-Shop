@@ -60,6 +60,7 @@
             transition: color 0.3s ease;
         }
         
+        /* Efecto hover en el título */
         .titulo:hover {
             color: var(--color-primary);
         }
@@ -71,6 +72,7 @@
             transition: color 0.3s ease;
         }
         
+        /* Efecto hover en enlaces de navegación */
         .nav-link-personalizado:hover {
             color: var(--color-primary) !important;
         }
@@ -82,6 +84,7 @@
             font-weight: 600;
         }
 
+        /* Efecto hover para logout */
         .logout-link:hover {
             text-decoration: underline;
         }
@@ -89,18 +92,25 @@
     </style>
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-unificado py-3">
+        <!-- Contenedor principal -->
         <div class="container">
+            <!-- Título -->
             <a href="/student006/shop/backend/index.php" class="navbar-brand titulo p-0">
                 Panel de Administración - PixelGame Shop
             </a>
 
+            <!-- Botón de menú colapsable -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border-color: var(--color-primary);">
                 <i class="bi bi-list" style="color: var(--color-primary);"></i>
             </button>
-            
+
+            <!-- Menú de navegación colapsable -->
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Lista de enlaces -->
                 <ul class="navbar-nav ms-auto">
+                    <!-- Ítems del navbar -->
                     <li class="nav-item mx-2">
                         <a class="nav-link nav-link-personalizado" aria-current="page" href="/student006/shop/backend/php/videogames.php">Videojuegos <i class="bi bi-controller"></i></a>
                     </li>
@@ -111,11 +121,13 @@
                         <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/orders.php">Pedidos <i class="bi bi-box-seam"></i></a>
                     </li>
                     <li class="nav-item mx-2">
+                        <!-- Usuario actual -->
                         <span style="color: var(--color-accent);">
                             <i class="bi bi-person-circle"></i>
                             <?php echo htmlspecialchars(getCurrentUserName()); ?>
                         </span>
                         |
+                        <!-- Enlace de cierre de sesión -->
                         <a href="/student006/shop/backend/php/logout.php" class="logout-link">
                             Cerrar Sesión
                         </a>
