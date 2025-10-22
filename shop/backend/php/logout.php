@@ -1,8 +1,14 @@
 <?php
+    // Iniciamos la sesión para poder destruirla.
+    session_start();
 
-    // Añadimos la configuración de sesión.
-    $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include($root_DIR . '/student006/shop/backend/config/session_config.php');
+    // Destruimos todas las variables de sesión.
+    session_unset();
 
-    logout(); // Llamamos a la función de cierre de sesión para salir.
+    // Destruimos la sesión.
+    session_destroy();
+
+    // Redirigimos al login con mensaje de logout exitoso.
+    header('Location: /student006/shop/backend/forms/form_login.php?logout=success');
+    exit();
 ?>

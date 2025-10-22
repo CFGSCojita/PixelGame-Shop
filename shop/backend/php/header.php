@@ -1,11 +1,16 @@
 <?php
-    // Incluimos la configuración de sesión y verificamos autenticación
-    $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    include_once($root_DIR . '/student006/shop/backend/config/session_config.php');
-    
-    requireLogin();
-    
-    requireAdmin();
+    // Iniciamos la sesión
+    session_start();
+
+    if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
+        header('Location: /student006/shop/backend/forms/form_login.php?error=session_required');
+        exit();
+    }
+
+    if ($_SESSION['role'] !== 'admin') {
+        header('Location: /student006/shop/backend/forms/form_login.php?error=no_permission');
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -124,7 +129,7 @@
                         <!-- Usuario actual -->
                         <span style="color: var(--color-accent);">
                             <i class="bi bi-person-circle"></i>
-                            <?php echo htmlspecialchars(getCurrentUserName()); ?>
+                            <?php echo htmlspecialchars($_SESSION['user_name']); ?>
                         </span>
                         |
                         <!-- Enlace de cierre de sesión -->

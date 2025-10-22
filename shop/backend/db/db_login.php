@@ -1,21 +1,22 @@
-
 <?php
-    // Conexión a la base de datos y configuración de sesión.
+    // Iniciamos la sesión.
+    session_start();
+
+    // Llamada y conexión a la base de datos a través del directorio root.
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
-    include($root_DIR . '/student006/shop/backend/config/session_config.php');
 
-    // Verificamos que se hayan enviado los datos por POST
+    // Verificamos que se hayan enviado los datos por POST.
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        header('Location: /student006/shop/backend/forms/form_login.php');
+        header('Location: /student006/shop/backend/forms/form_login.php'); // Redirigimos al formulario de login.
         exit();
     }
 
-    // Recogemos los datos del formulario
+    // Recogemos los datos del formulario.
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Consulta simple para buscar al usuario por email.
+    // Consulta simple para buscar al usuario por email
     $sql = "SELECT user_id, name, email, password, role 
             FROM 006_users 
             WHERE email = '$email'";
@@ -24,14 +25,11 @@
     
     // Verificamos si encontramos un usuario con ese email
     if ($result && mysqli_num_rows($result) > 0) {
-        
-        $user = mysqli_fetch_assoc($result); // Obtenemos los datos del usuario.
-        
-        // Verificamos la contraseña (comparación directa).
+
+        $user = mysqli_fetch_assoc($result); // Obtenemos los datos del usuario y usamos fetch para obtenerlos.
+
+        // Verificamos la contraseña.
         if ($password === $user['password']) {
-            
-            // Regeneramos el ID de sesión por seguridad.
-            session_regenerate_id(true);
             
             // Guardamos los datos del usuario en la sesión.
             $_SESSION['user_id'] = $user['user_id'];
@@ -39,7 +37,6 @@
             $_SESSION['user_email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
             
-            // Redirigimos al panel de administración.
             header('Location: /student006/shop/backend/index.php');
             exit();
             
@@ -52,5 +49,4 @@
         header('Location: /student006/shop/backend/forms/form_login.php?error=invalid_credentials');
         exit();
     }
-
 ?>
