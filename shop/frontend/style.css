@@ -70,3 +70,15 @@ nav ul {
     gap: 16px; /* Espai entre els elements de la navegació. */
     align-items: center; /* Centrem verticalment els elements. */
 }
+
+/* Estil dels icones del menú */
+.menu > a {
+    color: #FF3366; /* Rosa vibrante per als icones */
+    transition: color 0.3s ease; /* Transició suau */
+    text-decoration: none; /* Eliminem subratllat */
+}
+
+/* Efecte hover per als icones */
+.menu > a:hover {
+    color: #00CCFF; /* Canvia a cyan al passar el cursor */
+}
