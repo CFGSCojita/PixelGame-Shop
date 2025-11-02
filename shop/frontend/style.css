@@ -1,0 +1,72 @@
+/* Importació de la font */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0; /* Eliminem els marges per defecte. */
+    padding: 0; /* Eliminem els espais interiors per defecte. */
+    box-sizing: border-box; /* Incloem el padding i border dins de les dimensions dels elements. */
+}
+
+/* Estil del Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FCFCFC;
+    color: #0A0A0A;
+    line-height: 1.6;
+}
+
+/* Estil del Header */
+header {
+    background-color: #0A0A0A; /* Color de fons del header .*/
+    padding: 20px 40px; /* Espai interior del header .*/
+    border-bottom: 1px solid #1A1A1A; /* Línia inferior del header. */
+    display: flex; /* Utilitzem flexbox per al disseny. */
+    justify-content: space-between; /* Espaiem els elements. */
+    align-items: center; /* Centrem verticalment els elements. */
+}
+
+/* Estil del Logo */
+.logo img {
+    height: 100px; /* Altura del logo. */
+    width: auto; /* Amplada automàtica per mantenir la proporció. */
+}
+
+/* Estil del Menú */
+.menu {
+    display: flex; /* Utilitzem flexbox per al disseny del menú. */
+    align-items: center; /* Centrem verticalment els elements del menú. */
+    gap: 30px; /* Espai entre els elements del menú. */
+}
+
+/* Estil de la navegació */
+nav ul {
+    list-style: none; /* Eliminem els punts de la llista. */
+    display: flex; /* Utilitzem flexbox per al disseny de la navegació. */
+    gap: 16px; /* Espai entre els elements de la navegació. */
+    align-items: center; /* Centrem verticalment els elements. */
+}
+
+/* Estil dels enllaços de navegació */
+nav a {
+    text-decoration: none; /* Eliminem la subratllada dels enllaços. */
+    color: #E6E6E6; /* Color del text dels enllaços. */
+    padding: 8px 15px; /* Espai interior dels enllaços. */
+    border-radius: 4px; /* Cantons arrodonits. */
+    background-color: transparent; /* Fons transparent per defecte. */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transició suau per als canvis de color. */
+    font-weight: 500; /* Pes de la font. */
+}
+
+/* Estil dels enllaços de navegació al passar el cursor */
+nav a:hover {
+    background-color: #00CCFF; /* Color de fons al passar el cursor. */
+    color: #0A0A0A; /* Color del text al passar el cursor. */
+}
+
+/* Estil de la llista de navegació */
+nav ul {
+    list-style: none; /* Eliminem els punts de la llista. */
+    display: flex; /* Utilitzem flexbox per al disseny de la navegació. */
+    gap: 16px; /* Espai entre els elements de la navegació. */
+    align-items: center; /* Centrem verticalment els elements. */
+}
