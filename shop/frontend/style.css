@@ -1,5 +1,5 @@
 /* Importació de la font */
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
     margin: 0; /* Eliminem els marges per defecte. */
@@ -23,29 +23,19 @@ header {
     display: flex; /* Utilitzem flexbox per al disseny. */
     justify-content: space-between; /* Espaiem els elements. */
     align-items: center; /* Centrem verticalment els elements. */
-    /* 
-     * Convertim el header en punt de referència amb position: relative.
-     * Això permet que el menú de navegació (que té position: absolute) 
-     * es posicioni respecte al header i no respecte a tota la pàgina.
-     * Sense això, el menú desplegable apareixeria en un lloc incorrecte.
-     * Visualment no canvia res, però és essencial per al menú mòbil.
-     */
-    position: relative;
 }
 
-/* Botó hamburguesa (visible en mòbil i tablet) */
+/* Botó petit (visible en mòbil i tablet) */
 .menu-petit {
     background: none; /* Fons transparent. */
     border: none; /* Sense bordes. */
     color: #FF3366; /* Rosa vibrante */
     cursor: pointer; /* Canviem el cursor a pointer per indicar que és clicable. */
     padding: 5px; /* Espai interior del botó. */
-    display: flex; /* Utilitzem flexbox per al disseny. */
-    align-items: center; /* Centrem verticalment els elements. */
 }
 
 /* Icones del botó menú petit */
-.menu-petit i { 
+.menu-petit i {
     width: 28px; /* Establim una amplada a les icones. */
     height: 28px; /* Establim una altura a les icones. */
 }
@@ -57,14 +47,12 @@ header {
 
 /* Menú de navegació (ocultat per defecte en mòbil/tablet) */
 .nav-menu {
-    position: absolute; /* Posició absoluta respecte al header. */
     top: 100%; /* Just sota el header. */
     left: 0; /* Alineat a l'esquerra. */
     width: 100%; /* Amplada completa. */
     background-color: #0A0A0A; /* Color de fons del menú. */
     border-bottom: 1px solid #1A1A1A; /* Línia inferior del menú. */
     display: none; /* Ocultat per defecte */
-    z-index: 100; /* Assegurem que el menú estigui per sobre d'altres elements. */
 }
 
 .nav-menu.active {
@@ -76,7 +64,7 @@ header {
     padding: 20px;
 }
 
-.nav-menu ul li {
+.nav-menu li {
     margin-bottom: 15px;
 }
 
@@ -87,7 +75,7 @@ header {
     padding: 10px;
     display: block;
     border-radius: 4px; /* Cantons arrodonits. */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transició suau per als canvis de color. */
+    transition: 0.3s; /* Transició suau per als canvis de color. */
     font-weight: 500; /* Pes de la font. */
 }
 
@@ -101,13 +89,12 @@ header {
 .menu-icons {
     display: flex; /* Utilitzem flexbox per al disseny. */
     gap: 15px; /* Espai entre els icones. */
-    align-items: center; /* Centrem verticalment els elements. */
 }
 
 /* Estil dels enllaços del menú */
 .menu-icons a {
     color: #FF3366; /* Rosa vibrante per als icones */
-    transition: color 0.3s ease; /* Transició suau */
+    transition: 0.3s; /* Transició suau */
     text-decoration: none; /* Eliminem subratllat */
 }
 
@@ -122,7 +109,7 @@ header {
     height: 24px;
 }
 
-/* Responsius */
+
 @media (min-width: 1024px) {
     /* Estil del Header */
     header {
@@ -147,8 +134,7 @@ header {
 
     /* Navegació sempre visible en escriptori */
     .nav-menu {
-        position: static;
-        display: flex !important;
+        display: flex;
         width: auto;
         border: none;
     }
@@ -162,7 +148,7 @@ header {
     }
 
     /* Estil dels elements de la llista */
-    .nav-menu ul li {
+    .nav-menu li {
         margin-bottom: 0; /* Eliminem el marge inferior. */
     }
 
