@@ -14,29 +14,36 @@
 <body>
   <!-- Capçalera -->
   <header>
-    <!-- Logo -->
-    <a href="#" class="logo">
+    <!-- Botó petit (només mòbil i tauleta) -->
+    <button class="menu-petit" aria-label="Abrir menú">
+      <i data-lucide="menu"></i>
+    </button>
+
+    <!-- Logo (ocult en mòbil i tauleta) -->
+    <a href="inicio.html" class="logo">
       <img src="img/logo-black-removebg-preview.png" alt="Logo de la tienda" />
     </a>
 
-    <!-- Menú -->
-    <div class="menu">
-      <nav>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Sobre nosotros</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </nav>
+    <!-- Menú de navegació -->
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Sobre nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
 
+    <!-- Icones (carret i perfil) -->
+    <div class="menu-icons">
       <a href="#" aria-label="Carrito de la compra">
-        <i data-lucide="shopping-cart" style="width: 24px; height: 24px;"></i>
+        <i data-lucide="shopping-cart"></i>
       </a>
       <a href="#" aria-label="Mi Perfil">
-        <i data-lucide="user" style="width: 24px; height: 24px;"></i>
+        <i data-lucide="user"></i>
       </a>
     </div>
   </header>
+
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();

@@ -17,68 +17,161 @@ body {
 
 /* Estil del Header */
 header {
-    background-color: #0A0A0A; /* Color de fons del header .*/
-    padding: 20px 40px; /* Espai interior del header .*/
+    background-color: #0A0A0A; /* Color de fons del header. */
+    padding: 15px 20px; /* Espai interior del header. */
     border-bottom: 1px solid #1A1A1A; /* Línia inferior del header. */
     display: flex; /* Utilitzem flexbox per al disseny. */
     justify-content: space-between; /* Espaiem els elements. */
     align-items: center; /* Centrem verticalment els elements. */
+    /* 
+     * Convertim el header en punt de referència amb position: relative.
+     * Això permet que el menú de navegació (que té position: absolute) 
+     * es posicioni respecte al header i no respecte a tota la pàgina.
+     * Sense això, el menú desplegable apareixeria en un lloc incorrecte.
+     * Visualment no canvia res, però és essencial per al menú mòbil.
+     */
+    position: relative;
 }
 
-/* Estil del Logo */
-.logo img {
-    height: 100px; /* Altura del logo. */
-    width: auto; /* Amplada automàtica per mantenir la proporció. */
-}
-
-/* Estil del Menú */
-.menu {
-    display: flex; /* Utilitzem flexbox per al disseny del menú. */
-    align-items: center; /* Centrem verticalment els elements del menú. */
-    gap: 30px; /* Espai entre els elements del menú. */
-}
-
-/* Estil de la navegació */
-nav ul {
-    list-style: none; /* Eliminem els punts de la llista. */
-    display: flex; /* Utilitzem flexbox per al disseny de la navegació. */
-    gap: 16px; /* Espai entre els elements de la navegació. */
+/* Botó hamburguesa (visible en mòbil i tablet) */
+.menu-petit {
+    background: none; /* Fons transparent. */
+    border: none; /* Sense bordes. */
+    color: #FF3366; /* Rosa vibrante */
+    cursor: pointer; /* Canviem el cursor a pointer per indicar que és clicable. */
+    padding: 5px; /* Espai interior del botó. */
+    display: flex; /* Utilitzem flexbox per al disseny. */
     align-items: center; /* Centrem verticalment els elements. */
 }
 
+/* Icones del botó menú petit */
+.menu-petit i { 
+    width: 28px; /* Establim una amplada a les icones. */
+    height: 28px; /* Establim una altura a les icones. */
+}
+
+/* Estil del Logo (ocultat en mòbil i tablet) */
+.logo {
+    display: none;
+}
+
+/* Menú de navegació (ocultat per defecte en mòbil/tablet) */
+.nav-menu {
+    position: absolute; /* Posició absoluta respecte al header. */
+    top: 100%; /* Just sota el header. */
+    left: 0; /* Alineat a l'esquerra. */
+    width: 100%; /* Amplada completa. */
+    background-color: #0A0A0A; /* Color de fons del menú. */
+    border-bottom: 1px solid #1A1A1A; /* Línia inferior del menú. */
+    display: none; /* Ocultat per defecte */
+    z-index: 100; /* Assegurem que el menú estigui per sobre d'altres elements. */
+}
+
+.nav-menu.active {
+    display: block; /* Es mostra quan es fa clic */
+}
+
+.nav-menu ul {
+    list-style: none; /* Eliminem els punts de la llista. */
+    padding: 20px;
+}
+
+.nav-menu ul li {
+    margin-bottom: 15px;
+}
+
 /* Estil dels enllaços de navegació */
-nav a {
+.nav-menu a {
     text-decoration: none; /* Eliminem la subratllada dels enllaços. */
     color: #E6E6E6; /* Color del text dels enllaços. */
-    padding: 8px 15px; /* Espai interior dels enllaços. */
+    padding: 10px;
+    display: block;
     border-radius: 4px; /* Cantons arrodonits. */
-    background-color: transparent; /* Fons transparent per defecte. */
     transition: background-color 0.3s ease, color 0.3s ease; /* Transició suau per als canvis de color. */
     font-weight: 500; /* Pes de la font. */
 }
 
 /* Estil dels enllaços de navegació al passar el cursor */
-nav a:hover {
+.nav-menu a:hover {
     background-color: #00CCFF; /* Color de fons al passar el cursor. */
     color: #0A0A0A; /* Color del text al passar el cursor. */
 }
 
-/* Estil de la llista de navegació */
-nav ul {
-    list-style: none; /* Eliminem els punts de la llista. */
-    display: flex; /* Utilitzem flexbox per al disseny de la navegació. */
-    gap: 16px; /* Espai entre els elements de la navegació. */
+/* Icones del carret i perfil */
+.menu-icons {
+    display: flex; /* Utilitzem flexbox per al disseny. */
+    gap: 15px; /* Espai entre els icones. */
     align-items: center; /* Centrem verticalment els elements. */
 }
 
-/* Estil dels icones del menú */
-.menu > a {
+/* Estil dels enllaços del menú */
+.menu-icons a {
     color: #FF3366; /* Rosa vibrante per als icones */
     transition: color 0.3s ease; /* Transició suau */
     text-decoration: none; /* Eliminem subratllat */
 }
 
 /* Efecte hover per als icones */
-.menu > a:hover {
+.menu-icons a:hover {
     color: #00CCFF; /* Canvia a cyan al passar el cursor */
+}
+
+/* Icones del menú */
+.menu-icons i {
+    width: 24px;
+    height: 24px;
+}
+
+/* Responsius */
+@media (min-width: 1024px) {
+    /* Estil del Header */
+    header {
+        padding: 20px 40px; /* Espai interior del header. */
+    }
+
+    /* Ocultar botó hamburguesa en escriptori */
+    .menu-petit {
+        display: none;
+    }
+
+    /* Mostrar logo en escriptori */
+    .logo {
+        display: block;
+    }
+
+    /* Estil del logo */
+    .logo img {
+        height: 100px; /* Altura del logo. */
+        width: auto; /* Amplada automàtica per mantenir la proporció. */
+    }
+
+    /* Navegació sempre visible en escriptori */
+    .nav-menu {
+        position: static;
+        display: flex !important;
+        width: auto;
+        border: none;
+    }
+
+    /* Estil dels elements de la navegació */
+    .nav-menu ul {
+        display: flex; /* Utilitzem flexbox per al disseny de la navegació. */
+        gap: 16px; /* Espai entre els elements de la navegació. */
+        padding: 0; /* Eliminem el padding. */
+        align-items: center; /* Centrem verticalment els elements. */
+    }
+
+    /* Estil dels elements de la llista */
+    .nav-menu ul li {
+        margin-bottom: 0; /* Eliminem el marge inferior. */
+    }
+
+    .nav-menu a {
+        padding: 8px 15px; /* Espai interior dels enllaços. */
+    }
+
+    /* Icones */
+    .menu-icons {
+        gap: 25px; /* Augmentem l'espai entre els icones. */
+    }
 }
