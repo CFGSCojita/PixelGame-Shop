@@ -1,0 +1,23 @@
+
+<!-- Llamada a la base de datos y el header a través del directorio root. -->
+<?php
+    $root_DIR = $_SERVER['DOCUMENT_ROOT'];
+    require($root_DIR . '/student006/shop/backend/php/header.php');
+?>
+
+
+<h1>Consulta Simple de Usuarios</h1>
+
+<!-- Formulario para listar todos los usuarios -->
+<form action="/student006/shop/backend/db/db_user_select.php" method="POST">
+    
+    <p>Presiona el botón para listar todos los usuarios en la base de datos.</p>
+    
+    <input type="submit" value="Mostrar Usuarios">
+</form>
+
+<!-- Llamada al footer a través del directorio root. -->
+<?php
+    $root_DIR = $_SERVER['DOCUMENT_ROOT'];
+    require($root_DIR . '/student006/shop/backend/php/footer.php');
+?>

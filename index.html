@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página principal</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+
+  <!-- CSS Bàsic -->
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <!-- Capçalera -->
+  <header>
+    <!-- Menú desplegable (només mòbil i tauleta) -->
+    <button class="menu-desplegable" aria-label="Abrir menú">
+      <i data-lucide="menu"></i>
+    </button>
+
+    <!-- Logo (ocult en mòbil i tauleta) -->
+    <a href="inicio.html" class="logo">
+      <img src="assets/img/logo-black-removebg-preview.png" alt="Logo de la tienda" />
+    </a>
+
+    <!-- Menú de navegació -->
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Sobre nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Icones (carret i perfil) -->
+    <div class="menu-icons">
+      <a href="#" aria-label="Carrito de la compra">
+        <i data-lucide="shopping-cart"></i>
+      </a>
+      <a href="#" aria-label="Mi Perfil">
+        <i data-lucide="user"></i>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Secció Destacats (oculta en mòbil) -->
+    <section class="hero-destacant">
+      <div class="hero-contingut">
+        <h2>Destacando</h2>
+        <p>En PixelGame Shop, podrás encontrar tus juegos favoritos en ofertas únicas...</p>
+        <br/>
+        <p>¡Echa un vistazo y no te pierdas nuestros mejores productos!</p>
+      </div>
+      <div class="hero-jocs">
+        <div class="hero-card">
+          <div class="exemple-imatge">X</div>
+        </div>
+        <div class="hero-card">
+          <div class="exemple-imatge">X</div>
+        </div>
+        <div class="hero-card">
+          <div class="exemple-imatge">X</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenidor principal amb filtres y productes -->
+    <div class="main-content">
+      <!-- Filtres (ocultos en móvil) -->
+      <aside class="filtres">
+        <h3>Filtros</h3>
+        
+        <!-- Filtres per plataforma -->
+        <div class="filtre-grup">
+          <h4>Plataforma</h4>
+          <label><input type="checkbox"> PlayStation 5</label>
+          <label><input type="checkbox"> Xbox Series X</label>
+          <label><input type="checkbox"> PC</label>
+          <label><input type="checkbox"> Nintendo Switch</label>
+        </div>
+        
+        <!-- Filtre per categoría -->
+        <div class="filtre-grup">
+          <h4>Categoría</h4>
+          <label><input type="checkbox"> Acción</label>
+          <label><input type="checkbox"> Aventura</label>
+          <label><input type="checkbox"> RPG</label>
+          <label><input type="checkbox"> Deportes</label>
+        </div>
+        
+        <!-- Filtre per rang de preu -->
+        <div class="filtre-grup">
+          <h4>Rango de precio</h4>
+          <input type="range" min="0" max="100">
+          <div class="rang-preu">
+            <span>0€</span>
+            <span>100€</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Secció de productes -->
+      <section class="productes-section">
+        <div class="ordenar-bar">
+          <span>Ordenar por: Precio más bajo</span>
+        </div>
+
+        <div class="productes-grid">
+
+          <article class="product-card">
+            <div class="exemple-imatge">X</div>
+            <h3>Juego</h3>
+            <p class="preu">59.99€</p>
+            <button class="btn-afegir">Añadir al Carrito</button>
+          </article>
+          
+          <article class="product-card">
+            <div class="exemple-imatge">X</div>
+            <h3>Juego</h3>
+            <p class="preu">49.99€</p>
+            <button class="btn-afegir">Añadir al Carrito</button>
+          </article>
+          
+          <article class="product-card">
+            <div class="exemple-imatge">X</div>
+            <h3>Juego</h3>
+            <p class="preu">39.99€</p>
+            <button class="btn-afegir">Añadir al Carrito</button>
+          </article>
+          
+          <article class="product-card">
+            <div class="exemple-imatge">X</div>
+            <h3>Juego</h3>
+            <p class="preu">69.99€</p>
+            <button class="btn-afegir">Añadir al Carrito</button>
+          </article>
+          
+          <article class="product-card">
+            <div class="exemple-imatge">X</div>
+            <h3>Juego</h3>
+            <p class="preu">29.99€</p>
+            <button class="btn-afegir">Añadir al Carrito</button>
+          </article>
+          
+          <article class="product-card">
+            <div class="exemple-imatge">X</div>
+            <h3>Juego</h3>
+            <p class="preu">54.99€</p>
+            <button class="btn-afegir">Añadir al Carrito</button>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
