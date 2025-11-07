@@ -11,7 +11,7 @@
 <!-- Formulario para buscar el pedido -->
 <form action="/student006/shop/backend/forms/form_order_delete.php" method="POST">
     <label for="order_id">ID del Pedido:</label>
-    <input type="number" id="order_id" name="order_id" required>
+    <input type="number" id="order_id" name="order_id" required min="1" title="Introduce solo un número de ID (ej: 2). Debe ser un entero positivo.">
     
     <button type="submit"">Buscar Pedido</button>
 </form>  

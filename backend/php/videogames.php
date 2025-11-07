@@ -46,13 +46,13 @@
                 ?>
                 
                 <!-- Formulario para actualizar el videojuego -->
-                <form method="POST" action="/student006/shop/backend/forms/form_videogame_update.php" style="display:inline;">
+                <form method="POST" action="/student006/shop/backend/forms/form_videogame_update_call.php" style="display:inline;">
                     <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                     <button type="submit">UPDATE</button>
                 </form>
 
                 <!-- Formulario para eliminar el videojuego -->
-                <form method="POST" action="/student006/shop/backend/php/videogame_delete.php" style="display:inline;">
+                <form method="POST" action="/student006/shop/backend/forms/form_videogame_delete_call.php" style="display:inline;">
                     <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                     <button type="submit" name="delete">DELETE</button>
                 </form>
