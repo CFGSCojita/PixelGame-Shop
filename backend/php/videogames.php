@@ -45,16 +45,17 @@
                     $videogame_id = htmlspecialchars($game['videogame_id']); 
                 ?>
                 
-                <!-- Formulario para actualizar el videojuego -->
-                <form method="POST" action="/student006/shop/backend/forms/form_videogame_update_call.php" style="display:inline;">
+                <!-- UPDATE: Envía directamente al formulario de actualización -->
+                <form method="POST" action="/student006/shop/backend/forms/form_videogame_update.php" style="display:inline;">
                     <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                     <button type="submit">UPDATE</button>
                 </form>
 
-                <!-- Formulario para eliminar el videojuego -->
-                <form method="POST" action="/student006/shop/backend/forms/form_videogame_delete_call.php" style="display:inline;">
+                <!-- DELETE: Confirmación con JavaScript antes de eliminar -->
+                <form method="POST" action="/student006/shop/backend/db/db_videogame_delete.php" style="display:inline;" 
+                    onsubmit="return confirm('¿Estás seguro de que quieres eliminar este videojuego?');">
                     <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
-                    <button type="submit" name="delete">DELETE</button>
+                    <button type="submit">DELETE</button>
                 </form>
             </div>
         </div>

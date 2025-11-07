@@ -4,6 +4,14 @@
     require($root_DIR . '/student006/shop/backend/php/header.php');
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
+    // Verificamos que se haya recibido el ID del videojuego
+    if (!isset($_POST['videogame_id'])) {
+        echo "<p style='color: #FF3366;'>Error: No se ha especificado el ID del videojuego.</p>";
+        echo "<a href='/student006/shop/backend/php/videogames.php'>← Volver a Videojuegos</a>";
+        require($root_DIR . '/student006/shop/backend/php/footer.php');
+        exit();
+    }
+
     $videogame_id = $_POST['videogame_id'];
 
     $sql = "SELECT * FROM 006_videogames WHERE videogame_id = $videogame_id";
@@ -87,6 +95,9 @@
     <br/>
     <button type="submit">Actualizar</button>
 </form>
+
+<br/>
+<a href="/student006/shop/backend/php/videogames.php">← Volver a Videojuegos</a>
 
 <?php
     mysqli_close($conn);
