@@ -223,6 +223,7 @@ header {
     color: #FCFCFC;
     border: none;
     border-radius: 8px;
+    font-family: 'Poppins', sans-serif; /* Afegim de nou la font de Poppins en aquest btn perquè per alguna raó no s'aplica només amb el body */
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
