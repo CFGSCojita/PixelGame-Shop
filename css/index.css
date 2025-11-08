@@ -1,4 +1,3 @@
-/* Importació de les fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap');
 
 * {
@@ -7,7 +6,6 @@
     box-sizing: border-box;
 }
 
-/* Estil del Body */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #FCFCFC;
@@ -15,22 +13,22 @@ body {
     line-height: 1.6;
 }
 
+/* Header principal */
 header {
-    background-color: #0A0A0A; /* Color de fons del header. */
-    padding: 15px 20px; /* Espai interior del header. */
-    border-bottom: 1px solid #1A1A1A; /* Línia inferior del header. */
-    display: flex; /* Utilitzem flexbox per al disseny. */
-    align-items: center; /* Centrem verticalment els elements. */
-    gap: 15px; /* Espai entre menú desplegable i logo */
+    background-color: #0A0A0A;
+    padding: 15px 20px;
+    border-bottom: 1px solid #1A1A1A;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Botó petit (visible en mòbil i tablet) */
 .menu-desplegable {
-    background: none; /* Fons transparent. */
-    border: none; /* Sense bordes. */
-    color: #FF3366; /* Rosa vibrante */
-    cursor: pointer; /* Canviem el cursor a pointer per indicar que és clicable. */
-    padding: 5px; /* Espai interior del botó. */
+    background: none;
+    border: none;
+    color: #FF3366;
+    cursor: pointer;
+    padding: 5px;
 }
 
 .menu-desplegable i {
@@ -38,29 +36,28 @@ header {
     height: 28px;
 }
 
-/* Estil del Logo (petit en mòbil i tablet) */
 .logo {
-    display: block; /* Visible en mòbil */
+    display: block;
 }
 
 .logo img {
-    height: 40px; /* Molt petit en mòbil */
+    height: 40px;
     width: auto;
 }
 
-/* Menú de navegació (ocultat per defecte en mòbil/tablet) */
+/* Navegació - oculta per defecte en mòbil */
 .nav-menu {
-    display: none; /* Ocultat per defecte */
-    background-color: #0A0A0A; /* Color de fons del menú. */
-    border-bottom: 1px solid #1A1A1A; /* Línia inferior del menú. */
+    display: none;
+    background-color: #0A0A0A;
+    border-bottom: 1px solid #1A1A1A;
 }
 
 .nav-menu.active {
-    display: block; /* Es mostra quan es fa clic */
+    display: block;
 }
 
 .nav-menu ul {
-    list-style: none; /* Eliminem els punts de la llista. */
+    list-style: none;
     padding: 20px;
 }
 
@@ -68,38 +65,35 @@ header {
     margin-bottom: 15px;
 }
 
-/* Estil dels enllaços de navegació */
 .nav-menu a {
-    text-decoration: none; /* Eliminem la subratllada dels enllaços. */
-    color: #E6E6E6; /* Color del text dels enllaços. */
+    text-decoration: none;
+    color: #E6E6E6;
     padding: 10px;
     display: block;
-    border-radius: 4px; /* Cantons arrodonits. */
-    transition: 0.3s; /* Transició suau per als canvis de color. */
-    font-weight: 500; /* Pes de la font. */
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: 500;
 }
 
-/* Estil dels enllaços de navegació al passar el cursor */
 .nav-menu a:hover {
-    background-color: #00CCFF; /* Color de fons al passar el cursor. */
-    color: #0A0A0A; /* Color del text al passar el cursor. */
+    background-color: #00CCFF;
+    color: #0A0A0A;
 }
 
-/* Icones del carret i perfil */
 .menu-icons {
-    display: flex; /* Utilitzem flexbox per al disseny. */
-    gap: 15px; /* Espai entre els icones. */
-    margin-left: auto; /* Empeny els icones a la dreta */
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
 }
 
 .menu-icons a {
-    color: #FF3366; /* Rosa vibrante per als icones */
-    transition: 0.3s; /* Transició suau */
-    text-decoration: none; /* Eliminem subratllat */
+    color: #FF3366;
+    transition: 0.3s;
+    text-decoration: none;
 }
 
 .menu-icons a:hover {
-    color: #00CCFF; /* Canvia a cyan al passar el cursor */
+    color: #00CCFF;
 }
 
 .menu-icons i {
@@ -107,36 +101,34 @@ header {
     height: 24px;
 }
 
-/* Hero Destacant (visible en mòbil però compacte) */
+/* Secció hero */
 .hero-destacant {
     background-color: #0A0A0A;
     padding: 20px;
 }
 
 .hero-contingut h2 {
-    font-size: 1.5rem; /* Més petit en mòbil */
+    font-size: 1.5rem;
     font-weight: 700;
     color: #FCFCFC;
     margin-bottom: 8px;
 }
 
 .hero-contingut p {
-    font-size: 0.9rem; /* Més petit en mòbil */
+    font-size: 0.9rem;
     color: #E6E6E6;
 }
 
-/* Hero-cards ocultes en mòbil */
 .hero-jocs {
     gap: 10px;
     margin-top: 20px;
 }
 
-/* Contenidor principal */
 .main-content {
-    padding: 20px;
+    padding: 22px;
 }
 
-/* Filtres (visibles en mòbil però compactes) */
+/* Filtres laterals */
 .filtres {
     background-color: #FCFCFC;
     border: 1px solid #E6E6E6;
@@ -146,7 +138,7 @@ header {
 }
 
 .filtres h3 {
-    font-size: 1.1rem; /* Més petit en mòbil */
+    font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 15px;
 }
@@ -156,7 +148,7 @@ header {
 }
 
 .filtre-grup h4 {
-    font-size: 0.95rem; /* Més petit en mòbil */
+    font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 8px;
 }
@@ -164,11 +156,10 @@ header {
 .filtre-grup label {
     display: block;
     margin-bottom: 6px;
-    font-size: 0.9rem; /* Més petit en mòbil */
+    font-size: 0.9rem;
     cursor: pointer;
 }
 
-/* Barra d'ordenar */
 .ordenar-bar {
     margin-bottom: 20px;
     padding: 10px;
@@ -177,19 +168,18 @@ header {
     font-weight: 500;
 }
 
-/* Grid de productes (2 columnes en mòbil) */
+/* Grid de productes - 2 cols en mòbil */
 .productes-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
-/* Targeta de producte */
 .product-card {
     border: 1px solid #E6E6E6;
     border-radius: 8px;
     padding: 15px;
-    text-align: left; /* Text alineat a l'esquerra */
+    text-align: left;
     transition: 0.3s;
 }
 
@@ -198,42 +188,41 @@ header {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Placeholder d'imatge */
 .exemple-imatge {
     width: 100%;
-    aspect-ratio: 1/1;
+    height: 0;
+    padding-bottom: 100%; /* ratio 1:1 */
     background-color: #E6E6E6;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    margin-bottom: 15px; /* Més espai sota la imatge */
+    margin-bottom: 15px;
+    position: relative;
 }
 
 .product-card h3 {
     font-weight: 600;
-    margin-bottom: 10px; /* Més espai */
-    font-size: 1.1rem; /* Lleugerament més gran */
+    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
-/* Preu del producte */
 .preu {
-    font-family: 'Rajdhani', sans-serif; /* Font Rajdhani pel preu */
-    font-size: 1.5rem; /* Més gran */
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #FF3366;
-    margin-bottom: 15px; /* Més espai abans del botó */
+    margin-bottom: 15px;
 }
 
-/* Botó d'afegir al carret */
 .btn-afegir {
     width: 100%;
-    padding: 12px; /* Més padding */
+    padding: 12px;
     background-color: #FF3366;
     color: #FCFCFC;
     border: none;
-    border-radius: 8px; /* Més arrodonit */
+    border-radius: 8px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
@@ -245,13 +234,12 @@ header {
     color: #0A0A0A;
 }
 
+/* Tablet */
 @media (min-width: 768px) {
-    /* Logo una mica més gran en tablet */
     .logo img {
-        height: 60px; /* Més gran que en mòbil però més petit que en desktop */
+        height: 60px;
     }
 
-    /* Hero més gran en tablet */
     .hero-destacant {
         padding: 30px 40px;
     }
@@ -265,7 +253,7 @@ header {
         font-size: 1rem;
     }
 
-    /* Mostrar hero-cards en tablet */
+    /* Mostrem les hero-cards */
     .hero-jocs {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -274,10 +262,11 @@ header {
     }
 
     .hero-card {
-        aspect-ratio: 1/1;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
     }
 
-    /* Filtres en layout horitzontal o millor distribuïts */
     .main-content {
         display: grid;
         grid-template-columns: 1fr;
@@ -300,28 +289,27 @@ header {
         font-size: 0.95rem;
     }
 
-    /* Grid de productes (3 columnes en tablet) */
+    /* 3 columnes en tablet */
     .productes-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
 }
 
-/* ===== DESKTOP (1024px+) ===== */
+/* Desktop */
 @media (min-width: 1024px) {
     header {
         padding: 20px 40px;
-        justify-content: space-between; /* Tornem a distribuir en desktop */
-        gap: 0; /* Eliminem el gap en desktop */
+        justify-content: space-between;
+        gap: 0;
     }
 
     .menu-desplegable {
         display: none;
     }
 
-    /* Logo més gran en desktop */
     .logo img {
-        height: 100px; /* Tamany complet en desktop */
+        height: 100px;
     }
 
     .nav-menu {
@@ -346,10 +334,10 @@ header {
 
     .menu-icons {
         gap: 25px;
-        margin-left: 0; /* Eliminem margin-left en desktop */
+        margin-left: 0;
     }
 
-    /* Hero complet en desktop */
+    /* Hero amb layout flex */
     .hero-destacant {
         display: flex;
         gap: 40px;
@@ -357,15 +345,15 @@ header {
     }
 
     .hero-contingut {
-        flex: 1;
+        width: 35%;
     }
 
     .hero-jocs {
-        flex: 2;
+        width: 65%;
         margin-top: 0;
     }
 
-    /* Contenidor principal amb filtres i productes en dues columnes */
+    /* Layout de 2 columnes amb sidebar */
     .main-content {
         display: flex;
         gap: 30px;
@@ -386,7 +374,7 @@ header {
     }
 
     .productes-section {
-        flex: 1;
+        width: calc(100% - 280px); /* resto del espacio */
     }
 
     .productes-grid {
