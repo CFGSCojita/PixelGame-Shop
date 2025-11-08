@@ -4,8 +4,8 @@ async function cargarElemento(elementId, rutaArchivo) {
     // Estructura 'try-catch'
     // Intentará realizar la carga del archivo HTML y manejará cualquier error que ocurra durante el proceso.
     try {
-        const response = await fetch(rutaArchivo); // Realizamos la petición para obtener el archivo HTML.
-        const html = await response.text(); // Convertimos la respuesta a texto.
+        const respuesta = await fetch(rutaArchivo); // Realizamos la petición para obtener el archivo HTML.
+        const html = await respuesta.text(); // Convertimos la respuesta a texto.
         document.getElementById(elementId).innerHTML = html; // Insertamos el HTML en el contenedor correspondiente.
 
         // Estructura de control 'if'.

@@ -1,3 +1,4 @@
+
 /* Header principal */
 header {
     background-color: #0A0A0A;
@@ -75,6 +76,7 @@ header {
     color: #FF3366;
     transition: 0.3s;
     text-decoration: none;
+    margin-top: 8px;
 }
 
 .menu-icons a:hover {
