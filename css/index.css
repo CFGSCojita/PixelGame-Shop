@@ -174,7 +174,7 @@ body {
 
 .btn-detalls:hover {
     background-color: #00CCFF;
-    color: #0A0A0A;
+    color: #FF3366;
 }
 
 /* Tablet */
@@ -292,6 +292,7 @@ body {
     }
 
     .productes-grid {
+        grid-template-columns: repeat(5, 1fr);
         gap: 25px;
     }
 }
