@@ -18,7 +18,8 @@ async function cargarElemento(elementId, rutaArchivo) {
     }
 }
 
-// Cargar header y footer cuando la página esté lista
+// Añadimos un evento que se ejecuta cuando el contenido del DOM ha sido completamente cargado.
+// Es decir, cargaremos el header y footer una vez que la página esté lista.
 document.addEventListener('DOMContentLoaded', () => {
     cargarElemento('contenidor-header', 'views/header.html');
     cargarElemento('contenidor-footer', 'views/footer.html');

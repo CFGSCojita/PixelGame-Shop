@@ -9,6 +9,7 @@ header {
     gap: 15px;
 }
 
+/* Menú desplegable */
 .menu-desplegable {
     background: none;
     border: none;
@@ -22,6 +23,7 @@ header {
     height: 28px;
 }
 
+/* Logo */
 .logo {
     display: block;
 }
@@ -66,10 +68,11 @@ header {
     color: #0A0A0A;
 }
 
+/* Icones del menú */
 .menu-icons {
     display: flex;
     gap: 15px;
-    margin-left: auto;
+    margin-left: auto; 
 }
 
 .menu-icons a {

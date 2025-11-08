@@ -7,7 +7,8 @@ footer {
     border-top: 2px solid #1A1A1A;
 }
 
-.footer-content {
+/* Contingut del footer (tota la part exceptuant el copyright) */
+.contingut-footer {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
@@ -16,58 +17,61 @@ footer {
     margin-bottom: 30px;
 }
 
-.footer-section h4 {
+/* Seccions del footer */
+.seccio-footer h4 {
     color: #FCFCFC;
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 15px;
 }
 
-.footer-section p {
+.seccio-footer p {
     color: #E6E6E6;
     font-size: 0.9rem;
     line-height: 1.6;
 }
 
-.footer-section ul {
+.seccio-footer ul {
     list-style: none;
 }
 
-.footer-section ul li {
+.seccio-footer ul li {
     margin-bottom: 10px;
 }
 
-.footer-section ul li a {
+.seccio-footer ul li a {
     color: #E6E6E6;
     text-decoration: none;
     transition: 0.3s;
     font-size: 0.95rem;
 }
 
-.footer-section ul li a:hover {
+.seccio-footer ul li a:hover {
     color: #00CCFF;
 }
 
-.social-icons {
+/* Xarxes socials */
+.xarxes-socials {
     display: flex;
     gap: 15px;
 }
 
-.social-icons a {
+.xarxes-socials a {
     color: #FF3366;
     transition: 0.3s;
 }
 
-.social-icons a:hover {
+.xarxes-socials a:hover {
     color: #00CCFF;
 }
 
-.social-icons i {
+.xarxes-socials i {
     width: 24px;
     height: 24px;
 }
 
-.footer-bottom {
+/* Copyright */
+.copyright {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid #1A1A1A;
@@ -77,7 +81,7 @@ footer {
 
 /* Tablet */
 @media (min-width: 768px) {
-    .footer-content {
+    .contingut-footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
