@@ -101,6 +101,44 @@ header {
     height: 24px;
 }
 
+/* Buscador */
+.buscador {
+    position: relative;
+    display: none;
+}
+
+.buscador input {
+    background-color: #1A1A1A;
+    border: 2px solid #2A2A2A;
+    border-radius: 8px;
+    padding: 8px 35px 8px 12px;
+    color: #E6E6E6;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    width: 200px;
+    transition: 0.3s;
+}
+
+.buscador input:focus {
+    outline: none;
+    border-color: #00CCFF;
+}
+
+.buscador input::placeholder {
+    color: #666;
+}
+
+.buscador i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00CCFF;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
 /* Secció hero */
 .hero-destacant {
     background-color: #0A0A0A;
@@ -262,6 +300,8 @@ header {
 
 /* Tablet */
 @media (min-width: 768px) {
+    
+
     .logo img {
         height: 60px;
     }
@@ -338,6 +378,11 @@ header {
 
 /* Desktop */
 @media (min-width: 1024px) {
+
+    .buscador {
+        display: block;
+    }
+
     header {
         padding: 20px 40px;
         justify-content: space-between;
