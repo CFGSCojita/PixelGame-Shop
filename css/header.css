@@ -1,0 +1,182 @@
+/* Header principal */
+header {
+    background-color: #0A0A0A;
+    padding: 15px 20px;
+    border-bottom: 1px solid #1A1A1A;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-desplegable {
+    background: none;
+    border: none;
+    color: #FF3366;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-desplegable i {
+    width: 28px;
+    height: 28px;
+}
+
+.logo {
+    display: block;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Navegació - oculta per defecte en mòbil */
+.nav-menu {
+    display: none;
+    background-color: #0A0A0A;
+    border-bottom: 1px solid #1A1A1A;
+}
+
+.nav-menu.active {
+    display: block;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.nav-menu li {
+    margin-bottom: 15px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #E6E6E6;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    background-color: #00CCFF;
+    color: #0A0A0A;
+}
+
+.menu-icons {
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.menu-icons a {
+    color: #FF3366;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.menu-icons a:hover {
+    color: #00CCFF;
+}
+
+.menu-icons i {
+    width: 24px;
+    height: 24px;
+}
+
+/* Buscador */
+.buscador {
+    position: relative;
+    display: none;
+}
+
+.buscador input {
+    background-color: #1A1A1A;
+    border: 2px solid #2A2A2A;
+    border-radius: 8px;
+    padding: 8px 35px 8px 12px;
+    color: #E6E6E6;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    width: 200px;
+    transition: 0.3s;
+}
+
+.buscador input:focus {
+    outline: none;
+    border-color: #00CCFF;
+}
+
+.buscador input::placeholder {
+    color: #666;
+}
+
+.buscador i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00CCFF;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .search-icon-mobile {
+        display: none;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+}
+
+/* Escriptori */
+@media (min-width: 1024px) {
+    .buscador {
+        display: block;
+    }
+
+    header {
+        padding: 20px 40px;
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .menu-desplegable {
+        display: none;
+    }
+
+    .logo img {
+        height: 100px;
+    }
+
+    .nav-menu {
+        display: flex;
+        border: none;
+    }
+
+    .nav-menu ul {
+        display: flex;
+        gap: 16px;
+        padding: 0;
+        align-items: center;
+    }
+
+    .nav-menu li {
+        margin-bottom: 0;
+    }
+
+    .nav-menu a {
+        padding: 8px 15px;
+    }
+
+    .menu-icons {
+        gap: 25px;
+        margin-left: 0;
+    }
+}

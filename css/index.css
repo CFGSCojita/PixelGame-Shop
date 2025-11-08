@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap');
 
+
 * {
     margin: 0;
     padding: 0;
@@ -11,146 +12,6 @@ body {
     background-color: #FCFCFC;
     color: #0A0A0A;
     line-height: 1.6;
-}
-
-/* Header principal */
-header {
-    background-color: #0A0A0A;
-    padding: 15px 20px;
-    border-bottom: 1px solid #1A1A1A;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.menu-desplegable {
-    background: none;
-    border: none;
-    color: #FF3366;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.menu-desplegable i {
-    width: 28px;
-    height: 28px;
-}
-
-.logo {
-    display: block;
-}
-
-.logo img {
-    height: 40px;
-    width: auto;
-}
-
-/* Navegació - oculta per defecte en mòbil */
-.nav-menu {
-    display: none;
-    background-color: #0A0A0A;
-    border-bottom: 1px solid #1A1A1A;
-}
-
-.nav-menu.active {
-    display: block;
-}
-
-.nav-menu ul {
-    list-style: none;
-    padding: 20px;
-}
-
-.nav-menu li {
-    margin-bottom: 15px;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #E6E6E6;
-    padding: 10px;
-    display: block;
-    border-radius: 4px;
-    transition: 0.3s;
-    font-weight: 500;
-}
-
-.nav-menu a:hover {
-    background-color: #00CCFF;
-    color: #0A0A0A;
-}
-
-.menu-icons {
-    display: flex;
-    gap: 15px;
-    margin-left: auto;
-}
-
-.menu-icons a {
-    color: #FF3366;
-    transition: 0.3s;
-    text-decoration: none;
-}
-
-.menu-icons a:hover {
-    color: #00CCFF;
-}
-
-.menu-icons i {
-    width: 24px;
-    height: 24px;
-}
-
-/* Buscador */
-.search-icon-mobile {
-    background: none;
-    border: none;
-    color: #FF3366;
-    cursor: pointer;
-    padding: 5px;
-    display: block;
-}
-
-.search-icon-mobile i {
-    width: 24px;
-    height: 24px;
-}
-
-.buscador {
-    position: relative;
-    display: none;
-}
-
-.buscador input {
-    background-color: #1A1A1A;
-    border: 2px solid #2A2A2A;
-    border-radius: 8px;
-    padding: 8px 35px 8px 12px;
-    color: #E6E6E6;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-    width: 200px;
-    transition: 0.3s;
-}
-
-.buscador input:focus {
-    outline: none;
-    border-color: #00CCFF;
-}
-
-.buscador input::placeholder {
-    color: #666;
-}
-
-.buscador i {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #00CCFF;
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
 }
 
 /* Secció hero */
@@ -312,92 +173,8 @@ header {
     color: #0A0A0A;
 }
 
-/* Footer */
-footer {
-    background-color: #0A0A0A;
-    color: #E6E6E6;
-    padding: 40px 20px 20px;
-    border-top: 2px solid #1A1A1A;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-.footer-section h4 {
-    color: #FCFCFC;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.footer-section p {
-    color: #E6E6E6;
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-    color: #E6E6E6;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 0.95rem;
-}
-
-.footer-section ul li a:hover {
-    color: #00CCFF;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    color: #FF3366;
-    transition: 0.3s;
-}
-
-.social-icons a:hover {
-    color: #00CCFF;
-}
-
-.social-icons i {
-    width: 24px;
-    height: 24px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid #1A1A1A;
-    color: #666;
-    font-size: 0.85rem;
-}
-
 /* Tablet */
 @media (min-width: 768px) {
-    .search-icon-mobile {
-        display: none;
-    }
-
-    .logo img {
-        height: 60px;
-    }
-
     .hero-destacant {
         padding: 30px 40px;
     }
@@ -466,58 +243,10 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
-
-    .footer-content {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 /* Escriptori */
 @media (min-width: 1024px) {
-
-    .buscador {
-        display: block;
-    }
-
-    header {
-        padding: 20px 40px;
-        justify-content: space-between;
-        gap: 0;
-    }
-
-    .menu-desplegable {
-        display: none;
-    }
-
-    .logo img {
-        height: 100px;
-    }
-
-    .nav-menu {
-        display: flex;
-        border: none;
-    }
-
-    .nav-menu ul {
-        display: flex;
-        gap: 16px;
-        padding: 0;
-        align-items: center;
-    }
-
-    .nav-menu li {
-        margin-bottom: 0;
-    }
-
-    .nav-menu a {
-        padding: 8px 15px;
-    }
-
-    .menu-icons {
-        gap: 25px;
-        margin-left: 0;
-    }
-
     /* Hero amb layout flex */
     .hero-destacant {
         display: flex;

@@ -3,53 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página principal</title>
+  <title>Página principal - PixelGame Shop</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
 
-  <!-- CSS Bàsic -->
+  <!-- CSS Components -->
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  
+  <!-- CSS Principal -->
   <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-  <!-- Capçalera -->
-  <header>
-    <!-- Menú desplegable (només mòbil i tauleta) -->
-    <button class="menu-desplegable" aria-label="Abrir menú">
-      <i data-lucide="menu"></i>
-    </button>
-
-    <!-- Logo (ocult en mòbil i tauleta) -->
-    <a href="inicio.html" class="logo">
-      <img src="assets/img/logo-black-removebg-preview.png" alt="Logo de la tienda" />
-    </a>
-
-    <!-- Menú de navegació -->
-    <nav class="nav-menu">
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Sobre nosotros</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
-
-    <!-- Icones (carret i perfil) -->
-    <div class="menu-icons">
-      <div class="buscador">
-        <input type="text" placeholder="Buscar juegos..." aria-label="Buscar juegos">
-        <i data-lucide="search"></i>
-      </div>
-      <a href="#" aria-label="Carrito de la compra">
-        <i data-lucide="shopping-cart"></i>
-      </a>
-      <a href="#" aria-label="Mi Perfil">
-        <i data-lucide="user"></i>
-      </a>
-    </div>
-  </header>
+  <!-- Header Container (carregat dinàmicament) -->
+  <div id="contenidor-header"></div>
 
   <main>
-    <!-- Secció Destacats (oculta en mòbil) -->
+    <!-- Secció Destacats -->
     <section class="hero-destacant">
       <div class="hero-contingut">
         <h2>Destacando</h2>
@@ -81,11 +52,10 @@
 
     <!-- Contenidor principal amb filtres y productes -->
     <div class="main-content">
-      <!-- Filtres (ocultos en móvil) -->
+      <!-- Filtres -->
       <aside class="filtres">
         <h3>Filtros</h3>
         
-        <!-- Filtres per plataforma -->
         <div class="filtre-grup">
           <h4>Plataforma</h4>
           <label><input type="checkbox"> PlayStation 5</label>
@@ -94,7 +64,6 @@
           <label><input type="checkbox"> Nintendo Switch</label>
         </div>
         
-        <!-- Filtre per categoría -->
         <div class="filtre-grup">
           <h4>Categoría</h4>
           <label><input type="checkbox"> Acción</label>
@@ -103,7 +72,6 @@
           <label><input type="checkbox"> Deportes</label>
         </div>
         
-        <!-- Filtre per rang de preu -->
         <div class="filtre-grup">
           <h4>Rango de precio</h4>
           <input type="range" min="0" max="100">
@@ -121,7 +89,6 @@
         </div>
 
         <div class="productes-grid">
-
           <article class="product-card">
             <div class="imatge">
               <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/coa5zt.webp" alt="Cover de Battlefield 6">
@@ -179,40 +146,12 @@
       </section>
     </div>
   </main>
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>PixelGame Shop</h4>
-        <p>Tu tienda de videojuegos de confianza</p>
-      </div>
 
-      <div class="footer-section">
-        <h4>Enlaces</h4>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Sobre nosotros</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </div>
+  <!-- Footer Container (carregat dinàmicament) -->
+  <div id="contenidor-footer"></div>
 
-      <div class="footer-section">
-        <h4>Síguenos</h4>
-        <div class="social-icons">
-          <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
-          <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
-          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>PixelGame Shop - Copyright © 2025 by Stefan Cojita (Project DIW-DWEC-DWES)</p>
-    </div>
-  </footer>
+  <!-- Scripts -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    lucide.createIcons();
-  </script>
+  <script src="js/cargaHeaderYFooter.js"></script>
 </body>
 </html>
