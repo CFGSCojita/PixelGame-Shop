@@ -223,7 +223,7 @@ header {
     color: #FCFCFC;
     border: none;
     border-radius: 8px;
-    font-family: 'Poppins', sans-serif; /* Afegim de nou la font de Poppins en aquest btn perquè per alguna raó no s'aplica només amb el body */
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
@@ -231,6 +231,25 @@ header {
 }
 
 .btn-afegir:hover {
+    background-color: #00CCFF;
+    color: #0A0A0A;
+}
+
+/* Botó "Ver Detalles" per les hero-cards */
+.btn-detalls {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #00CCFF;
+    border: 2px solid #00CCFF;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-detalls:hover {
     background-color: #00CCFF;
     color: #0A0A0A;
 }
@@ -263,9 +282,22 @@ header {
     }
 
     .hero-card {
-        height: 0;
-        padding-bottom: 100%;
         position: relative;
+        background-color: #1A1A1A;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .hero-card .exemple-imatge {
+        margin-bottom: 0;
+    }
+    
+    .hero-card .btn-detalls {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        margin: 0 auto;
     }
 
     .main-content {
@@ -375,7 +407,7 @@ header {
     }
 
     .productes-section {
-        width: calc(100% - 280px); /* resto del espacio */
+        flex: 1;
     }
 
     .productes-grid {
