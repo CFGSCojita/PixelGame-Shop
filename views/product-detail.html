@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,43 @@
     <link rel="stylesheet" href="../css/output.css">
     <link rel="stylesheet" href="../css/product-detail.css">
 </head>
+
 <body>
-    
+    <header class="bg-[#0A0A0A] flex items-center gap-[15px] px-5 py-[15px] border-b-[#1A1A1A] border-b border-solid">
+        <!-- Menú desplegable (només mòbil i tauleta) -->
+        <button class="menu-desplegable" aria-label="Abrir menú">
+            <i data-lucide="menu"></i>
+        </button>
+
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <img src="../assets/img/logo-black-removebg-preview.png" alt="Logo de la tienda" />
+        </a>
+
+        <!-- Menú de navegació -->
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#">Videojuegos</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Icones (carret i perfil) -->
+        <div class="menu-icons">
+            <div class="buscador">
+                <input type="text" placeholder="Buscar juegos..." aria-label="Buscar juegos">
+                <i data-lucide="search"></i>
+            </div>
+            <a href="#" aria-label="Carrito de la compra">
+                <i data-lucide="shopping-cart"></i>
+            </a>
+            <a href="#" aria-label="Mi Perfil">
+                <i data-lucide="user"></i>
+            </a>
+        </div>
+    </header>
 </body>
+
 </html>
