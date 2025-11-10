@@ -28,7 +28,7 @@
             <!-- Detalles del videojuego -->
             <div class="videogame-details" style="flex-grow: 1;"> <!-- Aplicamos un flex-grow: 1 para que ocupe el espacio disponible -->
                 <h3><?php echo htmlspecialchars($game['title']); ?></h3> <!-- Obtenemos el título del videojuego con la variable $game['title'] -->
-                <p><?php echo htmlspecialchars($game['price']); ?> €</p><!-- Obtenemos el precio del videojuego con la variable $game['price'] -->
+                <p><?php echo htmlspecialchars($game['price']); ?> €</p> <!-- Obtenemos el precio del videojuego con la variable $game['price'] -->
                 
                 <!-- Detalles adicionales del videojuego. Los obtenemos al igual que los anteriores con la variable $game -->
                 <p style="font-size: smaller; color: #555;"> <!-- Aplicamos un estilo más pequeño y gris para la categoría y plataforma -->
@@ -56,6 +56,11 @@
                     onsubmit="return confirm('¿Estás seguro de que quieres eliminar este videojuego?');">
                     <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                     <button type="submit">DELETE</button>
+                </form>
+                <br/>
+                <form method="POST" action="/student006/shop/backend/db/db_cart_add.php" style="display:inline;">
+                    <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
+                    <button type="submit">AÑADIR AL CARRITO</button>
                 </form>
             </div>
         </div>

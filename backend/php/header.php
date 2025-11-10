@@ -2,6 +2,7 @@
     // Iniciamos la sesión
     session_start();
 
+    // Verificamos si el usuario está autenticado y tiene el rol de administrador
     if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
         header('Location: /student006/shop/backend/forms/form_login.php?error=session_required');
         exit();
@@ -25,76 +26,8 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
-    <style>
-        
-        /* Guardamos la paleta de colores del proyecto. */
-        :root {
-            --color-primary: #FF3366;
-            --color-accent: #00CCFF;
-            --color-bg: #0A0A0A;
-            --color-card-bg: #1A1A1A;
-            --color-text: #FCFCFC;
-            --color-text-secondary: #E6E6E6;
-        }
-
-        /* Cuerpo de la página. */
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-text-secondary);
-            display: flex; 
-            flex-direction: column; 
-            min-height: 100vh;
-        }
-        
-        .content-wrapper {
-            flex-grow: 1;
-        }
-
-        /* Navbar unificado */
-        .navbar-unificado {
-            background-color: var(--color-card-bg);
-            border-bottom: 2px solid #2A2A2A;
-        }
-        
-        /* Texto del título */
-        .titulo {
-            color: var(--color-text);
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        /* Efecto hover en el título */
-        .titulo:hover {
-            color: var(--color-primary);
-        }
-
-        /* Enlaces de navegación */
-        .nav-link-personalizado {
-            color: var(--color-text-secondary) !important;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        /* Efecto hover en enlaces de navegación */
-        .nav-link-personalizado:hover {
-            color: var(--color-primary) !important;
-        }
-
-        /* Estilos simples para logout */
-        .logout-link {
-            color: var(--color-primary) !important;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Efecto hover para logout */
-        .logout-link:hover {
-            text-decoration: underline;
-        }
-
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/student006/shop/css/header-php.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -124,6 +57,12 @@
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/orders.php">Pedidos <i class="bi bi-box-seam"></i></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/cart.php">
+                            <i class="bi bi-cart"></i>
+                            <span class="badge bg-danger"><?php echo isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0; ?></span>
+                        </a>
                     </li>
                     <li class="nav-item mx-2">
                         <!-- Usuario actual -->
