@@ -58,7 +58,7 @@
                     <button type="submit">DELETE</button>
                 </form>
                 <br/>
-                <form method="POST" action="/student006/shop/backend/db/db_cart_add.php" style="display:inline;">
+                <form method="POST" action="/student006/shop/backend/db/db_cart_insert.php" style="display:inline;">
                     <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                     <button type="submit">AÑADIR AL CARRITO</button>
                 </form>
