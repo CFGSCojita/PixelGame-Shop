@@ -4,34 +4,50 @@
 @layer theme {
   :root {
     /* Colors de la guia d'estil */
-    --color-primary: #FF3366;
-    --color-accent: #00CCFF;
-    --color-bg: #0A0A0A;
-    --color-text: #FCFCFC;
-    --color-text-secondary: #E6E6E6;
-    --color-card-bg: #1A1A1A;
-    --color-border: #2A2A2A;
+    --color-rosa: #FF3366;
+    --color-cyan: #00CCFF;
+    --color-negre: #0A0A0A;
+    --color-blanc: #FCFCFC;
+    --color-gris: #E6E6E6;
+    --color-border: #2A2A2A; /* Nou color gris específic per a bordes */
   }
 }
 
+/* Components reutilitzables */
 @layer components {
   /* Enllaços del menú */
   .nav-link {
-    @apply text-(--color-text-secondary) px-4 py-2 rounded hover:bg-(--color-accent) hover:text-(--color-bg) transition-all font-medium;
+    @apply text-(--color-gris) px-4 py-2 rounded hover:bg-(--color-cyan) hover:text-(--color-negre) transition-all font-medium;
   }
 
-  /* Icones amb 'hover' */
+  /* Icones amb hover */
   .icon-hover {
-    @apply text-(--color-primary) hover:text-(--color-accent) transition-colors;
+    @apply text-(--color-rosa) hover:text-(--color-cyan) transition-colors;
   }
 
-  /* Camp de cerca (Input de cerca) */
-  .search-input {
-    @apply bg-(--color-card-bg) border-2 border-(--color-border) rounded-lg px-3 py-2 pr-10 text-(--color-text-secondary) placeholder:text-gray-600 w-[200px] focus:outline-none focus:border-(--color-accent) transition-colors;
+  /* Input de cerca */
+  .cercador {
+    @apply bg-(--color-negre) border-2 border-(--color-border) rounded-lg px-3 py-2 pr-10 text-(--color-gris) placeholder:text-gray-600 w-[200px] focus:outline-none focus:border-(--color-cyan) transition-colors;
+  }
+
+  /* Títol del footer */
+  .footer-titol {
+    @apply text-(--color-blanc) text-lg font-bold mb-4;
+  }
+
+  /* Enllaç del footer */
+  .footer-link {
+    @apply text-sm hover:text-(--color-cyan) transition-colors;
+  }
+
+  /* Text del footer */
+  .footer-text {
+    @apply text-sm leading-relaxed;
   }
 }
 
-/* FORA de les capes ('layers') perquè tingui prioritat */
+/* FORA de les layers perquè tingui prioritat */
+/* Si no poso això, no s'aplica la font a la pàgina per alguna raó */
 html, body, *, input, button, a {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important; /* Forçam l'ús de la font */
 }

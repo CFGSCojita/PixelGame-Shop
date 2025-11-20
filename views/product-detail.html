@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del producto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/output.css">
 </head>
-
-<body>
-    <header class="bg-(--color-bg) flex items-center px-5 py-[15px] border-b border-(--color-card-bg) md:px-10 lg:px-10 lg:py-5">
-
-        <!-- Menú desplegable (móvil). No es mostrarà ja que de moment no ho tinc. -->
+<body class="flex flex-col min-h-screen">
+    <header class="bg-(--color-negre) flex items-center px-5 py-[15px] border-b border-(--color-negre) md:px-10 lg:px-10 lg:py-5">
+        
+        <!-- Menú desplegable (mòbil) -->
         <button class="lg:hidden cursor-pointer p-1 icon-hover" aria-label="Abrir menú">
             <i class="w-7 h-7" data-lucide="menu"></i>
         </button>
 
         <!-- Logo -->
         <a href="../index.html" class="block lg:mr-0">
-            <img class="h-10 md:h-[60px] lg:h-[100px] w-auto" src="../assets/img/logo-black-removebg-preview.png"
-                alt="Logo" />
+            <img class="h-10 md:h-[60px] lg:h-[100px] w-auto" src="../assets/img/logo-black-removebg-preview.png" alt="Logo" />
         </a>
 
         <!-- Menú navegació (desktop) -->
@@ -32,15 +32,14 @@
             </ul>
         </nav>
 
-        <!-- Icones (cercador, carret, perfil) -->
+        <!-- Icones (buscador, carret, perfil) -->
         <div class="flex gap-4 md:gap-6 ml-auto items-center">
-            <!-- Cercador (només desktop) -->
+            <!-- Buscador (només desktop) -->
             <div class="hidden lg:block relative">
-                <input type="text" placeholder="Buscar juegos..." class="search-input" aria-label="Buscar juegos">
-                <i class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 text-(--color-accent) pointer-events-none"
-                    data-lucide="search"></i>
+                <input type="text" placeholder="Buscar juegos..." class="cercador" aria-label="Buscar juegos">
+                <i class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 text-(--color-cyan) pointer-events-none"></i>
             </div>
-
+            
             <a href="#" class="icon-hover" aria-label="Carrito">
                 <i class="w-6 h-6" data-lucide="shopping-cart"></i>
             </a>
@@ -50,8 +49,59 @@
         </div>
     </header>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>lucide.createIcons();</script>
-</body>
+    <!-- Main content (pendent per fer) -->
+    <main class="grow">
+        <!-- Aquí anirà el detall del producte -->
+    </main>
 
+    <!-- Footer -->
+    <footer class="bg-(--color-negre) text-(--color-gris) pt-10 pb-5 px-5 border-t-2 border-(--color-negre)">
+        <!-- Contingut del footer -->
+        <div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            
+            <!-- Secció 1: Sobre PixelGame Shop -->
+            <div>
+                <h4 class="footer-titol">PixelGame Shop</h4>
+                <p class="footer-text">Tu tienda de videojuegos de confianza</p>
+            </div>
+
+            <!-- Secció 2: Enllaços -->
+            <div>
+                <h4 class="footer-titol">Enlaces</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="footer-link">Política de privacidad</a></li>
+                    <li><a href="#" class="footer-link">Condiciones generales de venta</a></li>
+                    <li><a href="#" class="footer-link">Aviso legal</a></li>
+                    <li><a href="#" class="footer-link">Incidencias y devoluciones</a></li>
+                </ul>
+            </div>
+
+            <!-- Secció 3: Xarxes Socials -->
+            <div>
+                <h4 class="footer-titol">Síguenos</h4>
+                <div class="flex gap-4">
+                    <a href="#" class="icon-hover" aria-label="Facebook">
+                        <i class="w-6 h-6" data-lucide="facebook"></i>
+                    </a>
+                    <a href="#" class="icon-hover" aria-label="Twitter">
+                        <i class="w-6 h-6" data-lucide="twitter"></i>
+                    </a>
+                    <a href="#" class="icon-hover" aria-label="Instagram">
+                        <i class="w-6 h-6" data-lucide="instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center pt-5 border-t border-(--color-negre) text-gray-600 text-xs">
+            <p>PixelGame Shop - Copyright © 2025 by Stefan Cojita (Project DIW-DWEC-DWES)</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
 </html>
