@@ -1,2 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap');
 @import "tailwindcss";
 
+@layer theme {
+  :root {
+    /* Colors de la guia d'estil */
+    --color-primary: #FF3366;
+    --color-accent: #00CCFF;
+    --color-bg: #0A0A0A;
+    --color-text: #FCFCFC;
+    --color-text-secondary: #E6E6E6;
+    --color-card-bg: #1A1A1A;
+    --color-border: #2A2A2A;
+  }
+}
+
+@layer components {
+  /* Enllaços del menú */
+  .nav-link {
+    @apply text-(--color-text-secondary) px-4 py-2 rounded hover:bg-(--color-accent) hover:text-(--color-bg) transition-all font-medium;
+  }
+
+  /* Icones amb 'hover' */
+  .icon-hover {
+    @apply text-(--color-primary) hover:text-(--color-accent) transition-colors;
+  }
+
+  /* Camp de cerca (Input de cerca) */
+  .search-input {
+    @apply bg-(--color-card-bg) border-2 border-(--color-border) rounded-lg px-3 py-2 pr-10 text-(--color-text-secondary) placeholder:text-gray-600 w-[200px] focus:outline-none focus:border-(--color-accent) transition-colors;
+  }
+}
+
+/* FORA de les capes ('layers') perquè tingui prioritat */
+html, body, *, input, button, a {
+  font-family: 'Poppins', sans-serif !important;
+}

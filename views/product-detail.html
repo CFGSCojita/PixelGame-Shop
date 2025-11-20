@@ -1,50 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del producto</title>
     <link rel="stylesheet" href="../css/output.css">
-    <link rel="stylesheet" href="../css/product-detail.css">
 </head>
 
 <body>
-    <header class="bg-[#0A0A0A] flex items-center gap-[15px] px-5 py-[15px] border-b-[#1A1A1A] border-b border-solid">
-        <!-- Menú desplegable (només mòbil i tauleta) -->
-        <button class="menu-desplegable" aria-label="Abrir menú">
-            <i data-lucide="menu"></i>
+    <header class="bg-(--color-bg) flex items-center px-5 py-[15px] border-b border-(--color-card-bg) md:px-10 lg:px-10 lg:py-5">
+
+        <!-- Menú desplegable (móvil). No es mostrarà ja que de moment no ho tinc. -->
+        <button class="lg:hidden cursor-pointer p-1 icon-hover" aria-label="Abrir menú">
+            <i class="w-7 h-7" data-lucide="menu"></i>
         </button>
 
         <!-- Logo -->
-        <a href="index.html" class="logo">
-            <img src="../assets/img/logo-black-removebg-preview.png" alt="Logo de la tienda" />
+        <a href="../index.html" class="block lg:mr-0">
+            <img class="h-10 md:h-[60px] lg:h-[100px] w-auto" src="../assets/img/logo-black-removebg-preview.png"
+                alt="Logo" />
         </a>
 
-        <!-- Menú de navegació -->
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#">Videojuegos</a></li>
-                <li><a href="#">Sobre nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
+        <!-- Menú navegació (desktop) -->
+        <nav class="hidden lg:flex flex-1 justify-center">
+            <ul class="flex gap-4 items-center">
+                <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li><a href="#" class="nav-link">Videojuegos</a></li>
+                <li><a href="#" class="nav-link">Sobre nosotros</a></li>
+                <li><a href="#" class="nav-link">Contacto</a></li>
             </ul>
         </nav>
 
-        <!-- Icones (carret i perfil) -->
-        <div class="menu-icons">
-            <div class="buscador">
-                <input type="text" placeholder="Buscar juegos..." aria-label="Buscar juegos">
-                <i data-lucide="search"></i>
+        <!-- Icones (cercador, carret, perfil) -->
+        <div class="flex gap-4 md:gap-6 ml-auto items-center">
+            <!-- Cercador (només desktop) -->
+            <div class="hidden lg:block relative">
+                <input type="text" placeholder="Buscar juegos..." class="search-input" aria-label="Buscar juegos">
+                <i class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 text-(--color-accent) pointer-events-none"
+                    data-lucide="search"></i>
             </div>
-            <a href="#" aria-label="Carrito de la compra">
-                <i data-lucide="shopping-cart"></i>
+
+            <a href="#" class="icon-hover" aria-label="Carrito">
+                <i class="w-6 h-6" data-lucide="shopping-cart"></i>
             </a>
-            <a href="#" aria-label="Mi Perfil">
-                <i data-lucide="user"></i>
+            <a href="#" class="icon-hover" aria-label="Perfil">
+                <i class="w-6 h-6" data-lucide="user"></i>
             </a>
         </div>
     </header>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
 </body>
 
 </html>
