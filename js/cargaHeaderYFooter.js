@@ -18,9 +18,54 @@ async function cargarElemento(elementId, rutaArchivo) {
     }
 }
 
+// Función para inicializar el menú desplegable
+function inicializarMenu() {
+    const menuButton = document.querySelector('.menu-desplegable');
+    const navMenu = document.querySelector('.nav-menu');
+
+    // Estructura de control 'if'
+    // Verificamos que los elementos existan antes de añadir el evento
+    if (menuButton && navMenu) {
+        menuButton.addEventListener('click', () => {
+            // Alternamos la clase 'active' para mostrar/ocultar el menú
+            navMenu.classList.toggle('active');
+        });
+    }
+}
+
+// Función para inicializar el buscador móvil
+function inicializarBuscadorMobil() {
+    const iconoCerca = document.querySelector('.icona-cerca-mobil');
+    const buscadorMobil = document.querySelector('.buscador-mobil');
+    const tancarCerca = document.querySelector('.tancar-cerca');
+
+    // Estructura de control 'if'
+    // Verificamos que los elementos existan
+    if (iconoCerca && buscadorMobil && tancarCerca) {
+        // Abrir buscador
+        iconoCerca.addEventListener('click', () => {
+            buscadorMobil.classList.add('active');
+            // Enfocamos el input automáticamente
+            const input = buscadorMobil.querySelector('input');
+            if (input) {
+                input.focus();
+            }
+        });
+
+        // Cerrar buscador
+        tancarCerca.addEventListener('click', () => {
+            buscadorMobil.classList.remove('active');
+        });
+    }
+}
+
 // Añadimos un evento que se ejecuta cuando el contenido del DOM ha sido completamente cargado.
 // Es decir, cargaremos el header y footer una vez que la página esté lista.
-document.addEventListener('DOMContentLoaded', () => {
-    cargarElemento('contenidor-header', 'views/header.html');
-    cargarElemento('contenidor-footer', 'views/footer.html');
+document.addEventListener('DOMContentLoaded', async () => {
+    await cargarElemento('contenidor-header', 'views/header.html');
+    await cargarElemento('contenidor-footer', 'views/footer.html');
+    
+    // Inicializamos el menú y el buscador después de cargar el header
+    inicializarMenu();
+    inicializarBuscadorMobil();
 });

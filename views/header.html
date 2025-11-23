@@ -21,10 +21,17 @@
 
   <!-- Icones (carret i perfil) -->
   <div class="menu-icons">
-    <div class="buscador">
+    <!-- Cercador desktop -->
+    <div class="buscador buscador-desktop">
       <input type="text" placeholder="Buscar juegos..." aria-label="Buscar juegos">
       <i data-lucide="search"></i>
     </div>
+
+    <!-- Icona cercador mòbil/tauleta -->
+    <button class="icona-cerca-mobil" aria-label="Buscar">
+      <i data-lucide="search"></i>
+    </button>
+
     <a href="#" aria-label="Carrito de la compra">
       <i data-lucide="shopping-cart"></i>
     </a>
@@ -33,3 +40,13 @@
     </a>
   </div>
 </header>
+
+<!-- Cercador mòbil/tauleta (ocult per defecte) -->
+<div class="buscador-mobil">
+  <div class="buscador-mobil-contenidor">
+    <input type="text" placeholder="Buscar juegos..." aria-label="Buscar juegos">
+    <button class="tancar-cerca" aria-label="Cerrar búsqueda">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+</div>

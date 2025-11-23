@@ -1,4 +1,3 @@
-
 /* Header principal */
 header {
     background-color: #0A0A0A;
@@ -7,6 +6,7 @@ header {
     display: flex;
     align-items: center;
     gap: 15px;
+    position: relative;
 }
 
 /* Menú desplegable */
@@ -36,8 +36,13 @@ header {
 /* Navegació - oculta per defecte en mòbil */
 .nav-menu {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     background-color: #0A0A0A;
     border-bottom: 1px solid #1A1A1A;
+    z-index: 1000;
 }
 
 .nav-menu.active {
@@ -91,13 +96,88 @@ header {
     height: 24px;
 }
 
-/* Buscador */
-.buscador {
+/* Buscador desktop */
+.buscador-desktop {
     position: relative;
     display: none;
 }
 
-.buscador input {
+/* Iccona de cerca mòbil/tauleta */
+.icona-cerca-mobil {
+    background: none;
+    border: none;
+    color: #FF3366;
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.icona-cerca-mobil:hover {
+    color: #00CCFF;
+}
+
+.icona-cerca-mobil i {
+    width: 24px;
+    height: 24px;
+}
+
+/* Buscador mòbil - ocult per defecte */
+.buscador-mobil {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #0A0A0A;
+    border-bottom: 2px solid #1A1A1A;
+    padding: 15px 20px;
+    z-index: 2000;
+}
+
+.buscador-mobil.active {
+    display: block;
+}
+
+.buscador-mobil-contenidor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buscador-mobil input {
+    flex: 1;
+    background-color: #1A1A1A;
+    border: 2px solid #2A2A2A;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: #E6E6E6;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+}
+
+.buscador-mobil input:focus {
+    outline: none;
+    border-color: #00CCFF;
+}
+
+.buscador-mobil input::placeholder {
+    color: #666;
+}
+
+.tancar-cerca {
+    background: none;
+    border: none;
+    color: #FF3366;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.tancar-cerca i {
+    width: 24px;
+    height: 24px;
+}
+
+.buscador-desktop input {
     background-color: #1A1A1A;
     border: 2px solid #2A2A2A;
     border-radius: 8px;
@@ -109,16 +189,16 @@ header {
     transition: 0.3s;
 }
 
-.buscador input:focus {
+.buscador-desktop input:focus {
     outline: none;
     border-color: #00CCFF;
 }
 
-.buscador input::placeholder {
+.buscador-desktop input::placeholder {
     color: #666;
 }
 
-.buscador i {
+.buscador-desktop i {
     position: absolute;
     right: 10px;
     top: 50%;
@@ -131,10 +211,6 @@ header {
 
 /* Tablet */
 @media (min-width: 768px) {
-    .search-icon-mobile {
-        display: none;
-    }
-
     .logo img {
         height: 60px;
     }
@@ -142,8 +218,12 @@ header {
 
 /* Escriptori */
 @media (min-width: 1024px) {
-    .buscador {
+    .buscador-desktop {
         display: block;
+    }
+    
+    .icona-cerca-mobil {
+        display: none;
     }
 
     header {
@@ -162,7 +242,9 @@ header {
 
     .nav-menu {
         display: flex;
+        position: static;
         border: none;
+        background: transparent;
     }
 
     .nav-menu ul {
