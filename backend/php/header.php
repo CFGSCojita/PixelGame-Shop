@@ -1,20 +1,21 @@
 <?php
-    // Iniciamos la sesión
-    session_start();
+// Iniciamos la sesión
+session_start();
 
-    // Verificamos si el usuario está autenticado y tiene el rol de administrador
-    if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
-        header('Location: /student006/shop/backend/forms/form_login.php?error=session_required');
-        exit();
-    }
+// Verificamos si el usuario está autenticado y tiene el rol de administrador
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
+    header('Location: /student006/shop/backend/forms/form_login.php?error=session_required');
+    exit();
+}
 
-    if ($_SESSION['role'] !== 'admin') {
-        header('Location: /student006/shop/backend/forms/form_login.php?error=no_permission');
-        exit();
-    }
+if ($_SESSION['role'] !== 'admin') {
+    header('Location: /student006/shop/backend/forms/form_login.php?error=no_permission');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,10 +26,11 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="/student006/shop/css/header-php.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-unificado py-3">
@@ -36,7 +38,7 @@
         <div class="container">
             <!-- Título -->
             <a href="/student006/shop/backend/index.php" class="navbar-brand titulo p-0">
-                Panel de Administración - PixelGame Shop
+                Panel de Admin - PixelGame Shop
             </a>
 
             <!-- Botón de menú colapsable -->
@@ -59,6 +61,11 @@
                         <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/orders.php">Pedidos <i class="bi bi-box-seam"></i></a>
                     </li>
                     <li class="nav-item mx-2">
+                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/reviews.php">Reviews <i class="bi bi-star"></i></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/manuals.php">Manuales <i class="bi bi-book"></i></a>
+                    <li class="nav-item mx-2">
                         <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/cart.php">
                             <i class="bi bi-cart"></i>
                             <span class="badge bg-danger"><?php echo isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0; ?></span>
@@ -80,5 +87,5 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="content-wrapper">

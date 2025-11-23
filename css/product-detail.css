@@ -57,12 +57,6 @@
     @apply absolute top-3 left-3 px-3 py-1 rounded text-xs font-semibold bg-(--color-cyan) text-(--color-negre);
   }
 
-  /* Badge descompte */
-  .badge-descompte {
-    /* Apliquem posició absoluta a la part superior esquerra, padding horitzontal de 3, padding vertical de 1, cantonades arrodonides, mida de text extra petita, font semi-negreta, fons rosa (variable) i text blanc (variable). */
-    @apply absolute top-3 left-3 px-3 py-1 rounded text-xs font-semibold bg-(--color-rosa) text-(--color-blanc);
-  }
-
   /* Botó principal (Afegir al carret) */
   .btn-afegir {
     /* Apliquem amplada completa, padding horitzontal de 6, padding vertical de 3, fons rosa (variable), text blanc (variable), cantonades arrodonides, font semi-negreta, en hover canviem el fons a cian (variable) i el text a negre (variable) amb una transició. */
@@ -79,11 +73,6 @@
   .plataforma-btn {
     /* Apliquem padding horitzontal de 4, padding vertical de 2, fons gris clar, text gris, cantonades arrodonides, border de 2px transparent, en hover canviem el border a cian (variable) amb una transició i cursor pointer. */
     @apply px-4 py-2 bg-gray-100 text-gray-600 rounded border-2 border-transparent hover:border-(--color-cyan) transition-all cursor-pointer;
-  }
-
-  .plataforma-btn-active {
-    /* Apliquem padding horitzontal de 4, padding vertical de 2, fons gris fosc, text negre (variable), cantonades arrodonides, border de 2px cian (variable), i transició amb cursor pointer. */
-    @apply px-4 py-2 bg-gray-200 text-(--color-negre) rounded border-2 border-(--color-cyan) transition-all cursor-pointer;
   }
 
   /* Tabs (Descripció, Especificació, Reviews) */
