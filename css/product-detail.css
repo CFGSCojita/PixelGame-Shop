@@ -10,6 +10,10 @@
     --color-blanc: #FCFCFC;
     --color-gris: #E6E6E6;
     --color-border: #2A2A2A;
+    
+    /* Fonts */
+    --font-poppins: 'Poppins', sans-serif;
+    --font-rajdhani: 'Rajdhani', sans-serif;
   }
 }
 
@@ -90,7 +94,7 @@
   .preu {
     /* Apliquem color de text rosa (variable), mida de text gran, font en negreta i font Rajdhani. */
     @apply text-4xl font-bold text-(--color-rosa);
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--font-rajdhani) !important; 
   }
 
   /* Icona favorit */
@@ -102,5 +106,5 @@
 
 /* FORA de les layers perquè tingui prioritat */
 html, body, *, input, button, a {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: var(--font-poppins) !important;
 }
