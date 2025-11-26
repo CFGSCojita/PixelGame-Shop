@@ -1,17 +1,20 @@
 <?php
-// Iniciamos la sesión
-session_start();
+    // Iniciamos la sesión
+    session_start();
 
-// Verificamos si el usuario está autenticado y tiene el rol de administrador
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
-    header('Location: /student006/shop/backend/forms/form_login.php?error=session_required');
-    exit();
-}
+    // Estructura de control 'if'.
+    // Verificará si el usuario está autenticado y tiene permisos para acceder al backend.
+    if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
+        header('Location: /student006/shop/backend/forms/form_login.php?error=session_required');
+        exit();
+    }
 
-if ($_SESSION['role'] !== 'admin') {
-    header('Location: /student006/shop/backend/forms/form_login.php?error=no_permission');
-    exit();
-}
+    // Estructura de control 'if'.
+    // Si el usuario es 'guest', no puede acceder al backend.
+    if ($_SESSION['role'] === 'guest') {
+        header('Location: /student006/shop/backend/forms/form_login.php?error=no_permission');
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,7 +41,7 @@ if ($_SESSION['role'] !== 'admin') {
         <div class="container">
             <!-- Título -->
             <a href="/student006/shop/backend/index.php" class="navbar-brand titulo p-0">
-                Panel de Admin - PixelGame Shop
+                <?php echo ($_SESSION['role'] === 'admin') ? 'Panel de Admin' : 'Mi Cuenta'; ?> - PixelGame Shop
             </a>
 
             <!-- Botón de menú colapsable -->
@@ -54,17 +57,27 @@ if ($_SESSION['role'] !== 'admin') {
                     <li class="nav-item mx-2">
                         <a class="nav-link nav-link-personalizado" aria-current="page" href="/student006/shop/backend/php/videogames.php">Videojuegos <i class="bi bi-controller"></i></a>
                     </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/users.php">Usuarios <i class="bi bi-people"></i></a>
-                    </li>
+
+                    <?php if ($_SESSION['role'] === 'admin'): ?>
+                        <!-- Solo admin puede ver estas opciones -->
+                        <li class="nav-item mx-2">
+                            <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/users.php">Usuarios <i class="bi bi-people"></i></a>
+                        </li>
+                    <?php endif; ?>
+
                     <li class="nav-item mx-2">
                         <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/orders.php">Pedidos <i class="bi bi-box-seam"></i></a>
                     </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/reviews.php">Reviews <i class="bi bi-star"></i></a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/manuals.php">Manuales <i class="bi bi-book"></i></a>
+
+                    <?php if ($_SESSION['role'] === 'admin'): ?>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/reviews.php">Reviews <i class="bi bi-star"></i></a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/manuals.php">Manuales <i class="bi bi-book"></i></a>
+                        </li>
+                    <?php endif; ?>
+
                     <li class="nav-item mx-2">
                         <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/cart.php">
                             <i class="bi bi-cart"></i>
