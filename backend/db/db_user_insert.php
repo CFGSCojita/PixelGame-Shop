@@ -1,4 +1,3 @@
-
 <?php
 
     // Llamada a la base de datos y el header a través del directorio root.
@@ -14,10 +13,13 @@
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    
+    // Hasheamos la contraseña antes de guardarla.
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
     // Preparamos la consulta SQL para insertar un nuevo usuario en la base de datos.
-    $sql = "INSERT INTO 006_users (name, email, password, address, phone) 
-            VALUES ('$name', '$email', '$password', '$address', '$phone')";
+    $sql = "INSERT INTO 006_users (name, email, password_hash, address, phone) 
+            VALUES ('$name', '$email', '$password_hash', '$address', '$phone')";
 
     // Estructura de control 'if'.
     // Si la consulta se ejecuta correctamente, mostramos un mensaje de éxito. En caso contrario, también lo indicamos.
