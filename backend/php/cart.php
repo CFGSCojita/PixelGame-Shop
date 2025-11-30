@@ -25,26 +25,56 @@
 <h1>Mi Carrito</h1>
 
 <!-- Estructura de control if -->
- <!-- Si hay productos en el carrito, se irán mostrando. -->
+<!-- Si hay productos en el carrito, se irán mostrando. -->
 <?php if (mysqli_num_rows($result) > 0): ?>
     
-    <!-- Bucle while -->
-     <!-- Recorremos cada producto en el carrito -->
-    <?php while ($item = mysqli_fetch_assoc($result)): ?>
-        <!-- Mostramos la información de cada producto en el carrito -->
-        <div style="border: 1px solid #ccc; padding: 15px; margin-bottom: 10px;">
-            <h3><?php echo htmlspecialchars($item['title']); ?></h3>
-            <p>Precio: <?php echo $item['price']; ?>€</p>
-            <p>Cantidad: <?php echo $item['quantity']; ?></p>
-            <p><strong>Subtotal: <?php echo $item['subtotal']; ?>€</strong></p>
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: var(--color-card-bg); color: var(--color-text);">
+                <th>Videojuego</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+                $total_carrito = 0; // Inicializamos el total del carrito
+                
+                // Bucle while - Recorremos cada producto en el carrito
+                while ($item = mysqli_fetch_assoc($result)): 
+                    $total_carrito += $item['subtotal']; // Sumamos al total
+            ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($item['title']); ?></td>
+                    <td><?php echo $item['price']; ?>€</td>
+                    <td><?php echo $item['quantity']; ?></td>
+                    <td><strong><?php echo $item['subtotal']; ?>€</strong></td>
+                    <td>
+                        <!-- Botón para añadir +1 -->
+                        <form method="POST" action="/student006/shop/backend/db/db_cart_incrementar.php" style="display:inline;">
+                            <input type="hidden" name="cart_id" value="<?php echo $item['cart_id']; ?>">
+                            <button type="submit">+</button>
+                        </form>
+                        
+                        <!-- Botón para eliminar -->
+                        <form method="POST" action="/student006/shop/backend/db/db_cart_delete.php" style="display:inline;">
+                            <input type="hidden" name="cart_id" value="<?php echo $item['cart_id']; ?>">
+                            <button type="submit">ELIMINAR</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
             
-            <!-- Botón para eliminar un producto del carrito -->
-            <form method="POST" action="/student006/shop/backend/db/db_cart_delete.php" style="display:inline;">
-                <input type="hidden" name="cart_id" value="<?php echo $item['cart_id']; ?>">
-                <button type="submit">ELIMINAR</button>
-            </form>
-        </div>
-    <?php endwhile; ?>
+            <!-- Fila del TOTAL -->
+            <tr style="background-color: var(--color-primary); color: var(--color-text); font-weight: bold;">
+                <td colspan="3" style="text-align: right;">TOTAL:</td>
+                <td><?php echo number_format($total_carrito, 2); ?>€</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
     
 <?php else: ?>
     <p>El carrito está vacío.</p>
@@ -53,7 +83,9 @@
 <br>
 <a href="/student006/shop/backend/php/videogames.php">← Volver a Videojuegos</a>
 
-<script src="/student006/shop/js/eliminarDelCarritoAJAX.js"></script> <!-- Añadimos el script de AJAX para eliminar del carrito sin refrescar la página. -->
+<script src="/student006/shop/js/añadirAlCarritoAJAX.js"></script>
+<script src="/student006/shop/js/eliminarDelCarritoAJAX.js"></script>
+<script src="/student006/shop/js/incrementarCarritoAJAX.js"></script>
 
 <?php
     mysqli_close($conn);

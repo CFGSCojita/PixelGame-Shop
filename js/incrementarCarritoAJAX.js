@@ -1,6 +1,6 @@
-// Buscamos todos los formularios de eliminar del carrito y les añadimos un listener para manejar el envío mediante fetch.
-document.querySelectorAll('form[action*="db_cart_delete.php"]').forEach(form => {
-    // Añadimos un listener cuando se pulse el botón de eliminar
+// Buscamos todos los formularios de incrementar cantidad y les añadimos un listener para manejar el envío mediante fetch.
+document.querySelectorAll('form[action*="db_cart_incrementar.php"]').forEach(form => {
+    // Añadimos un listener cuando se pulse el botón "+"
     form.addEventListener('submit', function(e) {
         e.preventDefault(); // Detenemos el envío por defecto del formulario para evitar recargar la página.
         
