@@ -53,6 +53,8 @@
 <br>
 <a href="/student006/shop/backend/php/videogames.php">← Volver a Videojuegos</a>
 
+<script src="/student006/shop/js/eliminarDelCarritoAJAX.js"></script> <!-- Añadimos el script de AJAX para eliminar del carrito sin refrescar la página. -->
+
 <?php
     mysqli_close($conn);
     require($root_DIR . '/student006/shop/backend/php/footer.php');

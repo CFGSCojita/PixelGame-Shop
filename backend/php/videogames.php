@@ -70,7 +70,7 @@
     Volver al Panel Principal
 </a>
 
-<script src="/student006/shop/js/añadirAlCarritoAJAX.js"></script>
+<script src="/student006/shop/js/añadirAlCarritoAJAX.js"></script> <!-- Añadimos el script de AJAX para añadir al carrito sin refrescar la página. -->
 
 <?php
     mysqli_close($conn);
