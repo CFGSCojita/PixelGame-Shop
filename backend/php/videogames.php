@@ -70,6 +70,8 @@
     Volver al Panel Principal
 </a>
 
+<script src="/student006/shop/js/añadirAlCarritoAJAX.js"></script>
+
 <?php
     mysqli_close($conn);
 

@@ -7,8 +7,6 @@
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
-    print_r($_POST); // Mostramos los datos recibidos por POST.
-
     $videogame_id = mysqli_real_escape_string($conn, $_POST['videogame_id']); // Obtenemos el ID del videojuego.
     $user_id = $_SESSION['user_id']; // Obtenemos el ID del usuario desde la sesión.
 
@@ -36,7 +34,6 @@
     // Estructura de control 'if'.
     // Ponemos la consulta SQL en ejecución para añadir el videojuego al carrito.
     if (mysqli_query($conn, $sql)) {
-        echo "> Se ha añadido el videojuego al carrito.";
         
         $cantidad_sql = "SELECT SUM(quantity) as total FROM 006_cart WHERE user_id = '$user_id'"; // Realizamos una consulta para contar el total de artículos en el carrito.
         $cantidad_resultado = mysqli_query($conn, $cantidad_sql); // Ejecutamos la consulta.
@@ -47,6 +44,8 @@
     }
 
     mysqli_close($conn); // Cerramos la conexión a la base de datos.
-    
-    require($root_DIR . '/student006/shop/backend/php/footer.php');
+
+    header('Content-Type: application/json'); // Enviamos datos en formato JSON al navegador.
+    echo json_encode(['success' => true, 'cart_count' => $_SESSION['cart_count']]); // Devolvemos una respuesta JSON con el nuevo contador del carrito.
+    exit(); // Terminamos el script.
 ?>
