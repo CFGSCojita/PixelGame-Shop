@@ -3,7 +3,12 @@
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
     require($root_DIR . '/student006/shop/backend/php/header.php');
-    
+?>
+
+<!-- CSS específico del carrito -->
+<link rel="stylesheet" href="/student006/shop/css/cart-php.css">
+
+<?php
     // Obtenemos el user_id de la sesión
     $user_id = $_SESSION['user_id'];
     
@@ -28,9 +33,9 @@
 <!-- Si hay productos en el carrito, se irán mostrando. -->
 <?php if (mysqli_num_rows($result) > 0): ?>
     
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+    <table class="tabla-carrito">
         <thead>
-            <tr style="background-color: var(--color-card-bg); color: var(--color-text);">
+            <tr>
                 <th>Videojuego</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
@@ -51,15 +56,15 @@
                     <td><?php echo $item['price']; ?>€</td>
                     <td><?php echo $item['quantity']; ?></td>
                     <td><strong><?php echo $item['subtotal']; ?>€</strong></td>
-                    <td>
+                    <td class="acciones-carrito">
                         <!-- Botón para añadir +1 -->
-                        <form method="POST" action="/student006/shop/backend/db/db_cart_incrementar.php" style="display:inline;">
+                        <form method="POST" action="/student006/shop/backend/db/db_cart_incrementar.php">
                             <input type="hidden" name="cart_id" value="<?php echo $item['cart_id']; ?>">
                             <button type="submit">+</button>
                         </form>
                         
                         <!-- Botón para eliminar -->
-                        <form method="POST" action="/student006/shop/backend/db/db_cart_delete.php" style="display:inline;">
+                        <form method="POST" action="/student006/shop/backend/db/db_cart_delete.php">
                             <input type="hidden" name="cart_id" value="<?php echo $item['cart_id']; ?>">
                             <button type="submit">ELIMINAR</button>
                         </form>
@@ -68,8 +73,8 @@
             <?php endwhile; ?>
             
             <!-- Fila del TOTAL -->
-            <tr style="background-color: var(--color-primary); color: var(--color-text); font-weight: bold;">
-                <td colspan="3" style="text-align: right;">TOTAL:</td>
+            <tr class="fila-total">
+                <td colspan="3">TOTAL:</td>
                 <td><?php echo number_format($total_carrito, 2); ?>€</td>
                 <td></td>
             </tr>
@@ -77,7 +82,7 @@
     </table>
     
 <?php else: ?>
-    <p>El carrito está vacío.</p>
+    <p class="carrito-vacio">El carrito está vacío.</p>
 <?php endif; ?>
 
 <br>

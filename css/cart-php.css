@@ -1,0 +1,41 @@
+/* Estilos para la página del carrito */
+
+/* Tabla del carrito */
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Cabecera de la tabla */
+.tabla-carrito thead tr {
+    background-color: #1A1A1A;
+    color: #FCFCFC;
+}
+
+.tabla-carrito th,
+.tabla-carrito td {
+    border: 1px solid #2A2A2A;
+    padding: 10px;
+}
+
+/* Fila del total */
+.fila-total {
+    background-color: #FF3366;
+    color: #FCFCFC;
+    font-weight: bold;
+}
+
+.fila-total td {
+    text-align: right;
+}
+
+/* Botones de acción */
+.acciones-carrito form {
+    display: inline;
+}
+
+/* Mensaje carrito vacío */
+.carrito-vacio {
+    color: #E6E6E6;
+    margin: 20px 0;
+}
