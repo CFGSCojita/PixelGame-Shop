@@ -8,12 +8,6 @@
 
 <h1>Pedidos</h1>
 
-<?php if ($_SESSION['role'] === 'admin'): ?>
-<a href="/student006/shop/backend/forms/form_order_insert.php" style="display: inline-block; padding: 10px 15px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; border-radius: 5px; margin-bottom: 20px;">
-    ADD ORDER
-</a>
-<?php endif; ?>
-
 <hr>
 
 <!-- Si hay pedidos, los mostramos -->

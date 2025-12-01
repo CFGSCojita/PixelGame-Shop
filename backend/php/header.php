@@ -71,9 +71,6 @@
 
                     <?php if ($_SESSION['role'] === 'admin'): ?>
                         <li class="nav-item mx-2">
-                            <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/reviews.php">Reviews <i class="bi bi-star"></i></a>
-                        </li>
-                        <li class="nav-item mx-2">
                             <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/manuals.php">Manuales <i class="bi bi-book"></i></a>
                         </li>
                     <?php endif; ?>

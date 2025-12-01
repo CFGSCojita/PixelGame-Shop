@@ -37,7 +37,7 @@
         <thead>
             <tr>
                 <th>Videojuego</th>
-                <th>Precio</th>
+                <th>Precio Unitario</th>
                 <th>Cantidad</th>
                 <th>Subtotal</th>
                 <th>Acciones</th>
@@ -81,11 +81,20 @@
         </tbody>
     </table>
     
+    <!-- Botón Realizar Pedido -->
+    <div class="contenedor-pedido">
+        <form method="POST" action="/student006/shop/backend/db/db_order_insert.php" 
+              onsubmit="return confirm('¿Estás seguro de que quieres realizar este pedido?');">
+            <button type="submit" class="btn-realizar-pedido">
+                REALIZAR PEDIDO
+            </button>
+        </form>
+    </div>
+    
 <?php else: ?>
-    <p class="carrito-vacio">El carrito está vacío.</p>
+    <p>El carrito está vacío.</p>
 <?php endif; ?>
 
-<br>
 <a href="/student006/shop/backend/php/videogames.php">← Volver a Videojuegos</a>
 
 <script src="/student006/shop/js/añadirAlCarritoAJAX.js"></script>

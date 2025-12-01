@@ -1,9 +1,9 @@
-/* Estilos para la página del carrito */
 
 /* Tabla del carrito */
 .tabla-carrito {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
 /* Cabecera de la tabla */
@@ -16,6 +16,7 @@
 .tabla-carrito td {
     border: 1px solid #2A2A2A;
     padding: 10px;
+    text-align: left;
 }
 
 /* Fila del total */
@@ -32,10 +33,43 @@
 /* Botones de acción */
 .acciones-carrito form {
     display: inline;
+    margin-right: 5px;
 }
 
-/* Mensaje carrito vacío */
-.carrito-vacio {
-    color: #E6E6E6;
+.acciones-carrito button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #00CCFF;
+    color: #0A0A0A;
+    font-weight: 600;
+}
+
+.acciones-carrito button:hover {
+    background-color: #FF3366;
+    color: #FCFCFC;
+}
+
+/* Contenedor del botón realizar pedido */
+.contenedor-pedido {
     margin: 20px 0;
+    text-align: right;
+}
+
+.btn-realizar-pedido {
+    padding: 15px 30px;
+    background-color: #FF3366;
+    color: #FCFCFC;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.btn-realizar-pedido:hover {
+    background-color: #00CCFF;
+    color: #0A0A0A;
 }
