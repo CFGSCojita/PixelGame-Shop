@@ -140,31 +140,6 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/cargaHeaderYFooter.js"></script>
-  <script>
-    // Afegim click a totes les targetes
-    document.querySelectorAll('.tarjeta-producte').forEach(card => {
-      card.style.cursor = 'pointer'; // Canviem el cursor per indicar que es clickable
-      
-      card.addEventListener('click', (e) => {
-        // Si NO han pulsat el botó, anem a detall
-        if (!e.target.classList.contains('btn-afegir')) {
-          window.location.href = 'views/product-detail.html'; // Redirigim a la pàgina de detall del producte
-        }
-      });
-    });
-  </script>
-  <script>
-      // Afegim click a totes les targetes de destacats
-      document.querySelectorAll('.tarjeta-hero').forEach(card => {
-        card.style.cursor = 'pointer'; // Canviem el cursor per indicar que es clickable
-        
-        // Si fan click a la targeta (excepte al botó), anem a detall
-        card.addEventListener('click', (e) => {
-          if (!e.target.classList.contains('btn-detalls')) {
-            window.location.href = 'views/product-detail.html'; // Redirigim a la pàgina de detall del producte
-          }
-        });
-      });
-  </script>
+  <script src="js/redireccionTarjetas.js"></script>
 </body>
 </html>
