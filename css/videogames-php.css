@@ -1,0 +1,118 @@
+/* Contenedor del buscador */
+.contenedor-buscador {
+    margin-bottom: 20px;
+}
+
+/* Input del buscador */
+.input-buscador {
+    padding: 8px;
+    width: 300px;
+    border-radius: 4px;
+    border: 1px solid #2A2A2A;
+    background-color: #1A1A1A;
+    color: #E6E6E6;
+}
+
+.input-buscador:focus {
+    outline: none;
+    border-color: #00CCFF;
+}
+
+/* Botón ADD VIDEOGAME */
+.btn-add-videogame {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.btn-add-videogame:hover {
+    background-color: #45a049;
+}
+
+/* Entrada individual de videojuego */
+.videogame-entry {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Icono placeholder del videojuego */
+.videogame-image-placeholder {
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+/* Detalles del videojuego */
+.videogame-details {
+    flex-grow: 1;
+}
+
+.videogame-details h3 {
+    color: #FCFCFC;
+    margin-bottom: 5px;
+}
+
+.videogame-details > p {
+    color: #E6E6E6;
+    margin-bottom: 5px;
+}
+
+/* Información secundaria (categoría, plataforma) */
+.info-secundaria {
+    font-size: smaller;
+    color: #555;
+}
+
+/* Acciones del videojuego (botones) */
+.videogame-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.videogame-actions form {
+    display: inline;
+}
+
+.videogame-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.videogame-actions button[type="submit"] {
+    background-color: #00CCFF;
+    color: #0A0A0A;
+}
+
+.videogame-actions button[type="submit"]:hover {
+    background-color: #FF3366;
+    color: #FCFCFC;
+}
+
+/* Enlace volver */
+.enlace-volver {
+    display: block;
+    margin-top: 20px;
+    color: #00CCFF;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.enlace-volver:hover {
+    color: #FF3366;
+}
+
+/* Resultado de búsqueda */
+#resultado-busqueda {
+    margin-top: 10px;
+}

@@ -6,8 +6,8 @@
     
     // Verificamos que se haya recibido el videogame_id.
     if (!isset($_POST['videogame_id'])) {
-        echo "<p style='color: #FF3366;'>Error: No se ha especificado el videojuego.</p>";
-        echo "<a href='/student006/shop/backend/php/videogames.php'>← Volver a Videojuegos</a>";
+        echo "<p class='error-message'>Error: No se ha especificado el videojuego.</p>";
+        echo "<a href='/student006/shop/backend/php/videogames.php' class='enlace-volver'>← Volver a Videojuegos</a>";
         require($root_DIR . '/student006/shop/backend/php/footer.php');
         exit();
     }
@@ -35,6 +35,9 @@
     $reviews = mysqli_fetch_all($result_reviews, MYSQLI_ASSOC);
 ?>
 
+<!-- CSS específico de reviews -->
+<link rel="stylesheet" href="/student006/shop/css/reviews-php.css">
+
 <h1>Reviews de: <?php echo htmlspecialchars($game['title']); ?></h1>
 
 <hr>
@@ -43,12 +46,12 @@
 <?php if (!empty($reviews)): ?>
     <?php foreach ($reviews as $review): ?>
         
-        <div class="review-entry" style="padding: 15px; border: 1px solid #2A2A2A; margin-bottom: 15px; border-radius: 8px; background-color: #1A1A1A;">
+        <div class="review-entry">
             
             <!-- Usuario y puntuación -->
-            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <strong style="color: #FCFCFC;">👤 <?php echo htmlspecialchars($review['user_name']); ?></strong>
-                <span style="color: #FFD700;">
+            <div class="review-header">
+                <strong class="review-user-name">👤 <?php echo htmlspecialchars($review['user_name']); ?></strong>
+                <span class="review-rating">
                     <?php 
                         // Mostramos estrellas según el rating.
                         for ($i = 0; $i < $review['rating']; $i++) {
@@ -60,13 +63,13 @@
             
             <!-- Comentario -->
             <?php if (!empty($review['comment'])): ?>
-                <p style="color: #E6E6E6; margin-bottom: 10px;">
+                <p class="review-comment">
                     <?php echo nl2br(htmlspecialchars($review['comment'])); ?>
                 </p>
             <?php endif; ?>
             
             <!-- Fecha -->
-            <p style="font-size: 0.85rem; color: #666;">
+            <p class="review-date">
                 📅 <?php echo date('d/m/Y H:i', strtotime($review['review_date'])); ?>
             </p>
         </div>
@@ -77,7 +80,7 @@
 <?php endif; ?>
 
 <br/>
-<a href="/student006/shop/backend/php/videogames.php">← Volver a Videojuegos</a>
+<a href="/student006/shop/backend/php/videogames.php" class="enlace-volver">← Volver a Videojuegos</a>
 
 <?php
     mysqli_close($conn);

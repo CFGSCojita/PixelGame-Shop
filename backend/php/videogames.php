@@ -6,21 +6,24 @@
     include($root_DIR . '/student006/shop/backend/db/db_videogame_select.php');
 ?>
 
+<!-- CSS específico de videogames -->
+<link rel="stylesheet" href="/student006/shop/css/videogames-php.css">
+
 <h1>Videojuegos</h1>
 
 <!-- Buscador -->
-<div style="margin-bottom: 20px;">
+<div class="contenedor-buscador">
     <label for="buscador">Buscar videojuego:</label>
     <input type="text" 
            id="buscador" 
+           class="input-buscador"
            onkeyup="filtrarVideojuegos(this.value)" 
-           placeholder="Escribe el nombre del juego..."
-           style="padding: 8px; width: 300px;">
+           placeholder="Escribe el nombre del juego...">
     <div id="resultado-busqueda"></div>
 </div>
 <br/>
 <?php if ($_SESSION['role'] === 'admin'): ?>
-    <a href="/student006/shop/backend/forms/form_videogame_insert.php" style="display: inline-block; padding: 10px 15px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; border-radius: 5px; margin-bottom: 20px;">
+    <a href="/student006/shop/backend/forms/form_videogame_insert.php" class="btn-add-videogame">
         ADD VIDEOGAME
     </a>
 <?php endif; ?>
@@ -31,32 +34,32 @@
 <?php if (!empty($videogames)): ?>
     <?php foreach ($videogames as $game): ?>
 
-        <div class="videogame-entry" style="display: flex; align-items: center; padding: 15px 0;">
+        <div class="videogame-entry">
 
-            <span class="videogame-image-placeholder" style="font-size: 40px; margin-right: 20px;">🎮</span>
+            <span class="videogame-image-placeholder">🎮</span>
 
-            <div class="videogame-details" style="flex-grow: 1;">
+            <div class="videogame-details">
                 <h3><?php echo htmlspecialchars($game['title']); ?></h3>
                 <p><?php echo htmlspecialchars($game['price']); ?> €</p>
 
-                <p style="font-size: smaller; color: #555;">
+                <p class="info-secundaria">
                     Categoría: <?php echo htmlspecialchars($game['category_name']); ?> |
                     Plataforma: <?php echo htmlspecialchars($game['platform_name']); ?>
                 </p>
             </div>
 
-            <div class="videogame-actions" style="display: flex; flex-direction: column; gap: 5px;">
+            <div class="videogame-actions">
 
                 <?php $videogame_id = htmlspecialchars($game['videogame_id']); ?>
 
                 <?php if ($_SESSION['role'] === 'admin'): ?>
                     <!-- Solo admin puede hacer un UPDATE y DELETE -->
-                    <form method="POST" action="/student006/shop/backend/forms/form_videogame_update.php" style="display:inline;">
+                    <form method="POST" action="/student006/shop/backend/forms/form_videogame_update.php">
                         <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                         <button type="submit">UPDATE</button>
                     </form>
 
-                    <form method="POST" action="/student006/shop/backend/db/db_videogame_delete.php" style="display:inline;"
+                    <form method="POST" action="/student006/shop/backend/db/db_videogame_delete.php"
                         onsubmit="return confirm('¿Estás seguro de que quieres eliminar este videojuego?');">
                         <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                         <button type="submit">DELETE</button>
@@ -64,14 +67,14 @@
                     <br />
                 <?php endif; ?>
 
-                <form method="POST" action="/student006/shop/backend/db/db_cart_insert.php" style="display:inline;">
+                <form method="POST" action="/student006/shop/backend/db/db_cart_insert.php">
                     <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                     <button type="submit">AÑADIR AL CARRITO</button>
                 </form>
 
                 <?php if ($game['review_count'] > 0): ?>
                     <!-- Solo mostramos el botón si hay reviews -->
-                    <form method="POST" action="/student006/shop/backend/php/reviews.php" style="display:inline;">
+                    <form method="POST" action="/student006/shop/backend/php/reviews.php">
                         <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                         <button type="submit">VER TODAS LAS REVIEWS (<?php echo $game['review_count']; ?>)</button>
                     </form>
@@ -85,7 +88,7 @@
     <p>No se encontraron videojuegos en la base de datos.</p>
 <?php endif; ?>
 
-<a href="/student006/shop/backend/index.php" style="display: block; margin-top: 20px;">
+<a href="/student006/shop/backend/index.php" class="enlace-volver">
     Volver al Panel Principal
 </a>
 

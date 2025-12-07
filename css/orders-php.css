@@ -1,0 +1,82 @@
+/* Entrada individual de pedido */
+.order-entry {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Icono placeholder del pedido */
+.order-image-placeholder {
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+/* Detalles del pedido */
+.order-details {
+    flex-grow: 1;
+}
+
+.order-details h3 {
+    color: #FCFCFC;
+    margin-bottom: 5px;
+}
+
+.order-details > p {
+    color: #E6E6E6;
+    margin-bottom: 5px;
+}
+
+/* Información secundaria (fecha, cantidad, precio) */
+.info-adicional-pedido {
+    font-size: smaller;
+    color: #555;
+}
+
+/* Total del pedido */
+.total-pedido {
+    font-size: 1.2em;
+    color: green;
+}
+
+/* Acciones del pedido (botones) */
+.order-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.order-actions form {
+    display: inline;
+}
+
+.order-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.order-actions button[type="submit"] {
+    background-color: #00CCFF;
+    color: #0A0A0A;
+}
+
+.order-actions button[type="submit"]:hover {
+    background-color: #FF3366;
+    color: #FCFCFC;
+}
+
+/* Enlace volver */
+.enlace-volver {
+    display: block;
+    margin-top: 20px;
+    color: #00CCFF;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.enlace-volver:hover {
+    color: #FF3366;
+}

@@ -1,0 +1,57 @@
+/* Mensaje de error */
+.error-message {
+    color: #FF3366;
+}
+
+/* Entrada individual de review */
+.review-entry {
+    padding: 15px;
+    border: 1px solid #2A2A2A;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #1A1A1A;
+}
+
+/* Cabecera de la review (usuario y puntuación) */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Nombre del usuario */
+.review-user-name {
+    color: #FCFCFC;
+    font-weight: 600;
+}
+
+/* Estrellas de puntuación */
+.review-rating {
+    color: #FFD700;
+}
+
+/* Comentario de la review */
+.review-comment {
+    color: #E6E6E6;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Fecha de la review */
+.review-date {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Enlace volver */
+.enlace-volver {
+    display: block;
+    margin-top: 20px;
+    color: #00CCFF;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.enlace-volver:hover {
+    color: #FF3366;
+}

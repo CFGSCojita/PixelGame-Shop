@@ -1,0 +1,99 @@
+/* Botón ADD USER */
+.btn-add-user {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.btn-add-user:hover {
+    background-color: #45a049;
+}
+
+/* Entrada individual de usuario */
+.user-entry {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Icono placeholder del usuario */
+.user-image-placeholder {
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+/* Detalles del usuario */
+.user-details {
+    flex-grow: 1;
+}
+
+.user-details h3 {
+    color: #FCFCFC;
+    margin-bottom: 5px;
+}
+
+.user-details > p {
+    color: #E6E6E6;
+    margin-bottom: 5px;
+}
+
+/* Información secundaria (rol, teléfono) */
+.info-rol-telefono {
+    font-size: smaller;
+    color: #555;
+}
+
+/* Dirección del usuario */
+.direccion-usuario {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Acciones del usuario (botones) */
+.user-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-actions form {
+    display: inline;
+}
+
+.user-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.user-actions button[type="submit"] {
+    background-color: #00CCFF;
+    color: #0A0A0A;
+}
+
+.user-actions button[type="submit"]:hover {
+    background-color: #FF3366;
+    color: #FCFCFC;
+}
+
+/* Enlace volver */
+.enlace-volver {
+    display: block;
+    margin-top: 20px;
+    color: #00CCFF;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.enlace-volver:hover {
+    color: #FF3366;
+}
