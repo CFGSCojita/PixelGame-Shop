@@ -57,6 +57,14 @@
                     <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
                     <button type="submit">AÑADIR AL CARRITO</button>
                 </form>
+
+                <?php if ($game['review_count'] > 0): ?>
+                    <!-- Solo mostramos el botón si hay reviews -->
+                    <form method="POST" action="/student006/shop/backend/php/reviews.php" style="display:inline;">
+                        <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
+                        <button type="submit">VER TODAS LAS REVIEWS (<?php echo $game['review_count']; ?>)</button>
+                    </form>
+                <?php endif; ?>
             </div>
         </div>
         <hr>
