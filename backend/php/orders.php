@@ -100,6 +100,8 @@
     Volver al Panel Principal
 </a>
 
+<script src="/student006/shop/js/gestionarReviewsAJAX.js"></script>
+
 <?php
     mysqli_close($conn);
 

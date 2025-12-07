@@ -69,6 +69,8 @@
     <button type="submit">Actualizar Review</button>
 </form>
 
+<script src="/student006/shop/js/gestionarReviewsAJAX.js"></script>
+
 <br/>
 <a href="/student006/shop/backend/php/orders.php">← Volver a Pedidos</a>
 

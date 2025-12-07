@@ -61,6 +61,8 @@
 <br/>
 <a href="/student006/shop/backend/php/orders.php">← Volver a Pedidos</a>
 
+<script src="/student006/shop/js/gestionarReviewsAJAX.js"></script>
+
 <?php
     mysqli_close($conn);
     require($root_DIR . '/student006/shop/backend/php/footer.php');
