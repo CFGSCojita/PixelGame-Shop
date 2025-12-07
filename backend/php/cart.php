@@ -97,9 +97,7 @@
 
 <a href="/student006/shop/backend/php/videogames.php">← Volver a Videojuegos</a>
 
-<script src="/student006/shop/js/añadirAlCarritoAJAX.js"></script>
-<script src="/student006/shop/js/eliminarDelCarritoAJAX.js"></script>
-<script src="/student006/shop/js/incrementarCarritoAJAX.js"></script>
+<script src="/student006/shop/js/gestionarCarritoAJAX.js"></script> <!-- Script para gestionar el carrito con AJAX -->
 
 <?php
     mysqli_close($conn);
