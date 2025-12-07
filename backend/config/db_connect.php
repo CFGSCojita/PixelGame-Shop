@@ -9,4 +9,7 @@
         exit();
     }
 
+    // Establecemos el charset UTF-8 para evitar problemas con caracteres especiales.
+    mysqli_set_charset($conn, 'utf8');
+
 ?>

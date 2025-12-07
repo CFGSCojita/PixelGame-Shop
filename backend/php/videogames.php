@@ -8,6 +8,17 @@
 
 <h1>Videojuegos</h1>
 
+<!-- Buscador -->
+<div style="margin-bottom: 20px;">
+    <label for="buscador">Buscar videojuego:</label>
+    <input type="text" 
+           id="buscador" 
+           onkeyup="filtrarVideojuegos(this.value)" 
+           placeholder="Escribe el nombre del juego..."
+           style="padding: 8px; width: 300px;">
+    <div id="resultado-busqueda"></div>
+</div>
+<br/>
 <?php if ($_SESSION['role'] === 'admin'): ?>
     <a href="/student006/shop/backend/forms/form_videogame_insert.php" style="display: inline-block; padding: 10px 15px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; border-radius: 5px; margin-bottom: 20px;">
         ADD VIDEOGAME
@@ -79,6 +90,7 @@
 </a>
 
 <script src="/student006/shop/js/gestionarCarritoAJAX.js"></script> <!-- Script para gestionar el carrito con AJAX -->
+<script src="/student006/shop/js/buscarVideojuegos.js"></script> <!-- Script para que funcione el buscador de videojuegos -->
 
 <?php
     mysqli_close($conn);
