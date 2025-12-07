@@ -40,9 +40,9 @@
             <div class="order-actions" style="display: flex; flex-direction: column; gap: 5px;">
 
                 <?php
-                    // Establecemos el ID para usarlo en los formularios.
-                    $order_id = htmlspecialchars($order['order_id']);
-                    $videogame_id = htmlspecialchars($order['videogame_id']);
+                // Establecemos el ID para usarlo en los formularios.
+                $order_id = htmlspecialchars($order['order_id']);
+                $videogame_id = htmlspecialchars($order['videogame_id']);
                 ?>
 
                 <?php if ($_SESSION['role'] === 'admin'): ?>
@@ -62,15 +62,30 @@
                     </form>
                 <?php endif; ?>
 
-                <?php if ($_SESSION['role'] === 'customer' && $order['review_id'] === null): ?>
-                    <!-- Solo customer puede añadir review, y solo si no existe ya -->
+                <?php if ($_SESSION['role'] === 'customer'): ?>
+                    <!-- Solo customer puede gestionar reviews -->
 
-                    <!-- ADD REVIEW: Envía al formulario de crear review -->
-                    <form method="POST" action="/student006/shop/backend/forms/form_review_insert.php" style="display:inline;">
-                        <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
-                        <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
-                        <button type="submit">ADD REVIEW</button>
-                    </form>
+                    <?php if ($order['review_id'] === null): ?>
+                        <!-- Si NO tiene review, mostramos botón para crear -->
+                        <form method="POST" action="/student006/shop/backend/forms/form_review_insert.php" style="display:inline;">
+                            <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
+                            <input type="hidden" name="videogame_id" value="<?php echo $videogame_id; ?>">
+                            <button type="submit">ADD REVIEW</button>
+                        </form>
+                    <?php else: ?>
+                        <!-- Si YA tiene review, mostramos botones para editar y eliminar -->
+                        <form method="POST" action="/student006/shop/backend/forms/form_review_update.php" style="display:inline;">
+                            <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($order['review_id']); ?>">
+                            <button type="submit">EDITAR REVIEW</button>
+                        </form>
+
+                        <form method="POST" action="/student006/shop/backend/db/db_review_delete.php" style="display:inline;"
+                            onsubmit="return confirm('¿Estás seguro de que quieres eliminar esta review?');">
+                            <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($order['review_id']); ?>">
+                            <button type="submit">ELIMINAR REVIEW</button>
+                        </form>
+                    <?php endif; ?>
+
                 <?php endif; ?>
             </div>
         </div>
