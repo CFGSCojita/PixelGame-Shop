@@ -3,60 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del producto</title>
+    <title>Detalle del producto - PixelGame Shop</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
+    <!-- Header i Footer -->
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    
     <!-- Output CSS de Tailwind -->
     <link rel="stylesheet" href="../css/output.css">
 </head>
 <body class="flex flex-col min-h-screen">
-    <header class="bg-(--color-negre) flex items-center px-5 py-[15px] border-b border-(--color-negre) md:px-10 lg:px-10 lg:py-5">
-        
-        <!-- Menú desplegable (mòbil) -->
-        <button class="lg:hidden cursor-pointer p-1 icon-hover" aria-label="Abrir menú">
-            <i class="w-7 h-7" data-lucide="menu"></i>
-        </button>
+    
+    <!-- Contenidor del Header (carregat dinàmicament) -->
+    <div id="contenidor-header"></div>
 
-        <!-- Logo -->
-        <a href="../index.html" class="block lg:mr-0">
-            <img class="h-10 md:h-[60px] lg:h-[100px] w-auto" src="../assets/img/logo-black-removebg-preview.png" alt="Logo" />
-        </a>
-
-        <!-- Menú navegació (desktop) -->
-        <nav class="hidden lg:flex flex-1 justify-center">
-            <ul class="flex gap-4 items-center">
-                <li><a href="../index.html" class="nav-link">Inicio</a></li>
-                <li><a href="#" class="nav-link">Videojuegos</a></li>
-                <li><a href="#" class="nav-link">Sobre nosotros</a></li>
-                <li><a href="#" class="nav-link">Contacto</a></li>
-            </ul>
-        </nav>
-
-        <!-- Icones (buscador, carret, perfil) -->
-        <div class="flex gap-4 md:gap-6 ml-auto items-center">
-            <!-- Buscador (només desktop) -->
-            <div class="hidden lg:block relative">
-                <input type="text" placeholder="Buscar juegos..." class="cercador" aria-label="Buscar juegos">
-                <i class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 text-(--color-cyan) pointer-events-none"></i>
-            </div>
-            
-            <a href="#" class="icon-hover" aria-label="Carrito">
-                <i class="w-6 h-6" data-lucide="shopping-cart"></i>
-            </a>
-            <a href="#" class="icon-hover" aria-label="Perfil">
-                <i class="w-6 h-6" data-lucide="user"></i>
-            </a>
-        </div>
-    </header>
-
-    <!-- Main content -->
+    <!-- Contingut principal -->
     <main class="grow bg-(--color-gris) py-6 px-5 md:py-8 md:px-10 lg:py-10 lg:px-20">
         
-        <!-- Ruta de navegació -->
+        <!-- Ruta de navegació (breadcrumb) -->
         <nav class="mb-6">
             <ul class="flex gap-2 text-sm text-(--color-negre)">
                 <li><a href="../index.html" class="hover:text-(--color-rosa)">Inicio</a></li>
@@ -69,22 +41,24 @@
             </ul>
         </nav>
 
-        <!-- Contenidor principal del producte -->
+        <!-- Contenidor principal del producte (grid responsive) -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
             
-            <!-- Galeria d'imatges (esquerra) -->
+            <!-- Galeria d'imatges (columna esquerra) -->
             <div>
+                <!-- Imatge principal del producte -->
                 <div class="bg-(--color-blanc) rounded-lg p-6 mb-4">
-                    <!-- Imatge principal -->
                     <div class="relative">
+                        <!-- Badge de "Nou" -->
                         <span class="badge-nou">NUEVO</span>
+                        <!-- Placeholder de la imatge principal -->
                         <div class="w-full aspect-square bg-gray-200 rounded flex items-center justify-center">
                             <i class="w-20 h-20 text-gray-400" data-lucide="image"></i>
                         </div>
                     </div>
                 </div>
 
-                <!-- Miniatures (només desktop/tablet) -->
+                <!-- Miniatures (només visibles en tablet i desktop) -->
                 <div class="hidden md:grid grid-cols-4 gap-3">
                     <div class="aspect-square bg-(--color-blanc) rounded cursor-pointer hover:opacity-75 transition-opacity"></div>
                     <div class="aspect-square bg-(--color-blanc) rounded cursor-pointer hover:opacity-75 transition-opacity"></div>
@@ -93,15 +67,15 @@
                 </div>
             </div>
 
-            <!-- Informació del producte (dreta) -->
+            <!-- Informació del producte (columna dreta) -->
             <div class="bg-(--color-blanc) rounded-lg p-6">
-                <!-- Títol i favorit -->
+                <!-- Capçalera: Títol i icona de favorit -->
                 <div class="flex justify-between items-start mb-4">
                     <h1 class="text-3xl font-bold text-(--color-negre)">Cyberpunk 2077</h1>
                     <i class="icona-preferit" data-lucide="heart"></i>
                 </div>
 
-                <!-- Estrelles i reviews -->
+                <!-- Valoració amb estrelles i nombre de reviews -->
                 <div class="flex items-center gap-3 mb-6">
                     <div class="flex gap-1">
                         <i class="w-5 h-5 text-yellow-500" data-lucide="star"></i>
@@ -113,7 +87,7 @@
                     <span class="text-sm text-gray-600">(4.8) | 2k reviews</span>
                 </div>
 
-                <!-- Plataformes -->
+                <!-- Selector de plataforma -->
                 <div class="mb-6">
                     <p class="text-sm text-gray-600 mb-3">Elige una plataforma</p>
                     <div class="flex gap-3 flex-wrap">
@@ -122,7 +96,7 @@
                     </div>
                 </div>
 
-                <!-- Preu i descompte -->
+                <!-- Preu, preu original i descompte -->
                 <div class="flex items-center gap-4 mb-6 flex-wrap">
                     <span class="preu">$54</span>
                     <span class="text-xl text-gray-400 line-through">$69.99</span>
@@ -133,30 +107,35 @@
                 <div class="mb-6">
                     <p class="text-sm text-gray-600 mb-3">Cantidad</p>
                     <div class="flex items-center gap-4">
+                        <!-- Botó decrementar -->
                         <button class="w-10 h-10 rounded border-2 border-gray-300 hover:border-(--color-cyan) transition-colors flex items-center justify-center text-xl">-</button>
+                        <!-- Quantitat actual -->
                         <span class="text-xl font-semibold w-8 text-center">2</span>
+                        <!-- Botó incrementar -->
                         <button class="w-10 h-10 rounded border-2 border-gray-300 hover:border-(--color-cyan) transition-colors flex items-center justify-center text-xl">+</button>
                     </div>
                 </div>
 
-                <!-- Botons d'acció -->
+                <!-- Botons d'acció principals -->
                 <div class="space-y-3">
+                    <!-- Botó principal: Afegir al carret -->
                     <button class="btn-afegir">+ Añadir al Carrito</button>
+                    <!-- Botó secundari: Guardar per més tard -->
                     <button class="btn-mestard">Guardar para más tarde</button>
                 </div>
             </div>
         </div>
 
-        <!-- Tabs de Descripció/Especificació/Reviews -->
+        <!-- Sistema de pestanyes (Tabs) per mostrar informació addicional -->
         <div class="bg-(--color-blanc) rounded-lg overflow-hidden">
-            <!-- Tab headers -->
+            <!-- Capçaleres de les pestanyes -->
             <div class="flex border-b border-gray-200">
                 <button class="tab-btn">Descripción</button>
                 <button class="tab-btn">Especificación</button>
                 <button class="tab-btn">Reviews</button>
             </div>
 
-            <!-- Tab content -->
+            <!-- Contingut de la pestanya activa -->
             <div class="p-8">
                 <p class="text-gray-600 leading-relaxed">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -167,55 +146,13 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-(--color-negre) text-(--color-gris) pt-10 pb-5 px-5 border-t-2 border-(--color-negre)">
-        <!-- Contingut del footer -->
-        <div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            
-            <!-- Secció 1: Sobre PixelGame Shop -->
-            <div>
-                <h4 class="footer-titol">PixelGame Shop</h4>
-                <p class="footer-text">Tu tienda de videojuegos de confianza</p>
-            </div>
+    <!-- Contenidor del Footer (carregat dinàmicament) -->
+    <div id="contenidor-footer"></div>
 
-            <!-- Secció 2: Enllaços -->
-            <div>
-                <h4 class="footer-titol">Enlaces</h4>
-                <ul class="space-y-3">
-                    <li><a href="#" class="footer-link">Política de privacidad</a></li>
-                    <li><a href="#" class="footer-link">Condiciones generales de venta</a></li>
-                    <li><a href="#" class="footer-link">Aviso legal</a></li>
-                    <li><a href="#" class="footer-link">Incidencias y devoluciones</a></li>
-                </ul>
-            </div>
-
-            <!-- Secció 3: Xarxes Socials -->
-            <div>
-                <h4 class="footer-titol">Síguenos</h4>
-                <div class="flex gap-4">
-                    <a href="#" class="icon-hover" aria-label="Facebook">
-                        <i class="w-6 h-6" data-lucide="facebook"></i>
-                    </a>
-                    <a href="#" class="icon-hover" aria-label="Twitter">
-                        <i class="w-6 h-6" data-lucide="twitter"></i>
-                    </a>
-                    <a href="#" class="icon-hover" aria-label="Instagram">
-                        <i class="w-6 h-6" data-lucide="instagram"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="text-center pt-5 border-t border-(--color-negre) text-gray-600 text-xs">
-            <p>PixelGame Shop - Copyright © 2025 by Stefan Cojita (Project DIW-DWEC-DWES)</p>
-        </div>
-    </footer>
-
-    <!-- Script per inicialitzar les icones de Lucide -->
+    <!-- Scripts necessaris -->
+    <!-- Llibreria d'icones Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+    <!-- Script per carregar header i footer dinàmicament -->
+    <script src="../js/cargaHeaderYFooter.js"></script>
 </body>
 </html>

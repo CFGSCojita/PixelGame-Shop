@@ -5,6 +5,13 @@ async function cargarElemento(elementId, rutaArchivo) {
     // Intentará realizar la carga del archivo HTML y manejará cualquier error que ocurra durante el proceso.
     try {
         const respuesta = await fetch(rutaArchivo); // Realizamos la petición para obtener el archivo HTML.
+        
+        // Verificamos si la respuesta fue exitosa
+        if (!respuesta.ok) {
+            console.error(`Error ${respuesta.status}: No se pudo cargar ${rutaArchivo}`);
+            return;
+        }
+        
         const html = await respuesta.text(); // Convertimos la respuesta a texto.
         document.getElementById(elementId).innerHTML = html; // Insertamos el HTML en el contenedor correspondiente.
 
@@ -62,8 +69,9 @@ function inicializarBuscadorMobil() {
 // Añadimos un evento que se ejecuta cuando el contenido del DOM ha sido completamente cargado.
 // Es decir, cargaremos el header y footer una vez que la página esté lista.
 document.addEventListener('DOMContentLoaded', async () => {
-    await cargarElemento('contenidor-header', 'views/header.html');
-    await cargarElemento('contenidor-footer', 'views/footer.html');
+    // RUTAS ABSOLUTAS - funcionan desde cualquier archivo
+    await cargarElemento('contenidor-header', '/student006/shop/views/header.html');
+    await cargarElemento('contenidor-footer', '/student006/shop/views/footer.html');
     
     // Inicializamos el menú y el buscador después de cargar el header
     inicializarMenu();

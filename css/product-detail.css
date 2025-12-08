@@ -1,110 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap');
 @import "tailwindcss";
 
+/* Capa de theme: Definim les variables CSS globals del projecte */
 @layer theme {
   :root {
-    /* Colors de la guia d'estil */
-    --color-rosa: #FF3366;
-    --color-cyan: #00CCFF;
-    --color-negre: #0A0A0A;
-    --color-blanc: #FCFCFC;
-    --color-gris: #E6E6E6;
-    --color-border: #2A2A2A;
+    /* Paleta de colors seguint la guia d'estil de PixelGame Shop */
+    --color-rosa: #FF3366;      /* Color primari per botons i accents */
+    --color-cyan: #00CCFF;      /* Color secundari per hovers i enllaços */
+    --color-negre: #0A0A0A;     /* Fons principal fosc */
+    --color-blanc: #FCFCFC;     /* Text principal i targetes */
+    --color-gris: #E6E6E6;      /* Text secundari i fons clar */
+    --color-border: #2A2A2A;    /* Borders subtils */
     
-    /* Fonts */
-    --font-poppins: 'Poppins', sans-serif;
-    --font-rajdhani: 'Rajdhani', sans-serif;
+    /* Tipografies del projecte */
+    --font-poppins: 'Poppins', sans-serif;    /* Font principal per tot el text */
+    --font-rajdhani: 'Rajdhani', sans-serif;  /* Font per preus i números */
   }
 }
 
-/* Components reutilitzables */
+/* Capa de components: Classes reutilitzables específiques del detall de producte */
 @layer components {
-  /* Enllaços del menú */
-  .nav-link {
-    /* Apliquem color de text gris (variable), padding horitzontal de 4 i vertical de 2, cantonades arrodonides i text semi-negreta. En hover, canviem el fons a cian (variable), el text a negre (variable) i afegim una transició. */
-    @apply text-(--color-gris) px-4 py-2 rounded hover:bg-(--color-cyan) hover:text-(--color-negre) transition-all font-medium;
-  }
-
-  /* Icones amb hover */
-  .icon-hover {
-    /* Apliquem color de text rosa (variable) i en hover canviem a cian (variable) amb una transició de colors. */
-    @apply text-(--color-rosa) hover:text-(--color-cyan) transition-colors;
-  }
-
-  /* Input de cerca */
-  .cercador {
-    /* Apliquem fons negre (variable), border de 2px amb color de border (variable), cantonades arrodonides, padding horitzontal de 3, padding vertical de 2, padding dret de 10, text gris (variable), placeholder gris fosc, amplada de 200px, focus sense outline i border cian (variable), i transició de colors. */
-    @apply bg-(--color-negre) border-2 border-(--color-border) rounded-lg px-3 py-2 pr-10 text-(--color-gris) placeholder:text-gray-600 w-[200px] focus:outline-none focus:border-(--color-cyan) transition-colors;
-  }
-
-  /* Títol del footer */
-  .footer-titol {
-    /* Apliquem color de text blanc (variable), mida de text gran, font en negreta i marge inferior de 4. */
-    @apply text-(--color-blanc) text-lg font-bold mb-4;
-  }
-
-  /* Enllaç del footer */
-  .footer-link {
-    /* Apliquem mida de text petita, en hover canviem el color a cian (variable) i afegim una transició de colors. */
-    @apply text-sm hover:text-(--color-cyan) transition-colors;
-  }
-
-  /* Text del footer */
-  .footer-text {
-    /* Apliquem mida de text petita i interlineat relaxat. */
-    @apply text-sm leading-relaxed;
-  }
-
-  /* Badge nou */
+  
+  /* Badge "Nou" per marcar productes destacats */
   .badge-nou {
-    /* Apliquem posició absoluta a la part superior esquerra, padding horitzontal de 3, padding vertical de 1, cantonades arrodonides, mida de text extra petita, font semi-negreta, fons cian (variable) i text negre (variable). */
+    /* Posicionament absolut a la cantonada superior esquerra de la imatge */
     @apply absolute top-3 left-3 px-3 py-1 rounded text-xs font-semibold bg-(--color-cyan) text-(--color-negre);
   }
 
-  /* Botó principal (Afegir al carret) */
+  /* Botó principal "Afegir al Carret" */
   .btn-afegir {
-    /* Apliquem amplada completa, padding horitzontal de 6, padding vertical de 3, fons rosa (variable), text blanc (variable), cantonades arrodonides, font semi-negreta, en hover canviem el fons a cian (variable) i el text a negre (variable) amb una transició. */
+    /* Botó ample complet amb colors primaris i efecte hover */
     @apply w-full px-6 py-3 bg-(--color-rosa) text-(--color-blanc) rounded-lg font-semibold hover:bg-(--color-cyan) hover:text-(--color-negre) transition-all;
   }
 
-  /* Botó secundari (Guardar per més tard) */
+  /* Botó secundari "Guardar per més tard" */
   .btn-mestard {
-    /* Apliquem amplada completa, padding horitzontal de 6, padding vertical de 3, fons transparent, border de 2px amb color cian (variable), text cian (variable), cantonades arrodonides, font semi-negreta, en hover canviem el fons a cian (variable) i el text a negre (variable) amb una transició. */
+    /* Botó outline amb borde cyan i efecte hover que omple el fons */
     @apply w-full px-6 py-3 bg-transparent border-2 border-(--color-cyan) text-(--color-cyan) rounded-lg font-semibold hover:bg-(--color-cyan) hover:text-(--color-negre) transition-all;
   }
 
-  /* Botó de plataforma */
+  /* Botons de selecció de plataforma (PS5, PC, etc.) */
   .plataforma-btn {
-    /* Apliquem padding horitzontal de 4, padding vertical de 2, fons gris clar, text gris, cantonades arrodonides, border de 2px transparent, en hover canviem el border a cian (variable) amb una transició i cursor pointer. */
+    /* Botons petits amb borde subtil que es resalta en hover */
     @apply px-4 py-2 bg-gray-100 text-gray-600 rounded border-2 border-transparent hover:border-(--color-cyan) transition-all cursor-pointer;
   }
 
-  /* Tabs (Descripció, Especificació, Reviews) */
+  /* Pestanyes (Descripció, Especificació, Reviews) */
   .tab-btn {
-    /* Apliquem padding horitzontal de 6, padding vertical de 3, fons transparent, text gris, font mitjana, transició i cursor pointer. */
+    /* Estil base per les pestanyes inactives */
     @apply px-6 py-3 bg-transparent text-gray-600 font-medium transition-all cursor-pointer;
   }
 
+  /* Pestanya activa */
   .tab-btn-active {
-    /* Apliquem padding horitzontal de 6, padding vertical de 3, fons gris clar, text negre (variable), font mitjana, border inferior de 2px cian (variable), transició i cursor pointer. */
+    /* Pestanya activa amb fons clar i borde inferior cyan */
     @apply px-6 py-3 bg-gray-100 text-(--color-negre) font-medium border-b-2 border-(--color-cyan) transition-all cursor-pointer;
   }
 
-  /* Preu */
+  /* Preu del producte */
   .preu {
-    /* Apliquem color de text rosa (variable), mida de text gran, font en negreta i font Rajdhani. */
+    /* Text gran en vermell/rosa amb la font Rajdhani per èmfasi */
     @apply text-4xl font-bold text-(--color-rosa);
     font-family: var(--font-rajdhani) !important; 
   }
 
-  /* Icona favorit */
+  /* Icona de cor per afegir a favorits */
   .icona-preferit {
-    /* Apliquem mida de text petita i en hover canviem el color a cian (variable) amb una transició de colors. */
+    /* Icona clicable amb efecte hover que canvia de color */
     @apply w-8 h-8 text-(--color-rosa) hover:text-(--color-cyan) transition-colors cursor-pointer;
   }
 }
 
-/* FORA de les layers perquè tingui prioritat */
+/* Font global per tot el document (fora de layers per prioritat) */
 html, body, *, input, button, a {
   font-family: var(--font-poppins) !important;
 }
