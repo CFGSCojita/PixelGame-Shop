@@ -85,3 +85,15 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* Ajuste para móviles pequeños */
+@media (max-width: 767px) {
+    footer {
+        padding: 30px 15px 15px;
+    }
+    
+    .copyright p {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+}

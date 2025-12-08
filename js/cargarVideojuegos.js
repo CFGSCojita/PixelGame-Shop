@@ -42,26 +42,88 @@ async function cargarVideojuegos(pagina = 1) {
 
 // Creamos una función para generar los botones de paginación.
 function generarPaginacion(actual, total) {
-    const contenedor = document.querySelector('.paginacio'); // Obtenemos el contenedor de la paginación.
-    if (!contenedor) return; // Si no existe el contenedor, salimos de la función.
+    // Obtenemos el contenedor HTML donde se insertarán los botones
+    const contenedor = document.querySelector('.paginacio');
+    
+    // Estructura de control 'if'
+    // Si no existe el contenedor en el HTML, salimos de la función para evitar errores
+    if (!contenedor) return;
 
-    contenedor.innerHTML = ''; // Limpiamos la paginación.
+    // Limpiamos todo el contenido anterior del contenedor
+    // Esto evita que se dupliquen los botones cada vez que cambiamos de página
+    contenedor.innerHTML = '';
 
-    // Bucle 'for'.
-    // Iterará desde 1 hasta el total de páginas para crear los botones.
-    for (let i = 1; i <= total; i++) {
-        const boton = document.createElement('a'); // Creamos un elemento 'a' para cada botón.
-        boton.href = '#'; // Asignamos el href.
-        boton.textContent = i; // Asignamos el número de página como texto.
-        boton.className = i === actual ? 'btn-pagina activo' : 'btn-pagina'; // Asignamos la clase CSS, resaltando el botón activo.
+    // Detectamos el tamaño de la ventana del navegador
+    // Si es menor a 1024px, consideramos que es móvil o tablet
+    const esMobile = window.innerWidth < 1024;
+
+    // Estructura de control 'if-else'
+    // Decidimos qué tipo de paginación mostrar según el dispositivo
+    if (esMobile) {
+
+        // Estructura de control 'if'
+        // Solo mostramos la flecha "anterior" si NO estamos en la página 1
+        if (actual > 1) {
+            const btnAnterior = document.createElement('a'); // Creamos un enlace
+            btnAnterior.href = '#'; // Le damos un href vacío
+            btnAnterior.innerHTML = '&lsaquo;'; // Símbolo de flecha izquierda (‹)
+            btnAnterior.className = 'btn-pagina'; // Le asignamos la clase CSS
+            
+            // Agregamos un evento click para cargar la página anterior
+            btnAnterior.addEventListener('click', (e) => {
+                e.preventDefault(); // Evitamos que el enlace recargue la página
+                cargarVideojuegos(actual - 1); // Cargamos la página anterior (actual - 1)
+            });
+            
+            contenedor.appendChild(btnAnterior); // Añadimos el botón al contenedor
+        }
+
+        // Mostramos el número de página actual y el total
+        // Ejemplo: "3 / 8" significa que estamos en la página 3 de 8
+        const paginaActual = document.createElement('span'); // Creamos un span (no es clickeable)
+        paginaActual.textContent = `${actual} / ${total}`; // Texto: "página actual / total"
+        paginaActual.className = 'btn-pagina activo'; // Le damos estilo de botón activo (rosa)
+        contenedor.appendChild(paginaActual); // Lo añadimos al contenedor
+
+        // Estructura de control 'if'
+        // Solo mostramos la flecha "siguiente" si NO estamos en la última página
+        if (actual < total) {
+            const btnSiguiente = document.createElement('a'); // Creamos un enlace
+            btnSiguiente.href = '#'; // Le damos un href vacío
+            btnSiguiente.innerHTML = '&rsaquo;'; // Símbolo de flecha derecha (›)
+            btnSiguiente.className = 'btn-pagina'; // Le asignamos la clase CSS
+            
+            // Agregamos un evento click para cargar la página siguiente
+            btnSiguiente.addEventListener('click', (e) => {
+                e.preventDefault(); // Evitamos que el enlace recargue la página
+                cargarVideojuegos(actual + 1); // Cargamos la página siguiente (actual + 1)
+            });
+            
+            contenedor.appendChild(btnSiguiente); // Añadimos el botón al contenedor
+        }
+
+    } else {
         
-        // Creamos un evento 'click' para cada botón.
-        boton.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevenimos el comportamiento por defecto del enlace.
-            cargarVideojuegos(i); // Cargamos los videojuegos de la página correspondiente.
-        });
+        // Bucle 'for'
+        // Iteramos desde 1 hasta el total de páginas para crear un botón por cada página
+        for (let i = 1; i <= total; i++) {
+            const boton = document.createElement('a'); // Creamos un enlace para cada número
+            boton.href = '#'; // Le damos un href vacío
+            boton.textContent = i; // El texto del botón es el número de página (1, 2, 3...)
+            
+            // Operador ternario (if corto)
+            // Si 'i' es igual a la página actual, le ponemos clase 'activo' (rosa)
+            // Si no, le ponemos solo 'btn-pagina' (gris oscuro)
+            boton.className = i === actual ? 'btn-pagina activo' : 'btn-pagina';
+            
+            // Agregamos un evento click para cargar la página correspondiente
+            boton.addEventListener('click', (e) => {
+                e.preventDefault(); // Evitamos que el enlace recargue la página
+                cargarVideojuegos(i); // Cargamos la página del número clickeado
+            });
 
-        contenedor.appendChild(boton); // Añadimos el botón al contenedor.
+            contenedor.appendChild(boton); // Añadimos el botón al contenedor
+        }
     }
 }
 
