@@ -19,8 +19,8 @@ async function cargarVideojuegos(pagina = 1) {
             // Rellenamos el contenido de la tarjeta con los datos del videojuego:
             tarjeta.innerHTML = `
                 <div class="imatge">
-                    <div style="width: 100%; height: 100%; background: #E6E6E6; display: flex; align-items: center; justify-content: center; color: #666; font-size: 3rem;">
-                        🎮
+                    <div style="width: 100%; height: 100%; background: #E6E6E6; display: flex; align-items: center; justify-content: center; color: #666;">
+                        <span style="font-size: 3rem; display: block; transform: translateY(150%);">🎮</span>
                     </div>
                 </div>
                 <h3>${game.title}</h3>

@@ -202,6 +202,37 @@ body {
     color: #FF3366;
 }
 
+/* Botones de paginación */
+.paginacio {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px; /* Separación del grid */
+}
+
+.btn-pagina {
+    padding: 8px 16px;
+    border: 2px solid #2A2A2A;
+    background-color: #1A1A1A;
+    color: #E6E6E6;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.btn-pagina:hover {
+    background-color: #00CCFF;
+    color: #0A0A0A;
+    border-color: #00CCFF;
+}
+
+.btn-pagina.activo {
+    background-color: #FF3366;
+    color: #FCFCFC;
+    border-color: #FF3366;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
     .hero-destacant {

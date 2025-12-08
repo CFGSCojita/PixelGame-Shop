@@ -48,6 +48,7 @@
         </div>
       </div>
     </section>
+    
     <!-- Contenidor principal amb filtres y productes -->
     <div class="main-content">
       <!-- Filtres -->
@@ -86,60 +87,22 @@
           <span>Ordenar por:</span>
         </div>
 
-        <div class="productes-grid">
-          <article class="tarjeta-producte">
-            <div class="imatge">
-              <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/coa5zt.webp" alt="Cover de Battlefield 6">
-            </div>
-            <h3>Battlefield 6</h3>
-            <p class="preu">69.99€</p>
-            <button class="btn-afegir">Añadir al Carrito</button>
-          </article>
-          
-          <article class="tarjeta-producte">
-            <div class="imatge">
-              <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/coaend.webp" alt="Cover de Silksong">
-            </div>
-            <h3>Hollow Knight: Silksong</h3>
-            <p class="preu">19.50€</p>
-            <button class="btn-afegir">Añadir al Carrito</button>
-          </article>
-          
-          <article class="tarjeta-producte">
-            <div class="imatge">
-              <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co9gam.webp" alt="Cover de Expedition 33">
-            </div>
-            <h3>Clair Obscur: Expedition 33</h3>
-            <p class="preu">49.99€</p>
-            <button class="btn-afegir">Añadir al Carrito</button>
-          </article>
-          
-          <article class="tarjeta-producte">
-            <div class="imatge">
-              <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co9wzc.webp" alt="Cover de Pokémon Z-A">
-            </div>
-            <h3>Pokémon Legends: Z-A</h3>
-            <p class="preu">69.99€</p>
-            <button class="btn-afegir">Añadir al Carrito</button>
-          </article>
-          
-          <article class="tarjeta-producte">
-            <div class="imatge">
-              <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/coa7ic.webp" alt="Cover de Plants vs Zombies Replanted">
-            </div>
-            <h3>Plants vs. Zombies: Replanted</h3>
-            <p class="preu">19.99€</p>
-            <button class="btn-afegir">Añadir al Carrito</button>
-          </article>
-        </div>
+        <!-- Grid de productos (se llenará con JS) -->
+        <div class="productes-grid"></div>
+
+        <!-- Paginación -->
+        <div class="paginacio"></div>
       </section>
     </div>
   </main>
+  
   <!-- Footer Container (carregat dinàmicament) -->
   <div id="contenidor-footer"></div>
+  
   <!-- Scripts -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/cargaHeaderYFooter.js"></script>
   <script src="js/redireccionTarjetas.js"></script>
+  <script src="js/cargarVideojuegos.js"></script>
 </body>
 </html>
