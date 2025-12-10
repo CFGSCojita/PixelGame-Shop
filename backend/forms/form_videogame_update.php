@@ -6,8 +6,6 @@
 
     // Estructura de control 'if'.
     // Verificará que se haya recibido el ID del videojuego.
-    // Si se recibe, continuará con la obtención de los datos.
-    // En caso contrario, mostrará un mensaje de error y un enlace para volver a la página de videojuegos.
     if (!isset($_POST['videogame_id'])) {
         echo "<p style='color: #FF3366;'>Error: No se ha especificado el ID del videojuego.</p>";
         echo "<a href='/student006/shop/backend/php/videogames.php'>← Volver a Videojuegos</a>";
@@ -32,121 +30,125 @@
     mysqli_free_result($result_platforms); // Liberamos el resultado.
 ?>
 
-<h1>Actualizar Videojuego</h1>
+<!-- CSS específico del formulario -->
+<link rel="stylesheet" href="/student006/shop/css/form_videogame_update-php.css">
 
-<form action="/student006/shop/backend/db/db_videogame_update.php" method="POST">
-    <input type="hidden" name="videogame_id" value="<?php echo $videogame['videogame_id']; ?>">
-    
-    <!-- Título -->
-    <label for="title">Título:</label>
-    <input type="text" 
-           id="title" 
-           name="title" 
-           maxlength="200" 
-           pattern="[A-Za-zÀ-ÿ0-9\s:,.\-']+" 
-           title="Solo se pueden poner letras, números, espacios y signos de puntuación básicos."
-           value="<?php echo $videogame['title']; ?>"
-           required>
-    <br/>
-    <br/>
+<!-- Contenedor del formulario -->
+<div class="contenedor-form">
+    <h1>Actualizar Videojuego</h1>
 
-    <!-- Categoría -->
-    <label for="category_id">Categoría:</label>
-    <select id="category_id" name="category_id" required>
-        <option value="">-- Selecciona una Categoría --</option>
-        <?php foreach ($categories as $category): ?>
-            <option 
-                value="<?php echo htmlspecialchars($category['category_id']); ?>"
-                <?php 
-                    if ($category['category_id'] == $videogame['category_id']) {
-                        echo 'selected';
-                    }
-                ?>
-            >
-                <?php echo htmlspecialchars($category['name']); ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <br/>
-    <br/>
+    <form action="/student006/shop/backend/db/db_videogame_update.php" method="POST">
+        <input type="hidden" name="videogame_id" value="<?php echo $videogame['videogame_id']; ?>">
+        
+        <!-- Título -->
+        <div class="form-elemento">
+            <label for="title">Título:</label>
+            <input type="text" 
+                   id="title" 
+                   name="title" 
+                   maxlength="200" 
+                   pattern="[A-Za-zÀ-ÿ0-9\s:,.\-']+" 
+                   title="Solo se pueden poner letras, números, espacios y signos de puntuación básicos."
+                   value="<?php echo htmlspecialchars($videogame['title']); ?>"
+                   required>
+        </div>
 
-    <!-- Plataforma -->
-    <label for="platform_id">Plataforma:</label>
-    <select id="platform_id" name="platform_id" required>
-        <option value="">-- Selecciona una Plataforma --</option>
-        <?php foreach ($platforms as $platform): ?>
-            <option 
-                value="<?php echo htmlspecialchars($platform['platform_id']); ?>"
-                <?php 
-                    if ($platform['platform_id'] == $videogame['platform_id']) {
-                        echo 'selected';
-                    }
-                ?>
-            >
-                <?php echo htmlspecialchars($platform['name']); ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <br/>
-    <br/>
+        <!-- Categoría -->
+        <div class="form-elemento">
+            <label for="category_id">Categoría:</label>
+            <select id="category_id" name="category_id" required>
+                <option value="">-- Selecciona una Categoría --</option>
+                <?php foreach ($categories as $category): ?>
+                    <option 
+                        value="<?php echo htmlspecialchars($category['category_id']); ?>"
+                        <?php 
+                            if ($category['category_id'] == $videogame['category_id']) {
+                                echo 'selected';
+                            }
+                        ?>
+                    >
+                        <?php echo htmlspecialchars($category['name']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
 
-    <!-- Descripción -->
-    <label for="description">Descripción:</label>
-    <textarea id="description" 
-              name="description" 
-              rows="4" 
-              cols="50" 
-              minlength="10" 
-              maxlength="1000"
-              required><?php echo $videogame['description']; ?></textarea>
-    <br/>
-    <br/>
+        <!-- Plataforma -->
+        <div class="form-elemento">
+            <label for="platform_id">Plataforma:</label>
+            <select id="platform_id" name="platform_id" required>
+                <option value="">-- Selecciona una Plataforma --</option>
+                <?php foreach ($platforms as $platform): ?>
+                    <option 
+                        value="<?php echo htmlspecialchars($platform['platform_id']); ?>"
+                        <?php 
+                            if ($platform['platform_id'] == $videogame['platform_id']) {
+                                echo 'selected';
+                            }
+                        ?>
+                    >
+                        <?php echo htmlspecialchars($platform['name']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
 
-    <!-- Fecha de lanzamiento -->
-    <label for="release_date">Fecha de lanzamiento:</label>
-    <input type="date" 
-           id="release_date" 
-           name="release_date" 
-           min="1970-01-01" 
-           max="2030-12-31"
-           value="<?php echo $videogame['release_date']; ?>"
-           required>
-    <br/>
-    <br/>
+        <!-- Descripción -->
+        <div class="form-elemento">
+            <label for="description">Descripción:</label>
+            <textarea id="description" 
+                      name="description" 
+                      minlength="10" 
+                      maxlength="1000"
+                      required><?php echo htmlspecialchars($videogame['description']); ?></textarea>
+        </div>
 
-    <!-- Precio -->
-    <label for="price">Precio:</label>
-    <input type="number" 
-           id="price" 
-           name="price" 
-           min="0.99" 
-           max="99.99" 
-           step="0.01"
-           title="El precio del producto debe estar entre 0.99 y 99.99€"
-           value="<?php echo $videogame['price']; ?>"
-           required>
-    <br/>
-    <br/>
+        <!-- Fecha de lanzamiento -->
+        <div class="form-elemento">
+            <label for="release_date">Fecha de lanzamiento:</label>
+            <input type="date" 
+                   id="release_date" 
+                   name="release_date" 
+                   min="1970-01-01" 
+                   max="2030-12-31"
+                   value="<?php echo htmlspecialchars($videogame['release_date']); ?>"
+                   required>
+        </div>
 
-    <!-- Stock -->
-    <label for="stock">Stock:</label>
-    <input type="number" 
-           id="stock" 
-           name="stock" 
-           min="0" 
-           max="999999999"
-           title="Solo se pueden poner números enteros positivos"
-           value="<?php echo $videogame['stock']; ?>"
-           required>
-    <br/>
-    <br/>
+        <!-- Precio -->
+        <div class="form-elemento">
+            <label for="price">Precio (€):</label>
+            <input type="number" 
+                   id="price" 
+                   name="price" 
+                   min="0.99" 
+                   max="99.99" 
+                   step="0.01"
+                   title="El precio del producto debe estar entre 0.99 y 99.99€"
+                   value="<?php echo htmlspecialchars($videogame['price']); ?>"
+                   required>
+        </div>
 
-    <!-- Botón de envío -->
-    <button type="submit">Actualizar</button>
-</form>
+        <!-- Stock -->
+        <div class="form-elemento">
+            <label for="stock">Stock:</label>
+            <input type="number" 
+                   id="stock" 
+                   name="stock" 
+                   min="0" 
+                   max="999999999"
+                   title="Solo se pueden poner números enteros positivos"
+                   value="<?php echo htmlspecialchars($videogame['stock']); ?>"
+                   required>
+        </div>
 
-<br/>
-<a href="/student006/shop/backend/php/videogames.php">← Volver a Videojuegos</a>
+        <!-- Botón de envío -->
+        <button type="submit" class="btn-enviar">Actualizar Videojuego</button>
+    </form>
+
+    <!-- Enlace para volver -->
+    <a href="/student006/shop/backend/php/videogames.php" class="link-volver">← Volver a Videojuegos</a>
+</div>
 
 <?php
     mysqli_close($conn);
