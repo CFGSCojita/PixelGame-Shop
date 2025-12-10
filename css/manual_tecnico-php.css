@@ -1,0 +1,43 @@
+
+/* Contenedor del manual */
+.contenedor-manual {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #1A1A1A;
+    border: 2px solid #2A2A2A;
+    border-radius: 12px;
+    color: #E6E6E6;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contenedor-manual h1 {
+    color: #FCFCFC;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contenedor-manual h2 {
+    color: #FF3366;
+    margin-bottom: 20px;
+}
+
+.contenedor-manual h2:not(:first-of-type) {
+    margin-top: 40px;
+}
+
+.contenedor-manual p {
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.contenedor-manual p strong {
+    color: #FCFCFC;
+}
+
+/* Descripción de la funcionalidad */
+.descripcion-funcionalidad {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}

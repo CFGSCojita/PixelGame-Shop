@@ -12,7 +12,14 @@
     ?>
     
     <div class="container my-5">
-        <h1 class="text-center" style="color: #FCFCFC; font-weight: 700;">Bienvenido al Panel de Administración</h1>
+        <!-- Estructura de control 'if-else' -->
+        <!-- Si el usuario es 'admin', mostramos el mensaje de administración. Si es 'customer', mostramos el mensaje de cuenta personal. -->
+        <?php if ($_SESSION['role'] === 'admin'): ?>
+            <h1 class="text-center" style="color: #FCFCFC; font-weight: 700;">Bienvenido al Panel de Administración</h1>
+        <?php else: ?>
+            <h1 class="text-center" style="color: #FCFCFC; font-weight: 700;">Bienvenido al Panel de Mi Cuenta</h1>
+        <?php endif; ?>
+        
         <p class="text-center mt-3" style="color: #E6E6E6;">Utiliza la barra de navegación superior para gestionar las distintas secciones.</p>
     </div>
 

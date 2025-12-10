@@ -1,0 +1,55 @@
+
+/* Contenedor man */
+.contenedor-manual {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #1A1A1A;
+    border: 2px solid #2A2A2A;
+    border-radius: 12px;
+    color: #E6E6E6;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contenedor-manual h1 {
+    color: #FCFCFC;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de descarga */
+.contenedor-descarga {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Botón de descarga */
+.btn-descarga {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background-color: #FF3366;
+    color: #FCFCFC;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    border: 2px solid #FF3366;
+}
+
+.btn-descarga:hover {
+    background-color: #00CCFF;
+    border-color: #00CCFF;
+    color: #0A0A0A;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+}
+
+/* Icono de descarga */
+.icono-descarga {
+    width: 24px;
+    height: 24px;
+}
