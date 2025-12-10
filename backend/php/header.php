@@ -66,12 +66,27 @@
                     <?php endif; ?>
 
                     <li class="nav-item mx-2">
-                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/orders.php">Pedidos <i class="bi bi-box-seam"></i></a>
+                        <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/orders.php">
+                            <?php echo ($_SESSION['role'] === 'customer') ? 'Mis Pedidos' : 'Pedidos'; ?>
+                            <i class="bi bi-box-seam"></i>
+                        </a>
                     </li>
 
                     <?php if ($_SESSION['role'] === 'admin'): ?>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link nav-link-personalizado" href="/student006/shop/backend/php/manuals.php">Manuales <i class="bi bi-book"></i></a>
+                        <li class="nav-item mx-2 dropdown">
+                            <a class="nav-link nav-link-personalizado dropdown-toggle" 
+                            href="#" 
+                            id="navbarDropdown" 
+                            role="button" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                                Manuales <i class="bi bi-book"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/student006/shop/backend/php/manual_tecnico.php">Manual Técnico</a></li>
+                                <li><a class="dropdown-item" href="/student006/shop/backend/php/manual_instalacion.php">Manual de Instalación</a></li>
+                                <li><a class="dropdown-item" href="/student006/shop/backend/php/manual_usuario.php">Manual de Usuario</a></li>
+                            </ul>
                         </li>
                     <?php endif; ?>
 
@@ -81,6 +96,7 @@
                             <span class="badge bg-danger"><?php echo isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0; ?></span>
                         </a>
                     </li>
+
                     <li class="nav-item mx-2">
                         <!-- Usuario actual -->
                         <span style="color: var(--color-accent);">

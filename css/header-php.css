@@ -64,3 +64,19 @@ body {
 .logout-link:hover {
     text-decoration: underline;
 }
+
+/* Dropdown personalizado */
+.dropdown-menu-dark {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-primary);
+}
+
+.dropdown-item {
+    color: var(--color-text-secondary) !important;
+    transition: 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: var(--color-primary) !important;
+    color: var(--color-text) !important;
+}
