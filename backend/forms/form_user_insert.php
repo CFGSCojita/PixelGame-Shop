@@ -45,13 +45,14 @@
         <div class="form-elemento">
             <label for="password">Contraseña:</label>
             <input type="password" 
-                   id="password" 
-                   name="password" 
-                   maxlength="200" 
-                   minlength="6"
-                   title="La contraseña debe tener al menos 6 caracteres."
-                   placeholder="Mínimo 6 caracteres"
-                   required>
+                id="password" 
+                name="password" 
+                maxlength="200" 
+                minlength="6"
+                pattern="(?=.*\d)(?=.*[\W_]).{6,}"
+                title="La contraseña debe tener al menos 6 caracteres, incluir un número y un carácter especial (!@#$%^&*)"
+                placeholder="Mínimo 6 caracteres, 1 número y 1 carácter especial"
+                required>
         </div>
 
         <!-- Dirección -->
