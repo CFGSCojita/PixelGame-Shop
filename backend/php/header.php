@@ -3,7 +3,25 @@
     session_start();
 
     // Estructura de control 'if'.
-    // Verificará si el usuario está autenticado y tiene permisos para acceder al backend.
+    // Si el usuario cambia el idioma (viene por GET), guardamos la cookie.
+    if (isset($_GET['lang'])) {
+        $idioma = $_GET['lang'];
+        
+        // Validamos que sea un idioma permitido.
+        $idiomas_permitidos = ['es', 'en', 'fr'];
+        
+        if (in_array($idioma, $idiomas_permitidos)) {
+            // Guardamos la cookie por 30 días.
+            setcookie('idioma_usuario', $idioma, time() + (30 * 24 * 60 * 60), '/');
+            $_COOKIE['idioma_usuario'] = $idioma;
+        }
+    }
+    
+    // Obtenemos el idioma actual (cookie o español por defecto).
+    $idioma_actual = isset($_COOKIE['idioma_usuario']) ? $_COOKIE['idioma_usuario'] : 'es';
+
+    // Estructura de control 'if'.
+    // Verificamos si el usuario está autenticado y tiene permisos.
     if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
         header('Location: /student006/shop/backend/forms/form_login.php?error=session_required');
         exit();
@@ -17,7 +35,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<?php echo $idioma_actual; ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -108,6 +126,43 @@
                         <a href="/student006/shop/backend/php/logout.php" class="logout-link">
                             Cerrar Sesión
                         </a>
+                        |
+                        <!-- Selector de idiomas -->
+                        <div class="dropdown d-inline">
+                            <button class="btn btn-sm dropdown-toggle selector-idioma" type="button" id="selectorIdioma" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-translate"></i>
+                                <?php 
+                                    // Mostramos el idioma actual con su bandera.
+                                    $idiomas = [
+                                        'es' => 'ES 🇪🇸',
+                                        'en' => 'EN 🇬🇧',
+                                        'fr' => 'FR 🇫🇷'
+                                    ];
+                                    echo $idiomas[$idioma_actual];
+                                ?>
+                            </button>
+                            <!-- Opciones de idiomas -->
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="selectorIdioma">
+                                <li>
+                                    <a class="dropdown-item <?php echo ($idioma_actual === 'es') ? 'active' : ''; ?>" 
+                                       href="?lang=es">
+                                        🇪🇸 Español
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item <?php echo ($idioma_actual === 'en') ? 'active' : ''; ?>" 
+                                       href="?lang=en">
+                                        🇬🇧 English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item <?php echo ($idioma_actual === 'fr') ? 'active' : ''; ?>" 
+                                       href="?lang=fr">
+                                        🇫🇷 Français
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>

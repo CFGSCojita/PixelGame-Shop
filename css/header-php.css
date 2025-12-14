@@ -80,3 +80,25 @@ body {
     background-color: var(--color-primary) !important;
     color: var(--color-text) !important;
 }
+
+/* Selector de idiomas */
+.selector-idioma {
+    background-color: transparent;
+    border: 1px solid var(--color-text);
+    color: var(--color-text) !important;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.selector-idioma:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text) !important;
+}
+
+/* Item activo en el selector de idiomas */
+.dropdown-item.active {
+    background-color: var(--color-accent) !important;
+    color: var(--color-bg) !important;
+}
