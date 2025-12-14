@@ -184,6 +184,36 @@
     text-decoration: underline;
 }
 
+/* Texto de ayuda */
+.texto-ayuda {
+    display: block;
+    margin-top: 5px;
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Input de archivo */
+.form-elemento input[type="file"] {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.form-elemento input[type="file"]::-webkit-file-upload-button {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+.form-elemento input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+}
+
 /* Responsive - Móvil */
 @media (max-width: 768px) {
     .contenedor-form {

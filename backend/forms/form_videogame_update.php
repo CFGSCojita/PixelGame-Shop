@@ -37,7 +37,7 @@
 <div class="contenedor-form">
     <h1>Actualizar Videojuego</h1>
 
-    <form action="/student006/shop/backend/db/db_videogame_update.php" method="POST">
+    <form action="/student006/shop/backend/db/db_videogame_update.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="videogame_id" value="<?php echo $videogame['videogame_id']; ?>">
         
         <!-- Título -->
@@ -101,6 +101,16 @@
                       minlength="10" 
                       maxlength="1000"
                       required><?php echo htmlspecialchars($videogame['description']); ?></textarea>
+        </div>
+
+        <!-- Nueva imagen -->
+        <div class="form-elemento">
+            <label for="image">Cambiar imagen (opcional):</label>
+            <input type="file" 
+                id="image" 
+                name="image" 
+                accept="image/jpeg,image/png,image/webp">
+            <small class="texto-ayuda">Deja vacío para mantener la imagen actual. Tamaño máximo: 2MB</small>
         </div>
 
         <!-- Fecha de lanzamiento -->

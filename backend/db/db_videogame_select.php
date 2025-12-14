@@ -7,6 +7,7 @@ $sql = "SELECT
             v.title, 
             v.description, 
             v.price, 
+            v.image_path,
             c.name AS category_name,
             p.name AS platform_name,
             COUNT(r.review_id) AS review_count

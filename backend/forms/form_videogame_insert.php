@@ -22,7 +22,7 @@
     <h1>Añadir Videojuego</h1>
 
     <!-- Formulario -->
-    <form action="/student006/shop/backend/db/db_videogame_insert.php" method="POST">
+    <form action="/student006/shop/backend/db/db_videogame_insert.php" method="POST" enctype="multipart/form-data">
         
         <!-- Título -->
         <div class="form-elemento">
@@ -112,6 +112,16 @@
                    title="Solo se pueden poner números enteros positivos"
                    placeholder="Ej: 100"
                    required>
+        </div>
+
+        <!-- Imagen -->
+        <div class="form-elemento">
+            <label for="image">Imagen del videojuego (JPG, PNG, WEBP):</label>
+            <input type="file" 
+                id="image" 
+                name="image" 
+                accept="image/jpeg,image/png,image/webp">
+            <small class="texto-ayuda">Tamaño máximo: 2MB</small>
         </div>
 
         <!-- Botón de envío -->

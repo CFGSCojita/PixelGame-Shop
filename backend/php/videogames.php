@@ -36,7 +36,15 @@
 
         <div class="videogame-entry">
 
-            <span class="videogame-image-placeholder">🎮</span>
+            <!-- Estructura de control 'if' -->
+            <!-- Si el videojuego tiene imagen, la mostramos. Si no, mostramos el placeholder. -->
+            <?php if (!empty($game['image_path'])): ?>
+                <img src="/student006/shop/assets/img/<?php echo htmlspecialchars($game['image_path']); ?>" 
+                    alt="<?php echo htmlspecialchars($game['title']); ?>" 
+                    class="videogame-image">
+            <?php else: ?>
+                <span class="videogame-image-placeholder">🎮</span>
+            <?php endif; ?>
 
             <div class="videogame-details">
                 <h3><?php echo htmlspecialchars($game['title']); ?></h3>
