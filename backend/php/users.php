@@ -75,6 +75,8 @@
     Volver al Panel Principal
 </a>
 
+<script src="/student006/shop/js/gestionarUsuariosAJAX.js"></script> <!-- Script para gestionar usuarios con AJAX -->
+
 <?php
     mysqli_close($conn);
     

@@ -84,6 +84,8 @@
 
     <!-- Enlace para volver -->
     <a href="/student006/shop/backend/php/users.php" class="link-volver">← Volver a Usuarios</a>
+
+    <script src="/student006/shop/js/gestionarUsuariosAJAX.js"></script> <!-- Script para gestionar usuarios con AJAX -->
 </div>
 
 <!-- Llamada al footer a través del directorio root. -->
