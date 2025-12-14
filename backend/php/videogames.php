@@ -93,6 +93,7 @@
 </a>
 
 <script src="/student006/shop/js/gestionarCarritoAJAX.js"></script> <!-- Script para gestionar el carrito con AJAX -->
+<script src="/student006/shop/js/gestionarVideojuegosAJAX.js"></script> <!-- Script para gestionar el formulario mediante AJAX -->
 <script src="/student006/shop/js/buscarVideojuegos.js"></script> <!-- Script para que funcione el buscador de videojuegos -->
 
 <?php

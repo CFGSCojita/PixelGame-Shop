@@ -120,6 +120,8 @@
 
     <!-- Enlace para volver -->
     <a href="/student006/shop/backend/php/videogames.php" class="link-volver">← Volver a Videojuegos</a>
+
+    <script src="/student006/shop/js/gestionarVideojuegosAJAX.js"></script> <!-- Script para gestionar el formulario mediante AJAX -->
 </div>
 
 <?php
