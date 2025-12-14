@@ -19,20 +19,8 @@
     $result_game = mysqli_query($conn, $sql_game);
     $game = mysqli_fetch_assoc($result_game);
     
-    // Obtenemos todas las reviews de este videojuego.
-    $sql_reviews = "SELECT 
-                        r.review_id,
-                        r.rating,
-                        r.comment,
-                        r.review_date,
-                        u.name AS user_name
-                    FROM 006_reviews r
-                    JOIN 006_users u ON r.user_id = u.user_id
-                    WHERE r.videogame_id = '$videogame_id'
-                    ORDER BY r.review_date DESC";
-    
-    $result_reviews = mysqli_query($conn, $sql_reviews);
-    $reviews = mysqli_fetch_all($result_reviews, MYSQLI_ASSOC);
+    // Incluimos el archivo que obtiene las reviews.
+    include($root_DIR . '/student006/shop/backend/db/db_review_select.php');
 ?>
 
 <!-- CSS específico de reviews -->
@@ -72,6 +60,34 @@
             <p class="review-date">
                 📅 <?php echo date('d/m/Y H:i', strtotime($review['review_date'])); ?>
             </p>
+
+            <!-- BOTONES ADMIN: Validar o Eliminar review -->
+            <?php if ($_SESSION['role'] === 'admin'): ?>
+                <div class="admin-actions">
+                    
+                    <!-- Si NO está validada, mostramos botón de VALIDAR -->
+                    <?php if ($review['validated'] == 0): ?>
+                        <form method="POST" action="/student006/shop/backend/db/db_review_validate.php">
+                            <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($review['review_id']); ?>">
+                            <button type="submit" class="btn-validar">
+                                ✓ Validar Review
+                            </button>
+                        </form>
+                    <?php else: ?>
+                        <!-- Si YA está validada, mostramos un indicador -->
+                        <span class="review-validada">✓ Review Validada</span>
+                    <?php endif; ?>
+
+                    <!-- Botón ELIMINAR (siempre disponible para admin) -->
+                    <form method="POST" action="/student006/shop/backend/db/db_review_delete.php"
+                        onsubmit="return confirm('¿Estás seguro de que quieres eliminar esta review?');">
+                        <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($review['review_id']); ?>">
+                        <button type="submit" class="btn-eliminar-review">
+                            🗑️ Eliminar Review
+                        </button>
+                    </form>
+                </div>
+            <?php endif; ?>
         </div>
 
     <?php endforeach; ?>
@@ -81,6 +97,8 @@
 
 <br/>
 <a href="/student006/shop/backend/php/videogames.php" class="enlace-volver">← Volver a Videojuegos</a>
+
+<script src="/student006/shop/js/gestionarReviewsAJAX.js"></script>
 
 <?php
     mysqli_close($conn);

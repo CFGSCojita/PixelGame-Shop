@@ -2,26 +2,24 @@
     // Iniciamos la sesión.
     session_start();
 
+    // Verificamos que sea admin
+    if ($_SESSION['role'] !== 'admin') {
+        header('Content-Type: application/json');
+        echo json_encode(['success' => false, 'error' => 'No tienes permisos']);
+        exit();
+    }
+
     // Llamada y conexión a la base de datos a través del directorio root.
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
-    // Obtenemos el user_id desde la sesión.
-    $user_id = $_SESSION['user_id'];
-    
-    // Obtenemos y limpiamos el review_id recibido por el POST.
+    // Obtenemos el review_id recibido por el POST.
     $review_id = mysqli_real_escape_string($conn, $_POST['review_id']);
 
-    // Preparamos la consulta SQL para eliminar la review.
-    // Si es ADMIN: puede eliminar cualquier review (sin filtro de user_id)
-    // Si es CUSTOMER: solo puede eliminar sus propias reviews
-    if ($_SESSION['role'] === 'admin') {
-        $sql = "DELETE FROM 006_reviews 
-                WHERE review_id = '$review_id'";
-    } else {
-        $sql = "DELETE FROM 006_reviews 
-                WHERE review_id = '$review_id' AND user_id = '$user_id'";
-    }
+    // Preparamos la consulta SQL para validar la review (poner validated = 1).
+    $sql = "UPDATE 006_reviews 
+            SET validated = 1
+            WHERE review_id = '$review_id'";
 
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
