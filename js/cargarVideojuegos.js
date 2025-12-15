@@ -1,10 +1,19 @@
+
+// Determinamos si estamos en entorno local o remoto.    
+const esLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+// Definimos la URL base de la API según el entorno.
+const API_BASE_URL = esLocal
+    ? '/student006/shop/backend/endpoints/' 
+    : 'https://remotehost.es/student006/shop/backend/endpoints/';
+
 // Función para cargar videojuegos desde la API
 async function cargarVideojuegos(pagina = 1) {
     // Estructura 'try-catch'.
     // Intentará obtener la respuesta de la API y crear las tarjetas. En caso de que haya algún error, lo capturará.
     try {
         // Llamada al endpoint de la API
-        const respuesta = await fetch(`backend/endpoints/get_videogames.php?pagina=${pagina}`); // Incluimos el parámetro de página.
+        const respuesta = await fetch(`${API_BASE_URL}get_videogames.php?pagina=${pagina}`); // Incluimos el parámetro de página.
         const datos = await respuesta.json(); // Suponemos que la respuesta es un JSON.
 
         const grid = document.querySelector('.productes-grid'); // Obtener la grid de los productos con document.
