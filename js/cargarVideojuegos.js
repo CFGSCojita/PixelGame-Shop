@@ -40,6 +40,17 @@ async function cargarVideojuegos(pagina = 1) {
                 <button class="btn-afegir">Añadir al Carrito</button>
             `;
             grid.appendChild(tarjeta); // Añadimos la tarjeta a la grid.
+
+            
+            tarjeta.style.cursor = 'pointer'; // Cambiamos el cursor al pasar por encima de la tarjeta.
+
+            // Añadimos un evento click a la tarjeta para ir al detalle del producto
+            tarjeta.addEventListener('click', (e) => {
+                // Si NO pulsaron el botón, vamos a detalle
+                if (!e.target.classList.contains('btn-afegir')) {
+                    window.location.href = `views/product-detail.html?id=${game.videogame_id}`; // Redirigimos a la página de detalle con el ID del videojuego.
+                }
+            });
         });
 
         generarPaginacion(datos.pagina_actual, datos.total_paginas); // Llamamos a la función para generar la paginación.
