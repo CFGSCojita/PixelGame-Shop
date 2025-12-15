@@ -10,6 +10,8 @@
         // Validamos que sea un idioma permitido.
         $idiomas_permitidos = ['es', 'en', 'fr'];
         
+        // Estructura de control 'if'.
+        // Si el idioma es válido, guardamos la preferencia en una cookie.
         if (in_array($idioma, $idiomas_permitidos)) {
             // Guardamos la cookie por 30 días.
             setcookie('idioma_usuario', $idioma, time() + (30 * 24 * 60 * 60), '/');
