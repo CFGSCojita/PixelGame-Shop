@@ -25,8 +25,8 @@ async function cargarDetalle() {
         // Rellenamos el precio
         document.querySelector('.preu').textContent = `${parseFloat(videojuego.price).toFixed(2)}€`;
         
-        // Rellenamos la descripción (dentro de la pestaña)
-        const elementoDescripcion = document.querySelector('.tab-content p');
+        // Rellenamos la descripción (dentro del contenedor de pestañas)
+        const elementoDescripcion = document.querySelector('.p-8 p');
         if (elementoDescripcion) {
             elementoDescripcion.textContent = videojuego.description;
         }
@@ -51,14 +51,50 @@ async function cargarDetalle() {
             ultimoElementoRuta.textContent = videojuego.title;
         }
         
-        // Actualizamos el stock disponible (opcional)
-        // Si tienes un elemento para mostrarlo, puedes añadir:
-        // document.querySelector('.stock').textContent = `Stock: ${videojuego.stock}`;
+        // Configuramos los botones de cantidad
+        configurarBotonesCantidad();
         
     } catch (error) {
         console.error('Error al cargar el detalle:', error);
         alert('No se ha podido cargar el videojuego');
     }
+}
+
+// Función para manejar los botones de cantidad (+ y -)
+function configurarBotonesCantidad() {
+    // Buscamos el contenedor de la sección "Cantidad" usando el texto del <p>
+    const seccionCantidad = Array.from(document.querySelectorAll('p'))
+        .find(p => p.textContent.trim() === 'Cantidad')?.parentElement;
+    
+    // Estructura de control 'if'.
+    // Si no se encuentra la sección, mostramos un error y salimos de la función.
+    if (!seccionCantidad) {
+        console.error('No se encontró la sección de cantidad');
+        return;
+    }
+    
+    // Dentro de esa sección, buscamos el span y los botones
+    const cantidadElemento = seccionCantidad.querySelector('span.text-xl');
+    const botones = seccionCantidad.querySelectorAll('button');
+    
+    let cantidad = 1; // Declaramos una variable con la cantidad inicial.
+    cantidadElemento.textContent = cantidad; // Inicializamos el contenido del span.
+    
+    // Botón decrementar (primer botón = índice 0)
+    botones[0].addEventListener('click', () => {
+        // Estructura de control 'if'.
+        // Solo decrementamos si la cantidad es mayor que 1.
+        if (cantidad > 1) {
+            cantidad--;
+            cantidadElemento.textContent = cantidad;
+        }
+    });
+    
+    // Botón incrementar (segundo botón = índice 1)
+    botones[1].addEventListener('click', () => {
+        cantidad++; // Incrementamos la cantidad.
+        cantidadElemento.textContent = cantidad; // Actualizamos el contenido del span.
+    });
 }
 
 // Cuando la página esté cargada, ejecutamos la función
