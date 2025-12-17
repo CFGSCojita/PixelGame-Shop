@@ -26,7 +26,7 @@ async function cargarDetalle() {
         document.querySelector('.preu').textContent = `${parseFloat(videojuego.price).toFixed(2)}€`;
         
         // Rellenamos la descripción (dentro del contenedor de pestañas)
-        const elementoDescripcion = document.querySelector('.p-8 p');
+        const elementoDescripcion = document.querySelector('.contingut-tab p');
         if (elementoDescripcion) {
             elementoDescripcion.textContent = videojuego.description;
         }
