@@ -18,9 +18,27 @@ async function cargarDetalle() {
         // Hacemos la petición al endpoint con el ID del videojuego
         const respuesta = await fetch(`${API_BASE_URL}get_videogame_detail.php?id=${idVideojuego}`);
         const videojuego = await respuesta.json();
-        
+
         // Rellenamos el título principal
         document.querySelector('h1').textContent = videojuego.title;
+
+        const contenedorImagen = document.querySelector('.imatge-principal'); // Guardamos el contenedor de la imagen en una variable.
+
+        // Estructura de control 'if'.
+        // Si el contenedor de la imagen existe, procedemos a rellenarlo.
+        if (contenedorImagen) {
+            if (videojuego.image_path) {
+                // Si hay imagen, la mostramos
+                contenedorImagen.innerHTML = `<img src="/student006/shop/assets/img/${videojuego.image_path}" 
+                                                alt="${videojuego.title}" 
+                                                class="w-full h-full object-cover rounded">`;
+            } else {
+                // Si no hay imagen, mostramos el placeholder
+                contenedorImagen.innerHTML = `
+                    <span style="font-size: 5rem; color: #999;">🎮</span>
+                `;
+            }
+        }
         
         // Rellenamos el precio
         document.querySelector('.preu').textContent = `${parseFloat(videojuego.price).toFixed(2)}€`;

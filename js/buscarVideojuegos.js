@@ -54,7 +54,7 @@ function mostrarListaCompleta(mostrar) {
 
 // Función para mostrar los resultados de la búsqueda
 function mostrarResultados(videojuegos) {
-    const contenedor = document.getElementById("resultado-busqueda");
+    const contenedor = document.getElementById("resultado-busqueda"); // Guardamos el contenedor donde mostraremos los resultados en una variable.
     
     // Estructura de control 'if'.
     // Si no hay resultados, mostramos un mensaje.
@@ -63,22 +63,44 @@ function mostrarResultados(videojuegos) {
         return;
     }
     
-    // Limpiamos el contenedor antes de añadir nuevos resultados.
-    contenedor.innerHTML = "";
+    contenedor.innerHTML = ""; // Limpiamos el contenedor antes de añadir nuevos resultados.
     
     // Bucle 'forEach'.
-    // Recorremos cada videojuego encontrado y creamos su elemento HTML.
-    videojuegos.forEach(juego => {
-        const div = document.createElement('div');
-        div.style.cssText = 'padding: 10px; border: 1px solid #2A2A2A; margin: 5px 0; background-color: #1A1A1A; border-radius: 4px;';
+    // Recorremos cada videojuego y creamos su entrada en el contenedor.
+    videojuegos.forEach(game => {
+        const div = document.createElement('div'); // Creamos un nuevo div para cada videojuego.
+        div.className = 'videogame-entry'; // Asignamos la clase CSS.
+        div.style.cursor = 'pointer'; // Cambiamos el cursor para indicar que es clicable.
         
+        let imagenHTML; // Variable para almacenar el HTML de la imagen o placeholder.
+
+        // Estructura de control 'if'.
+        // Comprobamos si el videojuego tiene una imagen asociada.
+        if (game.image_path) {
+            imagenHTML = `<img src="/student006/shop/assets/img/${game.image_path}" 
+                            alt="${game.title}" 
+                            class="videogame-image">`;
+        } else {
+            imagenHTML = `<span class="videogame-image-placeholder">🎮</span>`;
+        }
+        
+        // Rellenamos el contenido del div con la información del videojuego.
         div.innerHTML = `
-            <strong style="color: #FCFCFC;">${juego.title}</strong><br>
-            <span style="color: #E6E6E6; font-size: 0.9rem;">
-                ${juego.category_name} | ${juego.platform_name} | ${juego.price}€
-            </span>
+            ${imagenHTML}
+            <div class="videogame-details">
+                <h3>${game.title}</h3>
+                <p>${parseFloat(game.price).toFixed(2)} €</p>
+                <p class="info-secundaria">
+                    Categoría: ${game.category_name} | Plataforma: ${game.platform_name}
+                </p>
+            </div>
         `;
         
-        contenedor.appendChild(div);
+        // Click para ir al detalle
+        div.addEventListener('click', () => {
+            window.location.href = `/student006/shop/views/product-detail.html?id=${game.videogame_id}`;
+        });
+        
+        contenedor.appendChild(div); // Añadimos el div al contenedor de resultados.
     });
 }

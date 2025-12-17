@@ -22,7 +22,7 @@
   /* Badge "Nou" per marcar productes destacats */
   .badge-nou {
     /* Posicionament absolut a la cantonada superior esquerra de la imatge */
-    @apply absolute top-3 left-3 px-3 py-1 rounded text-xs font-semibold bg-cyan text-negre;
+    @apply absolute top-3 left-3 z-10 px-3 py-1 rounded text-xs font-semibold bg-cyan text-negre ;
   }
 
   /* Badge de descompte (percentatge) */
@@ -70,7 +70,7 @@
   /* Targeta blanca (contenidor genèric) */
   .targeta-blanc {
     /* Contenidor amb fons blanc, cantonades arrodonides i padding */
-    @apply bg-blanc rounded-lg p-6;
+    @apply bg-blanc rounded-lg p-6 mb-4 overflow-hidden;
   }
 
   /* Miniatura d'imatge (galeria de producte) */

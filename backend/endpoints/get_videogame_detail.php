@@ -16,6 +16,7 @@
                 v.title, 
                 v.description,
                 v.price,
+                v.image_path,
                 v.stock,
                 c.name AS category_name,
                 p.name AS platform_name

@@ -21,6 +21,7 @@
                 v.videogame_id, 
                 v.title, 
                 v.price,
+                v.image_path,
                 c.name AS category_name,
                 p.name AS platform_name
             FROM 006_videogames AS v

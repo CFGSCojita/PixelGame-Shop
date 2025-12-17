@@ -22,15 +22,27 @@ async function cargarVideojuegos(pagina = 1) {
         // Bucle 'forEach'.
         // Recorrerá los videojuegos e irá creando las tarjetas.
         datos.videogames.forEach(game => {
-            const tarjeta = document.createElement('article'); // Creamos un elemento 'article' para cada videojuego.
+            const tarjeta = document.createElement('article'); // Creamos un elemento 'article' para cada tarjeta.
             tarjeta.className = 'tarjeta-producte'; // Asignamos la clase CSS.
 
-            // Rellenamos el contenido de la tarjeta con los datos del videojuego:
+            let imagenHTML; // Declaramos una variable para la imagen.
+
+            // Estructura de control 'if'.
+            // Si el videojuego tiene imagen, la mostramos. Si no, mostramos un placeholder.
+            if (game.image_path) {
+                imagenHTML = `<img src="/student006/shop/assets/img/${game.image_path}" alt="${game.title}">`;
+            } else {
+                imagenHTML = `
+                    <div style="width: 100%; height: 220px; background: #E6E6E6; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem; color: #666;">🎮</span>
+                    </div>
+                `;
+            }
+
+            // Rellenamos el contenido HTML de la tarjeta.
             tarjeta.innerHTML = `
                 <div class="imatge">
-                    <div style="width: 100%; height: 100%; background: #E6E6E6; display: flex; align-items: center; justify-content: center; color: #666;">
-                        <span style="font-size: 3rem; display: block; transform: translateY(150%);">🎮</span>
-                    </div>
+                    ${imagenHTML}
                 </div>
                 <h3>${game.title}</h3>
                 <p style="font-size: 0.85rem; color: #666;">
@@ -39,16 +51,15 @@ async function cargarVideojuegos(pagina = 1) {
                 <p class="preu">${parseFloat(game.price).toFixed(2)}€</p>
                 <button class="btn-afegir">Añadir al Carrito</button>
             `;
-            grid.appendChild(tarjeta); // Añadimos la tarjeta a la grid.
-
             
+            grid.appendChild(tarjeta); // Añadimos la tarjeta a la grid.
+ 
             tarjeta.style.cursor = 'pointer'; // Cambiamos el cursor al pasar por encima de la tarjeta.
 
-            // Añadimos un evento click a la tarjeta para ir al detalle del producto
+            // Click en la tarjeta para ir al detalle
             tarjeta.addEventListener('click', (e) => {
-                // Si NO pulsaron el botón, vamos a detalle
                 if (!e.target.classList.contains('btn-afegir')) {
-                    window.location.href = `views/product-detail.html?id=${game.videogame_id}`; // Redirigimos a la página de detalle con el ID del videojuego.
+                    window.location.href = `views/product-detail.html?id=${game.videogame_id}`;
                 }
             });
         });
