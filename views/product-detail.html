@@ -5,138 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del producto - PixelGame Shop</title>
 
-    <!-- Favicon -->
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon" />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
-    <!-- Header i Footer -->
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     
-    <!-- Output CSS de Tailwind -->
     <link rel="stylesheet" href="../css/output.css">
 </head>
 <body class="flex flex-col min-h-screen">
     
-    <!-- Contenidor del Header (carregat dinàmicament) -->
     <div id="contenidor-header"></div>
 
-    <!-- Contingut principal -->
-    <main class="grow bg-(--color-gris) py-6 px-5 md:py-8 md:px-10 lg:py-10 lg:px-20">
+    <main class="grow bg-gris py-6 px-5 md:py-8 md:px-10 lg:py-10 lg:px-20">
         
-        <!-- Ruta de navegació (breadcrumb) -->
         <nav class="mb-6">
-            <ul class="flex gap-2 text-sm text-(--color-negre)">
-                <li><a href="../index.html" class="hover:text-(--color-rosa)">Inicio</a></li>
+            <ul class="flex gap-2 text-sm text-negre">
+                <li><a href="../index.html" class="hover:text-rosa">Inicio</a></li>
                 <li>/</li>
-                <li><a href="#" class="hover:text-(--color-rosa)">PS5</a></li>
+                <li><a href="#" class="hover:text-rosa">PS5</a></li>
                 <li>/</li>
-                <li><a href="#" class="hover:text-(--color-rosa)">Acción</a></li>
+                <li><a href="#" class="hover:text-rosa">Acción</a></li>
                 <li>/</li>
-                <li class="text-(--color-rosa)">Cyberpunk 2077</li>
+                <li class="text-rosa">Cyberpunk 2077</li>
             </ul>
         </nav>
 
-        <!-- Contenidor principal del producte (grid responsive) -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
             
-            <!-- Galeria d'imatges (columna esquerra) -->
             <div>
-                <!-- Imatge principal del producte -->
-                <div class="bg-(--color-blanc) rounded-lg p-6 mb-4">
+                <div class="targeta-blanc mb-4">
                     <div class="relative">
-                        <!-- Badge de "Nou" -->
                         <span class="badge-nou">NUEVO</span>
-                        <!-- Placeholder de la imatge principal -->
                         <div class="w-full aspect-square bg-gray-200 rounded flex items-center justify-center">
                             <i class="w-20 h-20 text-gray-400" data-lucide="image"></i>
                         </div>
                     </div>
                 </div>
 
-                <!-- Miniatures (només visibles en tablet i desktop) -->
                 <div class="hidden md:grid grid-cols-4 gap-3">
-                    <div class="aspect-square bg-(--color-blanc) rounded cursor-pointer hover:opacity-75 transition-opacity"></div>
-                    <div class="aspect-square bg-(--color-blanc) rounded cursor-pointer hover:opacity-75 transition-opacity"></div>
-                    <div class="aspect-square bg-(--color-blanc) rounded cursor-pointer hover:opacity-75 transition-opacity"></div>
-                    <div class="aspect-square bg-(--color-blanc) rounded cursor-pointer hover:opacity-75 transition-opacity"></div>
+                    <div class="miniatura-imatge"></div>
+                    <div class="miniatura-imatge"></div>
+                    <div class="miniatura-imatge"></div>
+                    <div class="miniatura-imatge"></div>
                 </div>
             </div>
 
-            <!-- Informació del producte (columna dreta) -->
-            <div class="bg-(--color-blanc) rounded-lg p-6">
-                <!-- Capçalera: Títol i icona de favorit -->
+            <div class="targeta-blanc">
                 <div class="flex justify-between items-start mb-4">
-                    <h1 class="text-3xl font-bold text-(--color-negre)">Cyberpunk 2077</h1>
+                    <h1 class="text-3xl font-bold text-negre">Cyberpunk 2077</h1>
                     <i class="icona-preferit" data-lucide="heart"></i>
                 </div>
 
-                <!-- Valoració amb estrelles i nombre de reviews -->
                 <div class="flex items-center gap-3 mb-6">
                     <div class="flex gap-1">
-                        <i class="w-5 h-5 text-yellow-500" data-lucide="star"></i>
-                        <i class="w-5 h-5 text-yellow-500" data-lucide="star"></i>
-                        <i class="w-5 h-5 text-yellow-500" data-lucide="star"></i>
-                        <i class="w-5 h-5 text-yellow-500" data-lucide="star"></i>
-                        <i class="w-5 h-5 text-yellow-500" data-lucide="star"></i>
+                        <i class="icona-estrella" data-lucide="star"></i>
+                        <i class="icona-estrella" data-lucide="star"></i>
+                        <i class="icona-estrella" data-lucide="star"></i>
+                        <i class="icona-estrella" data-lucide="star"></i>
+                        <i class="icona-estrella" data-lucide="star"></i>
                     </div>
                     <span class="text-sm text-gray-600">(4.8) | 2k reviews</span>
                 </div>
 
-                <!-- Selector de plataforma -->
                 <div class="mb-6">
-                    <p class="text-sm text-gray-600 mb-3">Elige una plataforma</p>
+                    <p class="etiqueta-seccio">Elige una plataforma</p>
                     <div class="flex gap-3 flex-wrap">
                         <button class="plataforma-btn">PS5</button>
                         <button class="plataforma-btn">PC</button>
                     </div>
                 </div>
 
-                <!-- Preu, preu original i descompte -->
                 <div class="flex items-center gap-4 mb-6 flex-wrap">
                     <span class="preu">$54</span>
-                    <span class="text-xl text-gray-400 line-through">$69.99</span>
-                    <span class="px-3 py-1 bg-(--color-rosa) text-(--color-blanc) rounded text-sm font-semibold">-23%</span>
+                    <span class="preu-original">$69.99</span>
+                    <span class="badge-descompte">-23%</span>
                 </div>
 
-                <!-- Selector de quantitat -->
                 <div class="mb-6">
-                    <p class="text-sm text-gray-600 mb-3">Cantidad</p>
+                    <p class="etiqueta-seccio">Cantidad</p>
                     <div class="flex items-center gap-4">
-                        <!-- Botó decrementar -->
-                        <button class="w-10 h-10 rounded border-2 border-gray-300 hover:border-(--color-cyan) transition-colors flex items-center justify-center text-xl">-</button>
-                        <!-- Quantitat actual -->
+                        <button class="btn-quantitat">-</button>
                         <span class="text-xl font-semibold w-8 text-center">2</span>
-                        <!-- Botó incrementar -->
-                        <button class="w-10 h-10 rounded border-2 border-gray-300 hover:border-(--color-cyan) transition-colors flex items-center justify-center text-xl">+</button>
+                        <button class="btn-quantitat">+</button>
                     </div>
                 </div>
 
-                <!-- Botons d'acció principals -->
                 <div class="space-y-3">
-                    <!-- Botó principal: Afegir al carret -->
                     <button class="btn-afegir">+ Añadir al Carrito</button>
-                    <!-- Botó secundari: Guardar per més tard -->
                     <button class="btn-mestard">Guardar para más tarde</button>
                 </div>
             </div>
         </div>
 
-        <!-- Sistema de pestanyes (Tabs) per mostrar informació addicional -->
-        <div class="bg-(--color-blanc) rounded-lg overflow-hidden">
-            <!-- Capçaleres de les pestanyes -->
-            <div class="flex border-b border-gray-200">
+        <div class="contenidor-tabs">
+            <div class="barra-tabs">
                 <button class="tab-btn">Descripción</button>
                 <button class="tab-btn">Especificación</button>
                 <button class="tab-btn">Reviews</button>
             </div>
 
-            <!-- Contingut de la pestanya activa -->
-            <div class="p-8">
+            <div class="contingut-tab">
                 <p class="text-gray-600 leading-relaxed">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -146,12 +118,10 @@
         </div>
     </main>
 
-    <!-- Contenidor del Footer (carregat dinàmicament) -->
     <div id="contenidor-footer"></div>
 
-    <!-- Scripts necessaris -->
-    <script src="https://unpkg.com/lucide@latest"></script> <!-- Llibreria d'icones Lucide -->
-    <script src="../js/cargaHeaderYFooter.js"></script> <!-- Script per carregar header i footer dinàmicament -->
-    <script src="../js/cargarDetalleVideojuego.js"></script> <!-- Script per carregar el detall del videojoc -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/cargaHeaderYFooter.js"></script>
+    <script src="../js/cargarDetalleVideojuego.js"></script>
 </body>
 </html>

@@ -2,20 +2,18 @@
 @import "tailwindcss";
 
 /* Capa de theme: Definim les variables CSS globals del projecte */
-@layer theme {
-  :root {
-    /* Paleta de colors seguint la guia d'estil de PixelGame Shop */
-    --color-rosa: #FF3366;      /* Color primari per botons i accents */
-    --color-cyan: #00CCFF;      /* Color secundari per hovers i enllaços */
-    --color-negre: #0A0A0A;     /* Fons principal fosc */
-    --color-blanc: #FCFCFC;     /* Text principal i targetes */
-    --color-gris: #E6E6E6;      /* Text secundari i fons clar */
-    --color-border: #2A2A2A;    /* Borders subtils */
-    
-    /* Tipografies del projecte */
-    --font-poppins: 'Poppins', sans-serif;    /* Font principal per tot el text */
-    --font-rajdhani: 'Rajdhani', sans-serif;  /* Font per preus i números */
-  }
+@theme {
+  /* Paleta de colors seguint la guia d'estil de PixelGame Shop */
+  --color-rosa: #FF3366;      /* Color primari per botons i accents */
+  --color-cyan: #00CCFF;      /* Color secundari per hovers i enllaços */
+  --color-negre: #0A0A0A;     /* Fons principal fosc */
+  --color-blanc: #FCFCFC;     /* Text principal i targetes */
+  --color-gris: #E6E6E6;      /* Text secundari i fons clar */
+  --color-border: #2A2A2A;    /* Borders subtils */
+  
+  /* Tipografies del projecte */
+  --font-poppins: 'Poppins', sans-serif;    /* Font principal per tot el text */
+  --font-rajdhani: 'Rajdhani', sans-serif;  /* Font per preus i números */
 }
 
 /* Capa de components: Classes reutilitzables específiques del detall de producte */
@@ -24,25 +22,37 @@
   /* Badge "Nou" per marcar productes destacats */
   .badge-nou {
     /* Posicionament absolut a la cantonada superior esquerra de la imatge */
-    @apply absolute top-3 left-3 px-3 py-1 rounded text-xs font-semibold bg-(--color-cyan) text-(--color-negre);
+    @apply absolute top-3 left-3 px-3 py-1 rounded text-xs font-semibold bg-cyan text-negre;
+  }
+
+  /* Badge de descompte (percentatge) */
+  .badge-descompte {
+    /* Badge rosa amb el percentatge de descompte */
+    @apply px-3 py-1 bg-rosa text-blanc rounded text-sm font-semibold;
   }
 
   /* Botó principal "Afegir al Carret" */
   .btn-afegir {
     /* Botó ample complet amb colors primaris i efecte hover */
-    @apply w-full px-6 py-3 bg-(--color-rosa) text-(--color-blanc) rounded-lg font-semibold hover:bg-(--color-cyan) hover:text-(--color-negre) transition-all;
+    @apply w-full px-6 py-3 bg-rosa text-blanc rounded-lg font-semibold hover:bg-cyan hover:text-negre transition-all;
   }
 
   /* Botó secundari "Guardar per més tard" */
   .btn-mestard {
     /* Botó outline amb borde cyan i efecte hover que omple el fons */
-    @apply w-full px-6 py-3 bg-transparent border-2 border-(--color-cyan) text-(--color-cyan) rounded-lg font-semibold hover:bg-(--color-cyan) hover:text-(--color-negre) transition-all;
+    @apply w-full px-6 py-3 bg-transparent border-2 border-cyan text-cyan rounded-lg font-semibold hover:bg-cyan hover:text-negre transition-all;
   }
 
   /* Botons de selecció de plataforma (PS5, PC, etc.) */
   .plataforma-btn {
     /* Botons petits amb borde subtil que es resalta en hover */
-    @apply px-4 py-2 bg-gray-100 text-gray-600 rounded border-2 border-transparent hover:border-(--color-cyan) transition-all cursor-pointer;
+    @apply px-4 py-2 bg-gray-100 text-gray-600 rounded border-2 border-transparent hover:border-cyan transition-all cursor-pointer;
+  }
+
+  /* Botons de control de quantitat (+/-) */
+  .btn-quantitat {
+    /* Botons quadrats per incrementar/decrementar quantitat */
+    @apply w-10 h-10 rounded border-2 border-gray-300 hover:border-cyan transition-colors flex items-center justify-center text-xl;
   }
 
   /* Pestanyes (Descripció, Especificació, Reviews) */
@@ -54,20 +64,68 @@
   /* Pestanya activa */
   .tab-btn-active {
     /* Pestanya activa amb fons clar i borde inferior cyan */
-    @apply px-6 py-3 bg-gray-100 text-(--color-negre) font-medium border-b-2 border-(--color-cyan) transition-all cursor-pointer;
+    @apply px-6 py-3 bg-gray-100 text-negre font-medium border-b-2 border-cyan transition-all cursor-pointer;
+  }
+
+  /* Targeta blanca (contenidor genèric) */
+  .targeta-blanc {
+    /* Contenidor amb fons blanc, cantonades arrodonides i padding */
+    @apply bg-blanc rounded-lg p-6;
+  }
+
+  /* Miniatura d'imatge (galeria de producte) */
+  .miniatura-imatge {
+    /* Miniatura quadrada amb efecte hover d'opacitat */
+    @apply aspect-square bg-blanc rounded cursor-pointer hover:opacity-75 transition-opacity;
   }
 
   /* Preu del producte */
   .preu {
     /* Text gran en vermell/rosa amb la font Rajdhani per èmfasi */
-    @apply text-4xl font-bold text-(--color-rosa);
+    @apply text-4xl font-bold text-rosa;
     font-family: var(--font-rajdhani) !important; 
+  }
+
+  /* Preu original tatxat (abans del descompte) */
+  .preu-original {
+    /* Preu gris tatxat per mostrar el preu anterior al descompte */
+    @apply text-xl text-gray-400 line-through;
   }
 
   /* Icona de cor per afegir a favorits */
   .icona-preferit {
     /* Icona clicable amb efecte hover que canvia de color */
-    @apply w-8 h-8 text-(--color-rosa) hover:text-(--color-cyan) transition-colors cursor-pointer;
+    @apply w-8 h-8 text-rosa hover:text-cyan transition-colors cursor-pointer;
+  }
+
+  /* Icones d'estrelles (valoració) */
+  .icona-estrella {
+    /* Estrella groga per mostrar valoracions */
+    @apply w-5 h-5 text-yellow-500;
+  }
+
+  /* Etiqueta de secció (títols petits com "Elige una plataforma") */
+  .etiqueta-seccio {
+    /* Text petit gris per etiquetar seccions del formulari */
+    @apply text-sm text-gray-600 mb-3;
+  }
+
+  /* Contenidor de pestanyes (tabs) */
+  .contenidor-tabs {
+    /* Contenidor blanc amb overflow hidden per les pestanyes */
+    @apply bg-blanc rounded-lg overflow-hidden;
+  }
+
+  /* Barra de pestanyes (header de tabs) */
+  .barra-tabs {
+    /* Flex container amb borde inferior per les pestanyes */
+    @apply flex border-b border-gray-200;
+  }
+
+  /* Contingut de pestanya */
+  .contingut-tab {
+    /* Padding per al contingut dins d'una pestanya */
+    @apply p-8;
   }
 }
 
