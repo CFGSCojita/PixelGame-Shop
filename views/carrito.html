@@ -9,14 +9,14 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="/student006/shop/img/favicon.png" type="image/x-icon">
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- CSS del Carret (inclou header, footer i carret) -->
+    <!-- CSS del Carret -->
     <link rel="stylesheet" href="../css/sass/carrito.css">
 </head>
 
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    <<main class="contenidor-carret">
+    <main class="contenidor-carret">
         <!-- Breadcrumb de navegació -->
         <nav class="breadcrumb">
             <a href="../index.html">Inicio</a>
@@ -81,11 +81,9 @@
             <span>Carrito de compra</span>
         </nav>
 
-        <!-- Títol del carret amb contador -->
-        <h1 class="titol-carret">
-            Carrito de compra
-            <span class="quantitat-items">(Cantidad: <span id="total-items">3</span>)</span>
-        </h1>
+        <!-- Títol del carret -->
+        <h1 class="titol-carret">Carrito de compra</h1>
+        <span class="quantitat-items">Cantidad: <span id="total-items">3</span></span>
 
         <!-- Layout principal: 2 columnes -->
         <div class="layout-carret">
@@ -105,101 +103,87 @@
                         <div class="info-producte">
                             <h3>Cyberpunk 2077</h3>
                             <span class="plataforma">PC</span>
-                            <p class="sku">SKU: CYB-PS5-2025</p>
-                            <p class="tarifa-info">• Se aplican tarifas</p>
                         </div>
 
-                        <!-- Controls: Preu, quantitat i botons -->
+                        <!-- Controls: preu, quantitat i eliminar -->
                         <div class="controls-producte">
-                            <!-- Preu i descompte -->
+                            <!-- Preu i botó eliminar -->
                             <div class="preu-container">
                                 <span class="preu">$59.99</span>
-                                <span class="descompte">-20%</span>
+                                <button class="btn-eliminar" aria-label="Eliminar producto">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
                             </div>
 
                             <!-- Control de quantitat -->
                             <div class="quantitat-control">
                                 <button aria-label="Disminuir cantidad">-</button>
-                                <input type="number" value="1" min="1" max="10" readonly>
+                                <input type="number" value="1" min="1" readonly aria-label="Cantidad">
                                 <button aria-label="Aumentar cantidad">+</button>
                             </div>
 
-                            <!-- Estat de stock -->
                             <span class="estat-stock">• En stock</span>
                         </div>
-
-                        <!-- Botó d'eliminar -->
-                        <button class="btn-eliminar" aria-label="Eliminar producto">
-                            <i data-lucide="trash-2"></i>
-                        </button>
                     </article>
 
                     <!-- Producte 2 -->
                     <article class="targeta-carret">
                         <div class="imatge-producte">
-                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co87uk.webp"
-                                alt="Sonic Adventure Origins">
+                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7f.webp"
+                                alt="The Witcher 3">
                         </div>
 
                         <div class="info-producte">
-                            <h3>Sonic Adventure Origins</h3>
-                            <span class="plataforma">PC</span>
-                            <p class="sku">SKU: CYB-PC-2025</p>
-                            <p class="tarifa-info">• Se aplican tarifas</p>
+                            <h3>The Witcher 3: Wild Hunt</h3>
+                            <span class="plataforma">PlayStation 5</span>
                         </div>
 
                         <div class="controls-producte">
                             <div class="preu-container">
                                 <span class="preu">$39.99</span>
-                                <span class="descompte">-15%</span>
+                                <button class="btn-eliminar" aria-label="Eliminar producto">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
                             </div>
 
                             <div class="quantitat-control">
                                 <button aria-label="Disminuir cantidad">-</button>
-                                <input type="number" value="1" min="1" max="10" readonly>
+                                <input type="number" value="2" min="1" readonly aria-label="Cantidad">
                                 <button aria-label="Aumentar cantidad">+</button>
                             </div>
 
                             <span class="estat-stock">• En stock</span>
                         </div>
-
-                        <button class="btn-eliminar" aria-label="Eliminar producto">
-                            <i data-lucide="trash-2"></i>
-                        </button>
                     </article>
 
                     <!-- Producte 3 -->
                     <article class="targeta-carret">
                         <div class="imatge-producte">
-                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6pq1.webp"
-                                alt="Starfield">
+                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.webp"
+                                alt="Red Dead Redemption 2">
                         </div>
 
                         <div class="info-producte">
-                            <h3>Starfield</h3>
-                            <span class="plataforma">Xbox</span>
-                            <p class="sku">SKU: CYB-XBOX-2025</p>
-                            <p class="tarifa-info">• Se aplican tarifas</p>
+                            <h3>Red Dead Redemption 2</h3>
+                            <span class="plataforma">Xbox Series X</span>
                         </div>
 
                         <div class="controls-producte">
                             <div class="preu-container">
-                                <span class="preu">$69.99</span>
-                                <span class="descompte">-10%</span>
+                                <span class="preu">$49.99</span>
+                                <button class="btn-eliminar" aria-label="Eliminar producto">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
                             </div>
 
                             <div class="quantitat-control">
                                 <button aria-label="Disminuir cantidad">-</button>
-                                <input type="number" value="1" min="1" max="10" readonly>
+                                <input type="number" value="1" min="1" readonly aria-label="Cantidad">
                                 <button aria-label="Aumentar cantidad">+</button>
                             </div>
 
                             <span class="estat-stock">• En stock</span>
                         </div>
-
-                        <button class="btn-eliminar" aria-label="Eliminar producto">
-                            <i data-lucide="trash-2"></i>
-                        </button>
                     </article>
 
                 </div>
@@ -237,67 +221,65 @@
                         </div>
                         <div class="linia-preu">
                             <span>Envío</span>
-                            <span id="enviament">
-                                <i data-lucide="package"></i>
-                            </span>
+                            <span id="enviament">Gratis</span>
+                        </div>
+                        <div class="linia-preu">
+                            <span><strong>Total</strong></span>
+                            <span id="total"><strong>$139.97</strong></span>
                         </div>
                     </div>
 
                     <!-- Botó finalitzar compra -->
-                    <button class="btn-finalitzar">
-                        Finalizar compra
-                    </button>
+                    <button class="btn-finalitzar">Finalizar compra</button>
 
                     <!-- Llista de garanties -->
                     <ul class="llista-garanties">
-                        <li>Pago 100% seguro</li>
-                        <li>Devolución gratuita 30 días</li>
-                        <li>Garantía de 12 meses</li>
-                        <li>Soporte al cliente 24/7</li>
+                        <li>Envío gratis en pedidos superiores a $50</li>
+                        <li>Devolución gratuita dentro de 30 días</li>
+                        <li>Garantía de satisfacción 100%</li>
                     </ul>
                 </div>
             </aside>
         </div>
-        </main>
+    </main>
 
-        <footer>
-            <div class="contingut-footer">
-                <div class="seccio-footer">
-                    <h4>PixelGame Shop</h4>
-                    <p>Tu tienda de videojuegos de confianza</p>
-                </div>
-
-                <div class="seccio-footer">
-                    <h4>Enlaces</h4>
-                    <ul>
-                        <li><a href="#">Política de privacidad</a></li>
-                        <li><a href="#">Condiciones generales de venta</a></li>
-                        <li><a href="#">Aviso legal</a></li>
-                        <li><a href="#">Incidencias y devoluciones</a></li>
-                    </ul>
-                </div>
-
-                <div class="seccio-footer">
-                    <h4>Síguenos</h4>
-                    <div class="xarxes-socials">
-                        <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-                    </div>
-                </div>
+    <footer>
+        <div class="contingut-footer">
+            <div class="seccio-footer">
+                <h4>PixelGame Shop</h4>
+                <p>Tu tienda de videojuegos de confianza</p>
             </div>
 
-            <div class="copyright">
-                <p>PixelGame Shop - Copyright © 2025 by Stefan Cojita (Project DIW-DWEC-DWES)</p>
+            <div class="seccio-footer">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Condiciones generales de venta</a></li>
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Incidencias y devoluciones</a></li>
+                </ul>
             </div>
-        </footer>
 
-        <!-- Scripts -->
-        <script src="https://unpkg.com/lucide@latest"></script>
-        <script>
-            // Inicialitzar icones de Lucide
-            lucide.createIcons();
-        </script>
+            <div class="seccio-footer">
+                <h4>Síguenos</h4>
+                <div class="xarxes-socials">
+                    <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>PixelGame Shop - Copyright © 2025 by Stefan Cojita (Project DIW-DWEC-DWES)</p>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>
