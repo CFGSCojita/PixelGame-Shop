@@ -1,0 +1,655 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'common';
+
+header {
+  background-color: $color-negre;
+  padding: $espai-md $espai-lg;
+  border-bottom: 1px solid $color-fons-targeta;
+  display: flex;
+  align-items: center;
+  gap: $espai-md;
+  position: relative;
+
+  @media (min-width: $breakpoint-escriptori) {
+    padding: $espai-xl $espai-2xl;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .menu-desplegable {
+    background: none;
+    border: none;
+    color: $color-rosa;
+    cursor: pointer;
+    padding: $espai-xs;
+
+    i {
+      width: 28px;
+      height: 28px;
+    }
+
+    @media (min-width: $breakpoint-escriptori) {
+      display: none;
+    }
+  }
+
+  .logo {
+    display: block;
+
+    img {
+      height: 40px;
+      width: auto;
+
+      @media (min-width: $breakpoint-tablet) {
+        height: 60px;
+      }
+
+      @media (min-width: $breakpoint-escriptori) {
+        height: 100px;
+      }
+    }
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: $color-negre;
+    border-bottom: 1px solid $color-fons-targeta;
+    z-index: 1000;
+
+    &.active {
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding: $espai-lg;
+      
+      @media (min-width: $breakpoint-escriptori) {
+        display: flex;
+        gap: $espai-md;
+        padding: 0;
+        align-items: center;
+      }
+    }
+
+    li { 
+      margin-bottom: $espai-md; 
+
+      @media (min-width: $breakpoint-escriptori) {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $color-gris-clar;
+      padding: $espai-sm;
+      display: block;
+      border-radius: $radi-sm;
+      font-weight: $pes-font-mig;
+      transition: all $transicio-normal;
+
+      &:hover {
+        background-color: $color-cyan;
+        color: $color-negre;
+      }
+
+      @media (min-width: $breakpoint-escriptori) {
+        padding: $espai-sm $espai-md;
+      }
+    }
+
+    @media (min-width: $breakpoint-escriptori) {
+      display: flex;
+      position: static;
+      border: none;
+      background: transparent;
+    }
+  }
+
+  .menu-icons {
+    display: flex;
+    align-items: center;
+    gap: $espai-md;
+    margin-left: auto;
+
+    @media (min-width: $breakpoint-escriptori) {
+      gap: $espai-lg; 
+      margin-left: 0;
+    }
+
+    .buscador-desktop,
+    .icona-cerca-mobil,
+    a {
+      margin-top: $espai-sm;
+    }
+
+    a {
+      color: $color-rosa;
+      text-decoration: none;
+      transition: color $transicio-normal;
+
+      &:hover {
+        color: $color-cyan;
+      }
+
+      i {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.buscador-desktop {
+  position: relative;
+  display: none;
+
+  @media (min-width: $breakpoint-escriptori) {
+    display: block;
+  }
+
+  input {
+    background-color: $color-fons-targeta;
+    border: 2px solid $color-gris-mig;
+    border-radius: $radi-md;
+    padding: 8px 35px 8px 12px;
+    color: $color-gris-clar;
+    font-family: $font-principal;
+    font-size: $mida-font-sm;
+    width: 200px;
+    transition: border-color $transicio-normal;
+
+    &:focus {
+      outline: none;
+      border-color: $color-cyan;
+    }
+
+    &::placeholder {
+      color: $color-gris-mig;
+    }
+  }
+
+  i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $color-cyan;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+  }
+}
+
+.icona-cerca-mobil {
+  background: none;
+  border: none;
+  color: $color-rosa;
+  cursor: pointer;
+  padding: $espai-xs;
+  transition: color $transicio-normal;
+
+  &:hover {
+    color: $color-cyan;
+  }
+
+  i {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (min-width: $breakpoint-escriptori) {
+    display: none;
+  }
+}
+
+.buscador-mobil {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $color-negre;
+  border-bottom: 2px solid $color-fons-targeta;
+  padding: 15px 20px;
+  z-index: 2000;
+
+  &.active {
+    display: block;
+  }
+
+  .buscador-mobil-contenidor {
+    display: flex;
+    align-items: center;
+    gap: $espai-md;
+  }
+
+  input {
+    flex: 1;
+    background-color: $color-fons-targeta;
+    border: 2px solid $color-gris-mig;
+    border-radius: $radi-md;
+    padding: 10px 15px;
+    color: $color-gris-clar;
+    font-family: $font-principal;
+
+    &:focus {
+      outline: none;
+      border-color: $color-cyan;
+    }
+  }
+
+  .tancar-cerca {
+    background: none;
+    border: none;
+    color: $color-rosa;
+    cursor: pointer;
+    padding: $espai-xs;
+
+    i {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+footer {
+  background-color: $color-negre;
+  color: $color-gris-clar;
+  padding: $espai-xl $espai-lg $espai-md;
+  border-top: 2px solid $color-fons-targeta;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: $espai-lg $espai-md $espai-md;
+  }
+
+  .contingut-footer {
+    max-width: 1200px;
+    margin: 0 auto $espai-lg;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $espai-lg;
+
+    @media (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .seccio-footer {
+    h4 {
+      color: $color-blanc;
+      font-size: $mida-font-lg;
+      font-weight: $pes-font-bold;
+      margin-bottom: $espai-md;
+    }
+
+    p {
+      color: $color-gris-clar;
+      font-size: $mida-font-sm;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: $espai-sm;
+
+        a {
+          color: $color-gris-clar;
+          text-decoration: none;
+          font-size: $mida-font-sm;
+          transition: color $transicio-normal;
+
+          &:hover {
+            color: $color-cyan;
+          }
+        }
+      }
+    }
+  }
+
+  .xarxes-socials {
+    display: flex;
+    gap: $espai-md;
+
+    a {
+      color: $color-rosa;
+      transition: color $transicio-normal;
+
+      &:hover {
+        color: $color-cyan;
+      }
+
+      i {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    padding-top: $espai-lg;
+    border-top: 1px solid $color-fons-targeta;
+    color: $color-gris-mig;
+    font-size: $mida-font-xs;
+
+    p {
+      @media (max-width: $breakpoint-tablet) {
+        font-size: $mida-font-xs;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+.contenidor-carret {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $espai-xl $espai-md;
+  
+  // Nesting: Títol del carret
+  .titol-carret {
+    font-size: $mida-font-2xl;
+    color: $color-blanc;
+    margin-bottom: $espai-lg;
+    text-align: center;
+    
+    // Nesting nivell 2: Comptador de quantitat
+    .quantitat-items {
+      color: $color-rosa;
+      font-weight: $pes-font-bold;
+    }
+  }
+  
+  // Nesting: Breadcrumb de navegació
+  .breadcrumb {
+    display: flex;
+    gap: $espai-sm;
+    margin-bottom: $espai-xl;
+    font-size: $mida-font-sm;
+    
+    // Nesting nivell 2: Elements del breadcrumb
+    a {
+      color: $color-gris-clar;
+      transition: color $transicio-rapida;
+      
+      &:hover {
+        color: $color-rosa;
+      }
+    }
+    
+    span {
+      color: $color-gris-clar;
+    }
+  }
+}
+
+.layout-carret {
+  @include flex-responsive(row, $espai-xl);
+  align-items: flex-start;
+  
+  // Nesting: Columna de productes (esquerra)
+  .columna-productes {
+    flex: 1;
+    
+    // Nesting nivell 2: Llista de productes
+    .llista-productes {
+      display: flex;
+      flex-direction: column;
+      gap: $espai-md;
+    }
+  }
+  
+  // Nesting: Columna de resum (dreta)
+  .columna-resum {
+    width: 350px;
+    position: sticky;
+    top: $espai-xl;
+    
+    @media (max-width: $breakpoint-tablet) {
+      width: 100%;
+      position: static;
+    }
+  }
+}
+
+.targeta-carret {
+  @include targeta-producte;
+  
+  // Nesting: Controls de quantitat i preu
+  .controls-producte {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: $espai-md;
+    
+    // Nesting nivell 2: Preu i descompte
+    .preu-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: $espai-xs;
+      
+      .preu {
+        font-size: $mida-font-xl;
+        color: $color-blanc;
+        font-weight: $pes-font-bold;
+      }
+      
+      .descompte {
+        font-size: $mida-font-sm;
+        color: $color-gris-clar;
+        background-color: $color-gris-mig;
+        padding: $espai-xs $espai-sm;
+        border-radius: $radi-sm;
+      }
+    }
+    
+    // Nesting nivell 2: Controls de quantitat
+    .quantitat-control {
+      display: flex;
+      align-items: center;
+      gap: $espai-sm;
+      background-color: $color-negre;
+      padding: $espai-xs;
+      border-radius: $radi-md;
+      
+      button {
+        @include boto($color-gris-mig, $color-blanc);
+        padding: $espai-xs $espai-sm;
+        min-width: 30px;
+        
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+      
+      input {
+        width: 50px;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        color: $color-blanc;
+        font-size: $mida-font-base;
+        font-weight: $pes-font-semibold;
+      }
+    }
+    
+    // Nesting nivell 2: Estat d'stock
+    .estat-stock {
+      font-size: $mida-font-sm;
+      color: $color-exit;
+      font-weight: $pes-font-mig;
+    }
+  }
+  
+  // Nesting: Botó d'eliminar producte
+  .btn-eliminar {
+    @include boto(transparent, $color-rosa);
+    padding: $espai-sm;
+    font-size: $mida-font-lg;
+    
+    &:hover {
+      background-color: $color-rosa;
+      color: $color-blanc;
+    }
+  }
+}
+
+.resum-carret {
+  background-color: $color-fons-targeta;
+  padding: $espai-lg;
+  border-radius: $radi-lg;
+  box-shadow: $ombra-md;
+  
+  // Nesting: Títol del resum
+  h3 {
+    font-size: $mida-font-xl;
+    color: $color-blanc;
+    margin-bottom: $espai-lg;
+    text-align: center;
+  }
+  
+  // Nesting: Codi de descompte
+  .codi-descompte {
+    margin-bottom: $espai-lg;
+    
+    label {
+      display: block;
+      color: $color-gris-clar;
+      font-size: $mida-font-sm;
+      margin-bottom: $espai-xs;
+    }
+    
+    .input-group {
+      display: flex;
+      gap: $espai-sm;
+      
+      input {
+        flex: 1;
+        padding: $espai-sm;
+        background-color: $color-negre;
+        border: 1px solid $color-gris-mig;
+        border-radius: $radi-md;
+        color: $color-blanc;
+        font-family: $font-principal;
+        
+        &:focus {
+          outline: none;
+          border-color: $color-rosa;
+        }
+      }
+      
+      button {
+        @include boto($color-rosa, $color-blanc);
+      }
+    }
+  }
+  
+  // Nesting: Desglossament de preus
+  .desglossament-preu {
+    display: flex;
+    flex-direction: column;
+    gap: $espai-sm;
+    margin-bottom: $espai-lg;
+    padding-bottom: $espai-lg;
+    border-bottom: 1px solid $color-gris-mig;
+    
+    .linia-preu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      span {
+        color: $color-gris-clar;
+        font-size: $mida-font-base;
+        
+        &:last-child {
+          color: $color-blanc;
+          font-weight: $pes-font-semibold;
+        }
+      }
+      
+      // Nesting nivell 2: Descompte destacat
+      &.descompte {
+        span:last-child {
+          color: $color-rosa;
+        }
+      }
+    }
+  }
+  
+  // Nesting: Botó de finalitzar compra
+  .btn-finalitzar {
+    @include boto($color-cyan, $color-negre);
+    width: 100%;
+    padding: $espai-md;
+    font-size: $mida-font-lg;
+    margin-bottom: $espai-md;
+  }
+  
+  // Nesting: Llista de garanties
+  .llista-garanties {
+    display: flex;
+    flex-direction: column;
+    gap: $espai-sm;
+    
+    li {
+      display: flex;
+      align-items: center;
+      gap: $espai-sm;
+      color: $color-gris-clar;
+      font-size: $mida-font-sm;
+      
+      &::before {
+        content: "✓";
+        color: $color-exit;
+        font-weight: $pes-font-bold;
+        font-size: $mida-font-lg;
+      }
+    }
+  }
+}
+
+.btn-seguir-comprant {
+  @include boto($color-gris-mig, $color-blanc, $color-rosa);
+  margin-top: $espai-lg;
+  display: inline-flex;
+  align-items: center;
+  gap: $espai-sm;
+}
+
+.carret-buit {
+  @include centrar-flex;
+  flex-direction: column;
+  gap: $espai-lg;
+  padding: $espai-2xl;
+  text-align: center;
+  
+  // Nesting: Icona del carret buit
+  .icona-buit {
+    font-size: 5rem;
+    color: $color-gris-mig;
+  }
+  
+  // Nesting: Missatge
+  p {
+    font-size: $mida-font-lg;
+    color: $color-gris-clar;
+  }
+  
+  // Nesting: Botó d'acció
+  .btn-explorar {
+    @include boto($color-rosa, $color-blanc);
+    padding: $espai-md $espai-xl;
+  }
+}

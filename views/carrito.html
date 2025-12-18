@@ -1,12 +1,303 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de la compra</title>
-    <link rel="stylesheet" href="../css/carrito.css">
+    <title>Carret de compra - PixelGame Shop</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/student006/shop/img/favicon.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS del Carret (inclou header, footer i carret) -->
+    <link rel="stylesheet" href="../css/sass/carrito.css">
 </head>
+
 <body>
-    
+    <header>
+        <!-- Menú desplegable (només mòbil i tauleta) -->
+        <button class="menu-desplegable" aria-label="Abrir menú">
+            <i data-lucide="menu"></i>
+        </button>
+
+        <!-- Logo -->
+        <a href="/student006/shop/index.html" class="logo">
+            <img src="/student006/shop/assets/img/logo-black-removebg-preview.png" alt="Logo de la tienda" />
+        </a>
+
+        <!-- Menú de navegació -->
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#">Videojuegos</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Icones (carret i perfil) -->
+        <div class="menu-icons">
+            <!-- Cercador desktop -->
+            <div class="buscador buscador-desktop">
+                <input type="text" placeholder="Buscar juegos..." aria-label="Buscar juegos">
+            </div>
+
+            <!-- Icona cercador mòbil/tauleta -->
+            <button class="icona-cerca-mobil" aria-label="Buscar">
+                <i data-lucide="search"></i>
+            </button>
+
+            <a href="/student006/shop/views/carrito.html" aria-label="Carrito de la compra">
+                <i data-lucide="shopping-cart"></i>
+            </a>
+            <a href="/student006/shop/backend/forms/form_login.php" aria-label="Mi Perfil">
+                <i data-lucide="user"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Cercador mòbil/tauleta (ocult per defecte) -->
+    <div class="buscador-mobil">
+        <div class="buscador-mobil-contenidor">
+            <input type="text" placeholder="Buscar juegos..." aria-label="Buscar juegos">
+            <button class="tancar-cerca" aria-label="Cerrar búsqueda">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+    </div>
+
+    <<main class="contenidor-carret">
+        <!-- Breadcrumb de navegació -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Inicio</a>
+            <span>/</span>
+            <span>Carrito de compra</span>
+        </nav>
+
+        <!-- Títol del carret amb contador -->
+        <h1 class="titol-carret">
+            Carrito de compra
+            <span class="quantitat-items">(Cantidad: <span id="total-items">3</span>)</span>
+        </h1>
+
+        <!-- Layout principal: 2 columnes -->
+        <div class="layout-carret">
+            <!-- Columna esquerra: Llista de productes -->
+            <div class="columna-productes">
+                <div class="llista-productes" id="llista-productes">
+
+                    <!-- Producte 1 -->
+                    <article class="targeta-carret">
+                        <!-- Imatge del producte -->
+                        <div class="imatge-producte">
+                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co8cud.webp"
+                                alt="Cyberpunk 2077">
+                        </div>
+
+                        <!-- Informació del producte -->
+                        <div class="info-producte">
+                            <h3>Cyberpunk 2077</h3>
+                            <span class="plataforma">PC</span>
+                            <p class="sku">SKU: CYB-PS5-2025</p>
+                            <p class="tarifa-info">• Se aplican tarifas</p>
+                        </div>
+
+                        <!-- Controls: Preu, quantitat i botons -->
+                        <div class="controls-producte">
+                            <!-- Preu i descompte -->
+                            <div class="preu-container">
+                                <span class="preu">$59.99</span>
+                                <span class="descompte">-20%</span>
+                            </div>
+
+                            <!-- Control de quantitat -->
+                            <div class="quantitat-control">
+                                <button aria-label="Disminuir cantidad">-</button>
+                                <input type="number" value="1" min="1" max="10" readonly>
+                                <button aria-label="Aumentar cantidad">+</button>
+                            </div>
+
+                            <!-- Estat de stock -->
+                            <span class="estat-stock">• En stock</span>
+                        </div>
+
+                        <!-- Botó d'eliminar -->
+                        <button class="btn-eliminar" aria-label="Eliminar producto">
+                            <i data-lucide="trash-2"></i>
+                        </button>
+                    </article>
+
+                    <!-- Producte 2 -->
+                    <article class="targeta-carret">
+                        <div class="imatge-producte">
+                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co87uk.webp"
+                                alt="Sonic Adventure Origins">
+                        </div>
+
+                        <div class="info-producte">
+                            <h3>Sonic Adventure Origins</h3>
+                            <span class="plataforma">PC</span>
+                            <p class="sku">SKU: CYB-PC-2025</p>
+                            <p class="tarifa-info">• Se aplican tarifas</p>
+                        </div>
+
+                        <div class="controls-producte">
+                            <div class="preu-container">
+                                <span class="preu">$39.99</span>
+                                <span class="descompte">-15%</span>
+                            </div>
+
+                            <div class="quantitat-control">
+                                <button aria-label="Disminuir cantidad">-</button>
+                                <input type="number" value="1" min="1" max="10" readonly>
+                                <button aria-label="Aumentar cantidad">+</button>
+                            </div>
+
+                            <span class="estat-stock">• En stock</span>
+                        </div>
+
+                        <button class="btn-eliminar" aria-label="Eliminar producto">
+                            <i data-lucide="trash-2"></i>
+                        </button>
+                    </article>
+
+                    <!-- Producte 3 -->
+                    <article class="targeta-carret">
+                        <div class="imatge-producte">
+                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6pq1.webp"
+                                alt="Starfield">
+                        </div>
+
+                        <div class="info-producte">
+                            <h3>Starfield</h3>
+                            <span class="plataforma">Xbox</span>
+                            <p class="sku">SKU: CYB-XBOX-2025</p>
+                            <p class="tarifa-info">• Se aplican tarifas</p>
+                        </div>
+
+                        <div class="controls-producte">
+                            <div class="preu-container">
+                                <span class="preu">$69.99</span>
+                                <span class="descompte">-10%</span>
+                            </div>
+
+                            <div class="quantitat-control">
+                                <button aria-label="Disminuir cantidad">-</button>
+                                <input type="number" value="1" min="1" max="10" readonly>
+                                <button aria-label="Aumentar cantidad">+</button>
+                            </div>
+
+                            <span class="estat-stock">• En stock</span>
+                        </div>
+
+                        <button class="btn-eliminar" aria-label="Eliminar producto">
+                            <i data-lucide="trash-2"></i>
+                        </button>
+                    </article>
+
+                </div>
+
+                <!-- Botó seguir comprant -->
+                <button class="btn-seguir-comprant">
+                    <i data-lucide="arrow-left"></i>
+                    Seguir comprando
+                </button>
+            </div>
+
+            <!-- Columna dreta: Resum del carret -->
+            <aside class="columna-resum">
+                <div class="resum-carret">
+                    <h3>Resumen</h3>
+
+                    <!-- Codi de descompte -->
+                    <div class="codi-descompte">
+                        <label for="codi-input">Código de descuento:</label>
+                        <div class="input-group">
+                            <input type="text" id="codi-input" placeholder="Código">
+                            <button>Aplicar</button>
+                        </div>
+                    </div>
+
+                    <!-- Desglossament de preus -->
+                    <div class="desglossament-preu">
+                        <div class="linia-preu">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$169.97</span>
+                        </div>
+                        <div class="linia-preu descompte">
+                            <span>Descuento</span>
+                            <span id="descompte">-$30.00</span>
+                        </div>
+                        <div class="linia-preu">
+                            <span>Envío</span>
+                            <span id="enviament">
+                                <i data-lucide="package"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Botó finalitzar compra -->
+                    <button class="btn-finalitzar">
+                        Finalizar compra
+                    </button>
+
+                    <!-- Llista de garanties -->
+                    <ul class="llista-garanties">
+                        <li>Pago 100% seguro</li>
+                        <li>Devolución gratuita 30 días</li>
+                        <li>Garantía de 12 meses</li>
+                        <li>Soporte al cliente 24/7</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        </main>
+
+        <footer>
+            <div class="contingut-footer">
+                <div class="seccio-footer">
+                    <h4>PixelGame Shop</h4>
+                    <p>Tu tienda de videojuegos de confianza</p>
+                </div>
+
+                <div class="seccio-footer">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Condiciones generales de venta</a></li>
+                        <li><a href="#">Aviso legal</a></li>
+                        <li><a href="#">Incidencias y devoluciones</a></li>
+                    </ul>
+                </div>
+
+                <div class="seccio-footer">
+                    <h4>Síguenos</h4>
+                    <div class="xarxes-socials">
+                        <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>PixelGame Shop - Copyright © 2025 by Stefan Cojita (Project DIW-DWEC-DWES)</p>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+            // Inicialitzar icones de Lucide
+            lucide.createIcons();
+        </script>
 </body>
+
 </html>
