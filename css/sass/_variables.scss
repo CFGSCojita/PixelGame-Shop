@@ -1,0 +1,61 @@
+
+// Paleta de colors
+$color-blanc: #FCFCFC;           // Text principal
+$color-gris-clar: #E6E6E6;       // Text secundari
+$color-rosa: #FF3366;            // CTAs i elements destacats
+$color-cyan: #00CCFF;            // Accents i hover
+$color-negre: #0A0A0A;           // Fons
+
+// Colors addicionals
+$color-gris-mig: #666666;        // Borders i elements deshabilitats
+$color-exit: #00FF88;            // Missatges d'èxit (stock)
+$color-error: #FF3366;           // Missatges d'error
+$color-fons-targeta: #1A1A1A;    // Fons de targetes
+
+// Fonts
+$font-principal: 'Poppins', sans-serif;
+$font-secundaria: 'Rajdhani', sans-serif;
+
+// Mides de font
+$mida-font-xs: 0.75rem;    // 12px
+$mida-font-sm: 0.875rem;   // 14px
+$mida-font-base: 1rem;     // 16px
+$mida-font-lg: 1.125rem;   // 18px
+$mida-font-xl: 1.5rem;     // 24px
+$mida-font-2xl: 2rem;      // 32px
+
+// Pesos de font
+$pes-font-normal: 400;
+$pes-font-mig: 500;
+$pes-font-semibold: 600;
+$pes-font-bold: 700;
+
+// Espais
+$espai-xs: 0.25rem;    // 4px
+$espai-sm: 0.5rem;     // 8px
+$espai-md: 1rem;       // 16px
+$espai-lg: 1.5rem;     // 24px
+$espai-xl: 2rem;       // 32px
+$espai-2xl: 3rem;      // 48px
+
+// Borders
+$radi-sm: 4px;
+$radi-md: 8px;
+$radi-lg: 12px;
+$radi-xl: 16px;
+
+// Ombres
+$ombra-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+$ombra-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+$ombra-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+
+// Transicions
+$transicio-rapida: 0.2s ease;
+$transicio-normal: 0.3s ease;
+$transicio-lenta: 0.5s ease;
+
+// Breakpoints responsius
+$breakpoint-mobil: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-escriptori: 1024px;
+$breakpoint-gran: 1440px;

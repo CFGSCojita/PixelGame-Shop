@@ -1,0 +1,125 @@
+@use 'variables' as *;
+
+// Mixin per botons
+// Paràmetres:
+// - $color-fons: Color de fons del botó
+// - $color-text: Color del text
+// - $color-hover: Color al fer hover (opcional)
+@mixin boto($color-fons, $color-text, $color-hover: null) {
+  padding: $espai-sm $espai-lg;
+  background-color: $color-fons;
+  color: $color-text;
+  border: none;
+  border-radius: $radi-md;
+  font-family: $font-principal;
+  font-size: $mida-font-base;
+  font-weight: $pes-font-semibold;
+  cursor: pointer;
+  transition: all $transicio-normal;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  
+  // Estructura de control 'if'.
+  // Si no especifiquem un color-hover, usa un efecte de brillantor
+  @if $color-hover {
+    &:hover {
+      background-color: $color-hover;
+      transform: translateY(-2px);
+      box-shadow: $ombra-md;
+    }
+  } @else {
+    &:hover {
+      filter: brightness(1.2);
+      transform: translateY(-2px);
+      box-shadow: $ombra-md;
+    }
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Mixin per targetes de productes
+@mixin targeta-producte {
+  background-color: $color-fons-targeta;
+  border-radius: $radi-lg;
+  padding: $espai-lg;
+  display: flex;
+  gap: $espai-md;
+  align-items: center;
+  box-shadow: $ombra-sm;
+  transition: all $transicio-normal;
+  
+  &:hover {
+    box-shadow: $ombra-md;
+    transform: translateY(-2px);
+  }
+  
+  // Imatge del producte
+  .imatge-producte {
+    width: 100px;
+    height: 100px;
+    border-radius: $radi-md;
+    background-color: $color-gris-mig;
+    overflow: hidden;
+    flex-shrink: 0;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  // Informació del producte
+  .info-producte {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $espai-xs;
+    
+    h3 {
+      font-size: $mida-font-lg;
+      font-weight: $pes-font-semibold;
+      color: $color-blanc;
+      margin: 0;
+    }
+    
+    .plataforma {
+      display: inline-block;
+      padding: $espai-xs $espai-sm;
+      background-color: $color-gris-mig;
+      color: $color-gris-clar;
+      border-radius: $radi-sm;
+      font-size: $mida-font-xs;
+      font-weight: $pes-font-mig;
+      width: fit-content;
+    }
+    
+    .sku {
+      font-size: $mida-font-sm;
+      color: $color-gris-clar;
+    }
+  }
+}
+
+// Mixin per flexbox responsive
+// Genera contenidors flexbox amb comportament responsive
+@mixin flex-responsive($direccio: row, $gap: $espai-md) {
+  display: flex;
+  flex-direction: $direccio;
+  gap: $gap;
+  
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+  }
+}
+
+// Mixin per centrar contingut amb flexbox
+@mixin centrar-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
