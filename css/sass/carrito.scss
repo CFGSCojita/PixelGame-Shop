@@ -710,6 +710,28 @@ footer {
   }
 }
 
+/* Subtotal del producte individual */
+// Mostrem el preu total de cada producte (preu unitari x quantitat) emprant las classes.
+// L'ubiquem en la part dreta en cada targeta del carret.
+// Exemple: Si un joc costa 59,99€ i hi ha 2 unitats, el subtotal serà 119,98€.
+.targeta-carret .controls-producte .subtotal-producte {
+    font-size: 1.25rem;
+    color: #00CCFF;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Valor de quantitat (número) */
+// Estilitzem el número que mostra la quantitat de cada producte en el carret.
+// Exemple: En "Quantitat: [ 2 ]", el "2" tindrà aquest estil.
+.targeta-carret .controls-producte .quantitat-control .quantitat-valor {
+    color: #FCFCFC;
+    font-size: 1rem;
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
 .resum-carret {
   background-color: $color-fons-targeta;
   padding: $padding-gran;
@@ -852,4 +874,28 @@ footer {
     padding: $gap-base 2rem;
     color: $color-negre;
   }
+}
+
+/* Contador del carret */
+.cart-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #FF3366;
+    color: #FCFCFC;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    font-family: 'Poppins', sans-serif;
 }

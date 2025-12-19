@@ -260,9 +260,6 @@
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
-  .h-full {
-    height: 100%;
-  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -335,9 +332,6 @@
   }
   .bg-gris {
     background-color: var(--color-gris);
-  }
-  .object-cover {
-    object-fit: cover;
   }
   .p-0 {
     padding: calc(var(--spacing) * 0);

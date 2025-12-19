@@ -76,4 +76,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Inicializamos el menú y el buscador después de cargar el header
     inicializarMenu();
     inicializarBuscadorMobil();
+    
+    // Estructura de control 'if'
+    // Después de cargar el header, actualizamos el contador del carrito
+    // Esto es necesario para que el header se cargue dinámicamente:
+    if (typeof CarritoManager !== 'undefined') {
+        CarritoManager.actualizarContador();
+    }
 });

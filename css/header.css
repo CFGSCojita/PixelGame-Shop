@@ -209,27 +209,44 @@ header {
     pointer-events: none;
 }
 
-/* Tablet */
+/* Contenidor del icona del carret */
+.cart-icon {
+    position: relative;
+    display: inline-block;
+}
+
+/* Badge del contador */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #FF3366;
+    color: #FCFCFC;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Tablets (768px) */
 @media (min-width: 768px) {
     .logo img {
         height: 60px;
     }
 }
 
-/* Escriptori */
+/* Desktop (1024px) */
 @media (min-width: 1024px) {
-    .buscador-desktop {
-        display: block;
-    }
-    
-    .icona-cerca-mobil {
-        display: none;
-    }
-
     header {
-        padding: 20px 40px;
-        justify-content: space-between;
-        gap: 0;
+        padding: 30px 50px;
+        justify-content: flex-start;
+        gap: 40px;
     }
 
     .menu-desplegable {
@@ -245,11 +262,12 @@ header {
         position: static;
         border: none;
         background: transparent;
+        margin-right: auto;
     }
 
     .nav-menu ul {
         display: flex;
-        gap: 16px;
+        gap: 20px;
         padding: 0;
         align-items: center;
     }
@@ -259,11 +277,18 @@ header {
     }
 
     .nav-menu a {
-        padding: 8px 15px;
+        padding: 10px 20px;
     }
 
     .menu-icons {
-        gap: 25px;
-        margin-left: 0;
+        gap: 20px;
+    }
+
+    .buscador-desktop {
+        display: block;
+    }
+
+    .icona-cerca-mobil {
+        display: none;
     }
 }

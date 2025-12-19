@@ -12,9 +12,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS del Carret -->
     <link rel="stylesheet" href="../css/sass/carrito.css">
@@ -54,9 +52,11 @@
                 <i data-lucide="search"></i>
             </button>
 
-            <a href="/student006/shop/views/carrito.html" aria-label="Carrito de la compra">
+            <a href="/student006/shop/views/carrito.html" class="cart-icon" aria-label="Carrito de la compra">
                 <i data-lucide="shopping-cart"></i>
+                <span class="cart-count">0</span>
             </a>
+
             <a href="/student006/shop/backend/forms/form_login.php" aria-label="Mi Perfil">
                 <i data-lucide="user"></i>
             </a>
@@ -90,102 +90,7 @@
             <!-- Columna esquerra: Llista de productes -->
             <div class="columna-productes">
                 <div class="llista-productes" id="llista-productes">
-
-                    <!-- Producte 1 -->
-                    <article class="targeta-carret">
-                        <!-- Imatge del producte -->
-                        <div class="imatge-producte">
-                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co8cud.webp"
-                                alt="Cyberpunk 2077">
-                        </div>
-
-                        <!-- Informació del producte -->
-                        <div class="info-producte">
-                            <h3>Cyberpunk 2077</h3>
-                            <span class="plataforma">PC</span>
-                        </div>
-
-                        <!-- Controls: preu, quantitat i eliminar -->
-                        <div class="controls-producte">
-                            <!-- Preu i botó eliminar -->
-                            <div class="preu-container">
-                                <span class="preu">$59.99</span>
-                                <button class="btn-eliminar" aria-label="Eliminar producto">
-                                    <i data-lucide="trash-2"></i>
-                                </button>
-                            </div>
-
-                            <!-- Control de quantitat -->
-                            <div class="quantitat-control">
-                                <button aria-label="Disminuir cantidad">-</button>
-                                <input type="number" value="1" min="1" readonly aria-label="Cantidad">
-                                <button aria-label="Aumentar cantidad">+</button>
-                            </div>
-
-                            <span class="estat-stock">• En stock</span>
-                        </div>
-                    </article>
-
-                    <!-- Producte 2 -->
-                    <article class="targeta-carret">
-                        <div class="imatge-producte">
-                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7f.webp"
-                                alt="The Witcher 3">
-                        </div>
-
-                        <div class="info-producte">
-                            <h3>The Witcher 3: Wild Hunt</h3>
-                            <span class="plataforma">PlayStation 5</span>
-                        </div>
-
-                        <div class="controls-producte">
-                            <div class="preu-container">
-                                <span class="preu">$39.99</span>
-                                <button class="btn-eliminar" aria-label="Eliminar producto">
-                                    <i data-lucide="trash-2"></i>
-                                </button>
-                            </div>
-
-                            <div class="quantitat-control">
-                                <button aria-label="Disminuir cantidad">-</button>
-                                <input type="number" value="2" min="1" readonly aria-label="Cantidad">
-                                <button aria-label="Aumentar cantidad">+</button>
-                            </div>
-
-                            <span class="estat-stock">• En stock</span>
-                        </div>
-                    </article>
-
-                    <!-- Producte 3 -->
-                    <article class="targeta-carret">
-                        <div class="imatge-producte">
-                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.webp"
-                                alt="Red Dead Redemption 2">
-                        </div>
-
-                        <div class="info-producte">
-                            <h3>Red Dead Redemption 2</h3>
-                            <span class="plataforma">Xbox Series X</span>
-                        </div>
-
-                        <div class="controls-producte">
-                            <div class="preu-container">
-                                <span class="preu">$49.99</span>
-                                <button class="btn-eliminar" aria-label="Eliminar producto">
-                                    <i data-lucide="trash-2"></i>
-                                </button>
-                            </div>
-
-                            <div class="quantitat-control">
-                                <button aria-label="Disminuir cantidad">-</button>
-                                <input type="number" value="1" min="1" readonly aria-label="Cantidad">
-                                <button aria-label="Aumentar cantidad">+</button>
-                            </div>
-
-                            <span class="estat-stock">• En stock</span>
-                        </div>
-                    </article>
-
+                    <!-- Els productes es carregaran dinámicament amb JavaScript -->
                 </div>
 
                 <!-- Botó seguir comprant -->
@@ -213,11 +118,11 @@
                     <div class="desglossament-preu">
                         <div class="linia-preu">
                             <span>Subtotal</span>
-                            <span id="subtotal">$169.97</span>
+                            <span id="subtotal">0.00€</span>
                         </div>
                         <div class="linia-preu descompte">
                             <span>Descuento</span>
-                            <span id="descompte">-$30.00</span>
+                            <span id="descompte">0.00€</span>
                         </div>
                         <div class="linia-preu">
                             <span>Envío</span>
@@ -225,7 +130,7 @@
                         </div>
                         <div class="linia-preu">
                             <span><strong>Total</strong></span>
-                            <span id="total"><strong>$139.97</strong></span>
+                            <span id="total">0.00€</span>
                         </div>
                     </div>
 
@@ -280,6 +185,9 @@
     <script>
         lucide.createIcons();
     </script>
-</body>
+    <!-- Scripts -->
+    <script src="../js/carritoSistema.js"></script>
+    <script src="../js/cargarCarrito.js"></script>
 
+</body>
 </html>

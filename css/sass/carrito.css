@@ -599,6 +599,23 @@ footer .copyright {
   font-weight: 500;
 }
 
+/* Subtotal del producte individual */
+.targeta-carret .controls-producte .subtotal-producte {
+  font-size: 1.25rem;
+  color: #00CCFF;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Valor de quantitat (número) */
+.targeta-carret .controls-producte .quantitat-control .quantitat-valor {
+  color: #FCFCFC;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+}
+
 .resum-carret {
   background-color: #1A1A1A;
   padding: 1.5rem;
@@ -772,6 +789,30 @@ footer .copyright {
 .carret-buit .btn-explorar {
   padding: 1rem 2rem;
   color: #0A0A0A;
+}
+
+/* Contador del carret */
+.cart-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #FF3366;
+  color: #FCFCFC;
+  font-size: 0.7rem;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  font-family: "Poppins", sans-serif;
 }
 
 /*# sourceMappingURL=carrito.css.map */
