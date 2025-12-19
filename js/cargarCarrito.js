@@ -224,3 +224,15 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 });
+
+// Al cargar la página, añadimos el evento al botón "Seguir comprando"
+document.addEventListener('DOMContentLoaded', () => {
+    const btnSeguirComprando = document.querySelector('.btn-seguir-comprant');
+    
+    // Si existe el botón, añadimos el evento click
+    if (btnSeguirComprando) {
+        btnSeguirComprando.addEventListener('click', () => {
+            window.location.href = '/student006/shop/index.html';
+        });
+    }
+});
