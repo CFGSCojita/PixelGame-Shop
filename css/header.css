@@ -245,8 +245,10 @@ header {
 @media (min-width: 1024px) {
     header {
         padding: 30px 50px;
-        justify-content: flex-start;
+        justify-content: space-between;
         gap: 40px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .menu-desplegable {
@@ -262,7 +264,7 @@ header {
         position: static;
         border: none;
         background: transparent;
-        margin-right: auto;
+        margin: 0 auto; 
     }
 
     .nav-menu ul {
@@ -282,6 +284,8 @@ header {
 
     .menu-icons {
         gap: 20px;
+        display: flex; 
+        align-items: center;
     }
 
     .buscador-desktop {
