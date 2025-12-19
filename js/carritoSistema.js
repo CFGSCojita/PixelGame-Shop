@@ -2,7 +2,6 @@
 // Declaramos el objeto CarritoManager para manejar el carrito de compras.
 const CarritoManager = {
     
-    
     STORAGE_KEY: 'pixelgame_carrito', // Clave para guardar el carrito en sessionStorage.
 
     // Creamos un método para obtener el carrito desde sessionStorage.
