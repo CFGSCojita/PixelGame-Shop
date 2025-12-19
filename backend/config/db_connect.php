@@ -1,16 +1,16 @@
 <?php
 
     // -- LOCALHOST --
-    $hostname = 'localhost';
-    $username = 'root';
-    $password = '';
-    $db = '006_pixelgame_shop';
+    // $hostname = 'localhost';
+    // $username = 'root';
+    // $password = '';
+    // $db = '006_pixelgame_shop';
 
     // -- REMOTE SERVER --
-    // $hostname = 'remotehost.es';
-    // $username = 'dwess1234';
-    // $password = 'Usertest1234.';
-    // $db = 'dwesdatabase';
+    $hostname = 'remotehost.es';
+    $username = 'dwess1234';
+    $password = 'Usertest1234.';
+    $db = 'dwesdatabase';
 
     // Nos conectamos a la base de datos con las credenciales.
     $conn = mysqli_connect($hostname, $username, $password, $db);
