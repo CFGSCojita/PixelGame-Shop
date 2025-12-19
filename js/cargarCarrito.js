@@ -26,11 +26,8 @@ function cargarCarrito() {
         contenedorProductos.innerHTML = `
             <div style="text-align: center; padding: 3rem; grid-column: 1/-1;">
                 <p style="font-size: 1.2rem; color: #E6E6E6; margin-bottom: 1rem;">
-                    Tu carrito está vacío
+                    Tu carrito está vacío.
                 </p>
-                <a href="../index.html" style="color: #FF3366; text-decoration: none; font-weight: 600;">
-                    ← Volver a la tienda
-                </a>
             </div>
         `;
         
