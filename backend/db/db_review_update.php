@@ -10,20 +10,20 @@
     $user_id = $_SESSION['user_id'];
     
     // Recogemos los datos del formulario y los escapamos para evitar inyecciones SQL.
-    $review_id = mysqli_real_escape_string($conn, $_POST['review_id']);
-    $rating = mysqli_real_escape_string($conn, $_POST['rating']);
-    $comment = mysqli_real_escape_string($conn, $_POST['comment']);
+    $review_id = $_POST['review_id'];
+    $rating = $_POST['rating'];
+    $comment = $_POST['comment'];
 
     // Preparamos la consulta SQL para actualizar la review.
     // Añadimos WHERE user_id para asegurar que solo el propietario pueda editar su review.
     $sql = "UPDATE 006_reviews 
-            SET rating = '$rating', 
-                comment = '$comment'
-            WHERE review_id = '$review_id' AND user_id = '$user_id'";
+            SET rating = ?, 
+                comment = ?
+            WHERE review_id = ? AND user_id = ?";
 
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_execute_query($conn, $sql, [$rating, $comment, $review_id, $user_id])) {
         header('Content-Type: application/json'); // Enviamos datos en formato JSON al navegador.
         echo json_encode(['success' => true]); // Devolvemos una respuesta JSON indicando éxito.
     } else {

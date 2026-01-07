@@ -6,15 +6,15 @@
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
-    $videogame_id = mysqli_real_escape_string($conn, $_POST['videogame_id']); // Limpiamos el valor recibido por el POST.
+    $videogame_id = $_POST['videogame_id']; // Limpiamos el valor recibido por el POST.
 
     // Declaramos la consulta SQL para eliminar el videojuego con el ID proporcionado.
     $sql = "DELETE FROM 006_videogames 
-            WHERE videogame_id = '$videogame_id'";
+            WHERE videogame_id = ?";
 
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_execute_query($conn, $sql, [$videogame_id])) {
         header('Content-Type: application/json'); // Enviamos datos en formato JSON al navegador.
         echo json_encode(['success' => true]); // Devolvemos una respuesta JSON indicando éxito.
     } else {

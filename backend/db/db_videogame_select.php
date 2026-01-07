@@ -41,13 +41,13 @@
                 ORDER BY v.videogame_id ASC";
     }
             
-    $result = mysqli_query($conn, $sql); // Ejecutamos la consulta.
+    $result = mysqli_execute_query($conn, $sql, []); // Ejecutamos la consulta.
 
     $videogames = []; // Inicializamos un array.
 
     if ($result) {
         // Obtenemos todos los registros como un array asociativo.
-        $videogames = mysqli_fetch_all($result, MYSQLI_ASSOC); 
+        $videogames = mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result); // Liberamos el resultado de la consulta.
     }
 

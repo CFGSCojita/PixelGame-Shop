@@ -13,9 +13,9 @@
                         v.price
                     FROM 006_cart c
                     JOIN 006_videogames v ON c.videogame_id = v.videogame_id
-                    WHERE c.user_id = '$user_id'";
+                    WHERE c.user_id = ?";
     
-    $result_carrito = mysqli_query($conn, $sql_carrito);
+    $result_carrito = mysqli_execute_query($conn, $sql_carrito, [$user_id]); // Ejecutamos la consulta.
     
     $pedidos_exitosos = 0;
     
@@ -28,9 +28,9 @@
         
         // INSERT del pedido.
         $sql_insert = "INSERT INTO 006_orders (user_id, videogame_id, quantity, unit_price, total, order_date) 
-                       VALUES ('$user_id', '$videogame_id', '$quantity', '$unit_price', '$total', NOW())";
+                       VALUES (?, ?, ?, ?, ?, NOW())";
         
-        if (mysqli_query($conn, $sql_insert)) {
+        if (mysqli_execute_query($conn, $sql_insert, [$user_id, $videogame_id, $quantity, $unit_price, $total])) {
             $pedidos_exitosos++;
         }
     }
@@ -38,8 +38,8 @@
     // Estructura de control 'if'.
     // Si se insertaron pedidos, limpiamos el carrito.
     if ($pedidos_exitosos > 0) {
-        $sql_limpiar = "DELETE FROM 006_cart WHERE user_id = '$user_id'";
-        mysqli_query($conn, $sql_limpiar);
+        $sql_limpiar = "DELETE FROM 006_cart WHERE user_id = ?";
+        mysqli_execute_query($conn, $sql_limpiar, [$user_id]);
         
         // Actualizamos el contador del carrito en la sesión.
         $_SESSION['cart_count'] = 0;

@@ -22,8 +22,9 @@ if ($_SESSION['role'] === 'customer') {
             JOIN 006_users u ON o.user_id = u.user_id
             JOIN 006_videogames v ON o.videogame_id = v.videogame_id
             LEFT JOIN 006_reviews r ON o.order_id = r.order_id
-            WHERE o.user_id = '$user_id'
+            WHERE o.user_id = ?
             ORDER BY o.order_id DESC";
+    $params = [$user_id];
 } else {
     // Realizamos una consulta SQL con JOINs para obtener todos los pedidos.
     // Añadimos LEFT JOIN con reviews para saber si el pedido ya tiene una review.
@@ -42,9 +43,10 @@ if ($_SESSION['role'] === 'customer') {
             JOIN 006_videogames v ON o.videogame_id = v.videogame_id
             LEFT JOIN 006_reviews r ON o.order_id = r.order_id
             ORDER BY o.order_id DESC";
+    $params = [];
 }
         
-$result = mysqli_query($conn, $sql); // Ejecutamos la consulta.
+$result = mysqli_execute_query($conn, $sql, $params); // Ejecutamos la consulta.
 
 $orders = []; // Inicializamos un array.
 

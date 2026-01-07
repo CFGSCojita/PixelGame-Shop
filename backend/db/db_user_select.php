@@ -5,7 +5,7 @@ $sql = "SELECT user_id, name, email, address, phone, role
         FROM 006_users 
         ORDER BY user_id DESC";
 
-$result = mysqli_query($conn, $sql); // Ejecutamos la consulta.
+$result = mysqli_execute_query($conn, $sql, []); // Ejecutamos la consulta.
 
 $users = []; // Inicializamos un array.
 

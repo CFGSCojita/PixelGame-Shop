@@ -8,16 +8,17 @@
 
     // Recogemos los datos del formulario.
     $videogame_id = $_POST['videogame_id'];
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $title = $_POST['title'];
     $category_id = $_POST['category_id'];
     $platform_id = $_POST['platform_id'];
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $description = $_POST['description'];
     $release_date = $_POST['release_date'];
     $price = $_POST['price'];
     $stock = $_POST['stock'];
 
     // Parte para actualizar imagen.
     $update_image = "";
+    $params = [$category_id, $platform_id, $title, $description];
 
     // Estructura de control 'if'.
     // Si se ha subido una nueva imagen, la procesamos.
@@ -37,8 +38,8 @@
         }
 
         // Obtenemos la imagen antigua para eliminarla.
-        $sql_old = "SELECT image_path FROM 006_videogames WHERE videogame_id = $videogame_id";
-        $result_old = mysqli_query($conn, $sql_old);
+        $sql_old = "SELECT image_path FROM 006_videogames WHERE videogame_id = ?";
+        $result_old = mysqli_execute_query($conn, $sql_old, [$videogame_id]);
         $old_image = mysqli_fetch_assoc($result_old);
         
         // Si existe imagen antigua, la eliminamos del servidor.
@@ -58,30 +59,34 @@
         $upload_file = $upload_dir . $image_path;
 
         // Movemos la imagen desde la ubicación temporal al servidor.
-        if (!move_uploaded_file($_FILES['image']['tmp_name'], $upload_file)) {
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $upload_file)) {
+            // Añadimos la parte de imagen al UPDATE.
+            $update_image = ", image_path = ?";
+            $params[] = $image_path;
+        } else {
             echo json_encode(['success' => false, 'error' => 'Error al subir la imagen']);
             exit();
         }
-
-        // Añadimos la parte de imagen al UPDATE.
-        $update_image = ", image_path = '$image_path'";
     }
+
+    // Preparamos los parámetros restantes para la consulta.
+    array_push($params, $release_date, $price, $stock, $videogame_id);
 
     // Preparamos la consulta SQL (con o sin imagen).
     $sql = "UPDATE 006_videogames 
-            SET category_id = '$category_id',
-                platform_id = '$platform_id',
-                title = '$title', 
-                description = '$description'
+            SET category_id = ?,
+                platform_id = ?,
+                title = ?, 
+                description = ?
                 $update_image,
-                release_date = '$release_date', 
-                price = '$price', 
-                stock = '$stock'
-            WHERE videogame_id = $videogame_id";
+                release_date = ?, 
+                price = ?, 
+                stock = ?
+            WHERE videogame_id = ?";
 
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_execute_query($conn, $sql, $params)) {
         header('Content-Type: application/json');
         echo json_encode(['success' => true]);
     } else {

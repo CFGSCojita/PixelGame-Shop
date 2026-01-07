@@ -13,8 +13,9 @@
                             u.name AS user_name
                         FROM 006_reviews r
                         JOIN 006_users u ON r.user_id = u.user_id
-                        WHERE r.videogame_id = '$videogame_id'
+                        WHERE r.videogame_id = ?
                         ORDER BY r.review_date DESC";
+        $params = [$videogame_id];
     } else {
         $sql_reviews = "SELECT 
                             r.review_id,
@@ -25,12 +26,13 @@
                             u.name AS user_name
                         FROM 006_reviews r
                         JOIN 006_users u ON r.user_id = u.user_id
-                        WHERE r.videogame_id = '$videogame_id' 
+                        WHERE r.videogame_id = ? 
                         AND r.validated = 1
                         ORDER BY r.review_date DESC";
+        $params = [$videogame_id];
     }
 
-    $result_reviews = mysqli_query($conn, $sql_reviews); // Ejecutamos la consulta.
+    $result_reviews = mysqli_execute_query($conn, $sql_reviews, $params); // Ejecutamos la consulta.
     $reviews = mysqli_fetch_all($result_reviews, MYSQLI_ASSOC); // Obtenemos todas las reviews.
 
     // La variable $reviews ahora contiene los datos y está disponible en reviews.php.

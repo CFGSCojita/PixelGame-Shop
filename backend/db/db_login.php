@@ -16,12 +16,12 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Consulta para buscar al usuario por email.
+    // Preparamos una consulta para buscar al usuario por email.
     $sql = "SELECT user_id, name, email, password_hash, role 
             FROM 006_users 
-            WHERE email = '$email'";
+            WHERE email = ?";
     
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_execute_query($conn, $sql, [$email]);
     
     // Verificamos si encontramos un usuario con ese email.
     if ($result && mysqli_num_rows($result) > 0) {

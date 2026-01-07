@@ -7,10 +7,10 @@
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
     // Recogemos los datos del formulario.
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $title = $_POST['title'];
     $category_id = $_POST['category_id'];
     $platform_id = $_POST['platform_id']; 
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $description = $_POST['description'];
     $release_date = $_POST['release_date'];
     $price = $_POST['price'];
     $stock = $_POST['stock'];
@@ -54,11 +54,11 @@
 
     // Preparamos la consulta SQL (ahora incluye image_path).
     $sql = "INSERT INTO 006_videogames (category_id, platform_id, title, description, image_path, release_date, price, stock) 
-            VALUES ('$category_id', '$platform_id', '$title', '$description', '$image_path', '$release_date', '$price', '$stock')";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_execute_query($conn, $sql, [$category_id, $platform_id, $title, $description, $image_path, $release_date, $price, $stock])) {
         header('Content-Type: application/json'); // Indicamos que la respuesta contendrá un JSON.
         echo json_encode(['success' => true]); // Devolvemos una respuesta JSON indicando éxito.
     } else {

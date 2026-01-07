@@ -7,22 +7,22 @@
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
     // Creamos una variable para cada campo del formulario y limpiamos los valores recibidos por el POST para evitar inyecciones SQL.
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
-    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
     
     // Hasheamos la contraseña antes de guardarla.
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
     // Preparamos la consulta SQL para insertar un nuevo usuario en la base de datos.
     $sql = "INSERT INTO 006_users (name, email, password_hash, address, phone) 
-            VALUES ('$name', '$email', '$password_hash', '$address', '$phone')";
+            VALUES (?, ?, ?, ?, ?)";
 
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_execute_query($conn, $sql, [$name, $email, $password_hash, $address, $phone])) {
         header('Content-Type: application/json'); // Enviamos datos en formato JSON al navegador.
         echo json_encode(['success' => true]); // Devolvemos una respuesta JSON indicando éxito.
     } else {

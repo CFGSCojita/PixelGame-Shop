@@ -14,16 +14,16 @@
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
 
     // Obtenemos el review_id recibido por el POST.
-    $review_id = mysqli_real_escape_string($conn, $_POST['review_id']);
+    $review_id = $_POST['review_id'];
 
     // Preparamos la consulta SQL para validar la review (poner validated = 1).
     $sql = "UPDATE 006_reviews 
             SET validated = 1
-            WHERE review_id = '$review_id'";
+            WHERE review_id = ?";
 
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_execute_query($conn, $sql, [$review_id])) {
         header('Content-Type: application/json'); // Enviamos datos en formato JSON al navegador.
         echo json_encode(['success' => true]); // Devolvemos una respuesta JSON indicando éxito.
     } else {

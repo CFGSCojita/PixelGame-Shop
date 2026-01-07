@@ -7,19 +7,19 @@
     session_start();
 
     // Obtenemos el cart_id
-    $cart_id = mysqli_real_escape_string($conn, $_POST['cart_id']);
+    $cart_id = $_POST['cart_id'];
     
     // Realizamos una consulta para eliminar el producto del carrito
-    $sql = "DELETE FROM 006_cart WHERE cart_id = '$cart_id'";
+    $sql = "DELETE FROM 006_cart WHERE cart_id = ?";
     
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_execute_query($conn, $sql, [$cart_id])) {
         
         // Actualizamos el contador del carrito
         $user_id = $_SESSION['user_id'];
-        $cantidad_sql = "SELECT SUM(quantity) as total FROM 006_cart WHERE user_id = '$user_id'";
-        $cantidad_resultado = mysqli_query($conn, $cantidad_sql);
+        $cantidad_sql = "SELECT SUM(quantity) as total FROM 006_cart WHERE user_id = ?";
+        $cantidad_resultado = mysqli_execute_query($conn, $cantidad_sql, [$user_id]);
         $fila_count = mysqli_fetch_assoc($cantidad_resultado);
         $_SESSION['cart_count'] = $fila_count['total'] ? $fila_count['total'] : 0;
         

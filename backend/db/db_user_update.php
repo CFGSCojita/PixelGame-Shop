@@ -8,22 +8,22 @@
 
     // Recogemos los datos del formulario de actualización y los escapamos para evitar inyecciones SQL.
     $user_id = $_POST['user_id'];
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
-    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
 
     // Preparamos la consulta SQL para actualizar el usuario con los nuevos datos.
     $sql = "UPDATE 006_users 
-            SET name = '$name', 
-                email = '$email', 
-                address = '$address', 
-                phone = '$phone'
-            WHERE user_id = $user_id";
+            SET name = ?, 
+                email = ?, 
+                address = ?, 
+                phone = ?
+            WHERE user_id = ?";
 
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_execute_query($conn, $sql, [$name, $email, $address, $phone, $user_id])) {
         header('Content-Type: application/json'); // Enviamos datos en formato JSON al navegador.
         echo json_encode(['success' => true]); // Devolvemos una respuesta JSON indicando éxito.
     } else {

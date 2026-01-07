@@ -10,22 +10,24 @@
     $user_id = $_SESSION['user_id'];
     
     // Obtenemos y limpiamos el review_id recibido por el POST.
-    $review_id = mysqli_real_escape_string($conn, $_POST['review_id']);
+    $review_id = $_POST['review_id'];
 
     // Preparamos la consulta SQL para eliminar la review.
     // Si es ADMIN: puede eliminar cualquier review (sin filtro de user_id)
     // Si es CUSTOMER: solo puede eliminar sus propias reviews
     if ($_SESSION['role'] === 'admin') {
         $sql = "DELETE FROM 006_reviews 
-                WHERE review_id = '$review_id'";
+                WHERE review_id = ?";
+        $params = [$review_id];
     } else {
         $sql = "DELETE FROM 006_reviews 
-                WHERE review_id = '$review_id' AND user_id = '$user_id'";
+                WHERE review_id = ? AND user_id = ?";
+        $params = [$review_id, $user_id];
     }
 
     // Estructura de control 'if'.
     // Comprobamos si la consulta se ejecutó correctamente.
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_execute_query($conn, $sql, $params)) {
         header('Content-Type: application/json'); // Enviamos datos en formato JSON al navegador.
         echo json_encode(['success' => true]); // Devolvemos una respuesta JSON indicando éxito.
     } else {
