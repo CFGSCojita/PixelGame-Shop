@@ -2,6 +2,8 @@
     // Iniciamos la sesión.
     session_start();
 
+    date_default_timezone_set("Europe/Madrid"); // Establecemos la zona horaria a Madrid. Solución temporal a posible error de fecha.
+
     // Creamos una función para registrar el inicio de sesión en un fichero de texto (log.txt).
     // Guardaremos la fecha, hora y nombre de usuario.
     function write_log($username): void {
