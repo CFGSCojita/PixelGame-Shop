@@ -1,2 +1,11 @@
+# Innecesarios para el control de versiones
 node_modules/
 backend/logs/*.txt
+
+# API Keys y configuración sensible
+/api/weather.php
+/api/weather_data/
+
+# Archivos de configuración con credenciales
+config.php
+*.env
