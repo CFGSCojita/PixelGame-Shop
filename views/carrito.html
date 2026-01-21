@@ -14,98 +14,51 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Header y Footer -->
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+
     <!-- CSS del Carret -->
     <link rel="stylesheet" href="../css/sass/carrito.css">
 </head>
 
 <body>
-    <header>
-        <!-- Menú desplegable (només mòbil i tauleta) -->
-        <button class="menu-desplegable" aria-label="Abrir menú">
-            <i data-lucide="menu"></i>
-        </button>
 
-        <!-- Logo -->
-        <a href="/student006/shop/index.html" class="logo">
-            <img src="/student006/shop/assets/img/logo-black-removebg-preview.png" alt="Logo de la tienda" />
-        </a>
-
-        <!-- Menú de navegació -->
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#">Videojuegos</a></li>
-                <li><a href="#">Sobre nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-
-        <!-- Icones (carret i perfil) -->
-        <div class="menu-icons">
-            <!-- Cercador desktop -->
-            <div class="buscador buscador-desktop">
-                <input type="text" placeholder="Buscar juegos..." aria-label="Buscar juegos">
-            </div>
-
-            <!-- Icona cercador mòbil/tauleta -->
-            <button class="icona-cerca-mobil" aria-label="Buscar">
-                <i data-lucide="search"></i>
-            </button>
-
-            <a href="/student006/shop/views/carrito.html" class="cart-icon" aria-label="Carrito de la compra">
-                <i data-lucide="shopping-cart"></i>
-                <span class="cart-count">0</span>
-            </a>
-
-            <a href="/student006/shop/backend/forms/form_login.php" aria-label="Mi Perfil">
-                <i data-lucide="user"></i>
-            </a>
-        </div>
-    </header>
-
-    <!-- Cercador mòbil/tauleta (ocult per defecte) -->
-    <div class="buscador-mobil">
-        <div class="buscador-mobil-contenidor">
-            <input type="text" placeholder="Buscar juegos..." aria-label="Buscar juegos">
-            <button class="tancar-cerca" aria-label="Cerrar búsqueda">
-                <i data-lucide="x"></i>
-            </button>
-        </div>
-    </div>
+    <div id="contenidor-header"></div>
 
     <main class="contenidor-carret">
-        <!-- Breadcrumb de navegació -->
+        <!-- Breadcrumb de navegación -->
         <nav class="breadcrumb">
             <a href="../index.html">Inicio</a>
             <span>/</span>
             <span>Carrito de compra</span>
         </nav>
 
-        <!-- Títol del carret -->
+        <!-- Título del carrito -->
         <h1 class="titol-carret">Carrito de compra</h1>
         <span class="quantitat-items">Cantidad: <span id="total-items">3</span></span>
 
-        <!-- Layout principal: 2 columnes -->
+        <!-- Layout principal: 2 columnas -->
         <div class="layout-carret">
-            <!-- Columna esquerra: Llista de productes -->
+            <!-- Columna izquierda: Lista de productos -->
             <div class="columna-productes">
                 <div class="llista-productes" id="llista-productes">
-                    <!-- Els productes es carregaran dinámicament amb JavaScript -->
+                    <!-- Los productos se cargarán dinámicamente con JavaScript -->
                 </div>
 
-                <!-- Botó seguir comprant -->
+                <!-- Botón seguir comprando -->
                 <button class="btn-seguir-comprant">
                     <i data-lucide="arrow-left"></i>
                     Seguir comprando
                 </button>
             </div>
 
-            <!-- Columna dreta: Resum del carret -->
+            <!-- Columna derecha: Resumen del carrito -->
             <aside class="columna-resum">
                 <div class="resum-carret">
                     <h3>Resumen</h3>
 
-                    <!-- Codi de descompte -->
+                    <!-- Código de descuento -->
                     <div class="codi-descompte">
                         <label for="codi-input">Código de descuento:</label>
                         <div class="input-group">
@@ -114,7 +67,7 @@
                         </div>
                     </div>
 
-                    <!-- Desglossament de preus -->
+                    <!-- Desglose de precios -->
                     <div class="desglossament-preu">
                         <div class="linia-preu">
                             <span>Subtotal</span>
@@ -134,10 +87,10 @@
                         </div>
                     </div>
 
-                    <!-- Botó finalitzar compra -->
+                    <!-- Botón finalizar compra -->
                     <button class="btn-finalitzar">Finalizar compra</button>
 
-                    <!-- Llista de garanties -->
+                    <!-- Lista de garantías -->
                     <ul class="llista-garanties">
                         <li>Envío gratis en pedidos superiores a $50</li>
                         <li>Devolución gratuita dentro de 30 días</li>
@@ -148,46 +101,17 @@
         </div>
     </main>
 
-    <footer>
-        <div class="contingut-footer">
-            <div class="seccio-footer">
-                <h4>PixelGame Shop</h4>
-                <p>Tu tienda de videojuegos de confianza</p>
-            </div>
-
-            <div class="seccio-footer">
-                <h4>Enlaces</h4>
-                <ul>
-                    <li><a href="#">Política de privacidad</a></li>
-                    <li><a href="#">Condiciones generales de venta</a></li>
-                    <li><a href="#">Aviso legal</a></li>
-                    <li><a href="#">Incidencias y devoluciones</a></li>
-                </ul>
-            </div>
-
-            <div class="seccio-footer">
-                <h4>Síguenos</h4>
-                <div class="xarxes-socials">
-                    <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
-                    <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="copyright">
-            <p>PixelGame Shop - Copyright © 2025 by Stefan Cojita (Project DIW-DWEC-DWES)</p>
-        </div>
-    </footer>
+    <div id="contenidor-footer"></div>
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
     </script>
+    
     <!-- Scripts -->
+     <script src="../js/cargaHeaderYFooter.js"></script>
     <script src="../js/carritoSistema.js"></script>
     <script src="../js/cargarCarrito.js"></script>
-
 </body>
 </html>
