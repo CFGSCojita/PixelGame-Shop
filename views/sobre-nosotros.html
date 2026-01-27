@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - PixelGame Shop</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/student006/shop/img/favicon.png" type="image/x-icon" />
+
+    <!-- Header i Footer -->
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../css/output.css">
+</head>
+<body class="flex flex-col min-h-screen">
+    
+    <!-- Header carregat dinàmicament -->
+    <div id="contenidor-header"></div>
+
+    <!-- Contingut principal -->
+    <main class="grow bg-gris py-10 px-5 md:py-16 md:px-10 lg:py-20 lg:px-20">
+        <div class="max-w-7xl mx-auto">
+            <!-- Títol de la pàgina -->
+            <h1 class="text-4xl md:text-5xl font-bold text-negre mb-12 text-center">
+                Quiénes somos
+            </h1>
+
+            <!-- Grid de dues columnes: text + imatge -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                
+                <!-- Columna esquerra: Text descriptiu -->
+                <div class="bg-blanc p-8 rounded-lg shadow-lg">
+                    <h2 class="text-2xl md:text-3xl font-bold text-rosa mb-6">
+                        Bienvenido a PixelGame Shop
+                    </h2>
+                    
+                    <div class="text-negre space-y-4 leading-relaxed">
+                        <p>
+                            PixelGame Shop es un proyecto integral de desarrollo web creado como 
+                            trabajo académico que une tres asignaturas fundamentales: 
+                            <strong>DIW (Diseño de Interfaces Web)</strong>, 
+                            <strong>DWEC (Desarrollo Web en Entorno Cliente)</strong> y 
+                            <strong>DWES (Desarrollo Web en Entorno Servidor)</strong>.
+                        </p>
+                        
+                        <p>
+                            Este proyecto representa una experiencia completa de desarrollo de 
+                            una tienda online de videojuegos, donde se aplican conceptos modernos 
+                            de diseño responsive, interactividad con JavaScript, y gestión de 
+                            bases de datos con PHP y MySQL.
+                        </p>
+                        
+                        <p class="text-cyan font-semibold">
+                            ¡Explora nuestra tienda y disfruta de la mejor selección de videojuegos!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Columna dreta: Imatge -->
+                <div class="bg-blanc p-4 rounded-lg shadow-lg">
+                    <div class="w-full aspect-square bg-gray-300 rounded flex items-center justify-center">
+                        <img src="../assets/img/logo.webp">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer carregat dinàmicament -->
+    <div id="contenidor-footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/cargaHeaderYFooter.js"></script>
+
+</body>
+</html>
