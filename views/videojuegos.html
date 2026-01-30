@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos los Videojuegos - PixelGame Shop</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon" />
+
+    <!-- Header i Footer -->
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../css/output.css">
+    
+    <!-- CSS para las tarjetas (empram index.css) -->
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body class="flex flex-col min-h-screen">
+    
+    <!-- Header carregat dinámicament -->
+    <div id="contenidor-header"></div>
+
+    <!-- Contingut principal -->
+    <main class="grow bg-negre py-16 px-5 md:py-24 md:px-10 lg:px-20">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Títol de la pàgina -->
+            <h1 class="text-4xl md:text-5xl font-bold text-blanc mb-16 text-center">
+                Todos los Videojuegos
+            </h1>
+
+            <!-- Grid de productes -->
+            <div class="productes-grid text-blanc"></div>
+            
+        </div>
+    </main>
+
+    <!-- Footer carregat dinàmicament -->
+    <div id="contenidor-footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/cargaHeaderYFooter.js"></script>
+    <script src="../js/cargarTodosVideojuegosPagina.js"></script>
+    
+</body>
+</html>
