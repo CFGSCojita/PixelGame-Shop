@@ -4,6 +4,7 @@ backend/logs/*.txt
 
 # API Keys y configuración sensible
 /backend/api/weather.php
+/backend/api/api_get_products_Bruno.php
 /backend/api/weather_data/
 
 # Archivos de configuración con credenciales
