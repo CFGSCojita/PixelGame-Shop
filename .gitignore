@@ -3,7 +3,7 @@ node_modules/
 backend/logs/*.txt
 
 # API Keys y configuración sensible
-/backend/api/weather.php
+/backend/api/deprecated_weather.php
 /backend/api/api_get_products_Bruno.php
 /backend/api/weather_data/
 
