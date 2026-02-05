@@ -6,6 +6,12 @@
 
     $user_id = $_SESSION['user_id']; // Obtenemos el ID del usuario desde la sesión.
     
+    // Obtenemos la dirección del usuario
+    $sql_user = "SELECT address FROM 006_users WHERE user_id = ?";
+    $result_user = mysqli_execute_query($conn, $sql_user, [$user_id]);
+    $user_data = mysqli_fetch_assoc($result_user);
+    $user_address = $user_data['address'] ?? ''; // Si no tiene dirección, dejamos vacío
+    
     // Obtenemos todos los productos del carrito del usuario.
     $sql_carrito = "SELECT 
                         c.videogame_id,
@@ -26,11 +32,11 @@
         $unit_price = $item['price'];
         $total = $unit_price * $quantity;
         
-        // INSERT del pedido.
-        $sql_insert = "INSERT INTO 006_orders (user_id, videogame_id, quantity, unit_price, total, order_date) 
-                       VALUES (?, ?, ?, ?, ?, NOW())";
+        // INSERT del pedido con la dirección del usuario
+        $sql_insert = "INSERT INTO 006_orders (user_id, videogame_id, quantity, unit_price, total, order_address, order_date) 
+                       VALUES (?, ?, ?, ?, ?, ?, NOW())";
         
-        if (mysqli_execute_query($conn, $sql_insert, [$user_id, $videogame_id, $quantity, $unit_price, $total])) {
+        if (mysqli_execute_query($conn, $sql_insert, [$user_id, $videogame_id, $quantity, $unit_price, $total, $user_address])) {
             $pedidos_exitosos++;
         }
     }

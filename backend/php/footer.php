@@ -3,10 +3,10 @@
 <footer class="py-4" style="background-color: #1A1A1A; border-top: 2px solid #2A2A2A;">
     <div class="container">
         <!-- Footer izquierda con clima -->
-        <div class="footer-weather" style="margin-bottom: 15px;">
+        <!-- <div class="footer-weather" style="margin-bottom: 15px;">
             <button id="btnWeather" class="btn-weather">API Weather</button>
             <span id="weatherForecast" class="weather-display"></span>
-        </div>
+        </div> -->
         
         <!-- Copyright centrado -->
         <p class="text-center m-0" style="color: #E6E6E6;">
@@ -17,7 +17,7 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
+<!-- <script>
     // Añadimos el evento al botón para obtener el clima
     document.getElementById('btnWeather').addEventListener('click', async () => {
         try {
@@ -61,7 +61,7 @@
             document.getElementById('weatherForecast').innerHTML = ' Error al cargar';
         }
     });
-</script>
+</script> -->
 
 </body>
 </html>
