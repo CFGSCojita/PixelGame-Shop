@@ -1,6 +1,6 @@
 <?php
 
-    // Preparamos la consulta SQL para obtener todos los videojuegos.
+    // Preparamos la consulta SQL para obtener SOLO los videojuegos propios (supplier_id = 1).
     // El contador de reviews depende del rol:
     // - ADMIN: cuenta TODAS las reviews (validadas y no validadas)
     // - CUSTOMER: cuenta solo las reviews validadas
@@ -20,6 +20,7 @@
                 LEFT JOIN 006_categories AS c ON v.category_id = c.category_id
                 LEFT JOIN 006_platforms AS p ON v.platform_id = p.platform_id
                 LEFT JOIN 006_reviews AS r ON v.videogame_id = r.videogame_id
+                WHERE v.supplier_id = 1
                 GROUP BY v.videogame_id
                 ORDER BY v.videogame_id ASC";
     } else {
@@ -37,6 +38,7 @@
                 LEFT JOIN 006_categories AS c ON v.category_id = c.category_id
                 LEFT JOIN 006_platforms AS p ON v.platform_id = p.platform_id
                 LEFT JOIN 006_reviews AS r ON v.videogame_id = r.videogame_id
+                WHERE v.supplier_id = 1
                 GROUP BY v.videogame_id
                 ORDER BY v.videogame_id ASC";
     }
@@ -51,6 +53,6 @@
         mysqli_free_result($result); // Liberamos el resultado de la consulta.
     }
 
-    // La variable $videogames ahora contiene los datos y está disponible en videogames.php.
+    // La variable $videogames ahora contiene solo los productos propios y está disponible en videogames.php.
     // NO cerramos la conexión $conn aquí.
 ?>
