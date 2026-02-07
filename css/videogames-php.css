@@ -126,3 +126,24 @@
 #resultado-busqueda {
     margin-top: 10px;
 }
+
+/* Botón de estadísticas */
+.btn-estadisticas {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    padding: 10px 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-estadisticas:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    transform: translateY(-2px);
+}

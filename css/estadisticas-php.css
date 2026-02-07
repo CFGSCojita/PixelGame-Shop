@@ -1,0 +1,91 @@
+/* Variables de colores del proyecto */
+:root {
+    --color-primary: #FF3366;
+    --color-accent: #00CCFF;
+    --color-bg: #0A0A0A;
+    --color-card-bg: #1A1A1A;
+    --color-text: #FCFCFC;
+    --color-text-secondary: #E6E6E6;
+    --color-border: #2A2A2A;
+}
+
+/* Contenedor principal */
+.contenedor-estadisticas {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Título principal */
+.contenedor-estadisticas h1 {
+    color: var(--color-text);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Contenedor del gráfico */
+.grafico-contenedor {
+    background-color: var(--color-card-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+/* Título del gráfico */
+.grafico-contenedor h2 {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Canvas del gráfico */
+#graficoTopVideojuegos {
+    max-height: 400px;
+}
+
+/* Contenedor del botón volver */
+.boton-volver {
+    text-align: center;
+}
+
+/* Botón volver */
+.btn-volver {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-estadisticas {
+        padding: 10px;
+    }
+    
+    .contenedor-estadisticas h1 {
+        font-size: 2rem;
+    }
+    
+    .grafico-contenedor {
+        padding: 20px;
+    }
+    
+    #graficoTopVideojuegos {
+        max-height: 300px;
+    }
+}

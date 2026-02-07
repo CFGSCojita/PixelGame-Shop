@@ -9,7 +9,18 @@
 <!-- CSS específico de videogames -->
 <link rel="stylesheet" href="/student006/shop/css/videogames-php.css">
 
-<h1>Videojuegos</h1>
+<!-- Contenedor con título y botón -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h1 style="margin: 0;">Videojuegos</h1>
+    
+    <?php if ($_SESSION['role'] === 'admin'): ?>
+        <a href="/student006/shop/backend/php/estadisticas.php" class="btn-estadisticas">
+            📊 Ver Estadísticas
+        </a>
+    <?php endif; ?>
+</div>
+
+<hr>
 
 <!-- Buscador -->
 <div class="contenedor-buscador">
