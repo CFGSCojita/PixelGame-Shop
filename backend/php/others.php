@@ -1,81 +1,57 @@
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
-    
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
     require($root_DIR . '/student006/shop/backend/php/header.php');
+
+    // Realizamos una consulta para obtener los productos del proveedor "Bruno" (supplier_id = 2):
+    $sql = "SELECT videogame_id, title, price, stock FROM 006_videogames WHERE supplier_id = 2 ORDER BY videogame_id ASC";
+    $result = mysqli_query($conn, $sql); // Ejecutamos la consulta y obtenemos los resultados.
+    $productos = mysqli_fetch_all($result, MYSQLI_ASSOC); // Convertimos los resultados a un array asociativo para facilitar su uso en el HTML.
 ?>
 
 <!-- CSS específico -->
 <link rel="stylesheet" href="/student006/shop/css/others-php.css">
 
-<!-- Título -->
 <div class="header-container">
     <h1>Otros Productos</h1>
 </div>
 
 <hr>
 
-<!-- Contenedor de productos externos -->
-<div id="productos-externos">
-    <p class="mensaje-cargando">Cargando productos...</p>
-</div>
+<!-- Si hay productos, realizamos el bucle para insertar cada uno: -->
+<?php if (!empty($productos)): ?>
 
-<hr>
+    <!-- Bucle 'for-each' -->
+    <!-- Por cada uno de los productos , insertamos cada dato: -->
+    <?php foreach ($productos as $producto): ?>
 
-<!-- Enlace volver -->
+        <div class="videogame-entry">
+            <div class="product-icon">🛋️</div>
+            <div class="videogame-details">
+                <h3><?php echo htmlspecialchars($producto['title']); ?></h3>
+                <p><?php echo htmlspecialchars($producto['price']); ?> €</p>
+                <p class="info-secundaria">Stock: <?php echo $producto['stock']; ?> unidades | Proveedor: Bruno</p>
+            </div>
+            <div class="videogame-actions">
+                <form method="POST" action="/student006/shop/backend/db/db_cart_insert.php">
+                    <input type="hidden" name="videogame_id" value="<?php echo $producto['videogame_id']; ?>">
+                    <button type="submit">AÑADIR AL CARRITO</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+
+    <?php endforeach; ?>
+<?php else: ?>
+    <p>No hay productos externos disponibles.</p>
+<?php endif; ?>
+
 <a href="/student006/shop/backend/php/videogames.php" class="enlace-volver">← Volver a Videojuegos</a>
 
-<!-- JavaScript para cargar productos -->
-<script>
-    cargarProductosExternos(); // Llamamos a la función para cargar los productos externos al cargar la página.
-    
-    // Creamos una función para cargar productos de Bruno desde la BD:
-    function cargarProductosExternos() {
-        // Hacemos una petición fetch al endpoint que devuelve los productos externos:
-        fetch('/student006/shop/backend/endpoints/get_external_products.php')
-            .then(response => response.json()) // Parseamos la respuesta como JSON.
-            // Si la respuesta es exitosa, llamamos a la función mostrarProductos con los datos recibidos.
-            .then(data => { 
-                mostrarProductos(data);
-            })
-            // Si ocurre un error durante la petición, mostramos un mensaje de error en el contenedor.
-            .catch(error => {
-                document.getElementById('productos-externos').innerHTML = 
-                    '<p class="mensaje-error">Error al cargar productos externos</p>';
-            });
-    }
-    
-    // Creamos una función para mostrar los productos en el HTML:
-    function mostrarProductos(productos) {
-        const contenedor = document.getElementById('productos-externos'); // Obtenemos el contenedor donde se mostrarán los productos.
-        
-        // Estructura de control 'if'.
-        // Si no hay productos, mostramos un mensaje indicando que no hay productos disponibles.
-        if (productos.length === 0) {
-            contenedor.innerHTML = '<p class="mensaje-vacio">No hay productos externos disponibles</p>';
-            return;
-        }
-        
-        let html = ''; // Creamos una variable para almacenar el HTML que se generará dinámicamente.
+<!-- AJAX para que el formulario no redirija al JSON -->
+<script src="/student006/shop/js/gestionarCarritoAJAX.js"></script>
 
-        // Recorremos el array de productos utilizando un bucle 'forEach' y generamos el HTML para cada producto.
-        productos.forEach(producto => {
-            html += `
-                <div class="product-entry">
-                    <div class="product-icon">🛋️</div>
-                    <div class="product-details">
-                        <h3>${producto.title}</h3>
-                        <p><strong>Precio:</strong> ${producto.price}€</p>
-                        <p><strong>Stock:</strong> ${producto.stock} unidades</p>
-                        <p class="info-secundaria">Proveedor: ${producto.supplier || 'Bruno'}</p>
-                    </div>
-                </div>
-                <hr>
-            `;
-        });
-        
-        contenedor.innerHTML = html; // Insertamos el HTML generado en el contenedor.
-    }
-</script>
-
-<?php require($root_DIR . '/student006/shop/backend/php/footer.php'); ?>
+<?php
+    mysqli_close($conn);
+    require($root_DIR . '/student006/shop/backend/php/footer.php');
+?>

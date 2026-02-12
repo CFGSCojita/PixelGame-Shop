@@ -69,3 +69,53 @@
 .enlace-volver:hover {
     color: #FF3366;
 }
+
+/* Entrada individual de producto */
+.videogame-entry {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Icono del producto */
+.product-icon {
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+/* Detalles del producto */
+.videogame-details {
+    flex-grow: 1;
+}
+
+.videogame-details h3 {
+    color: #FCFCFC;
+    margin-bottom: 5px;
+}
+
+.videogame-details p {
+    color: #E6E6E6;
+    margin-bottom: 5px;
+}
+
+.info-secundaria {
+    font-size: smaller;
+    color: #555;
+}
+
+/* Acciones (botón carrito) */
+.videogame-actions button[type="submit"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    background-color: #00CCFF;
+    color: #0A0A0A;
+}
+
+.videogame-actions button[type="submit"]:hover {
+    background-color: #FF3366;
+    color: #FCFCFC;
+}
