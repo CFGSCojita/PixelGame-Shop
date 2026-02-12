@@ -1,6 +1,7 @@
 <?php
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
 
+    
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
     require($root_DIR . '/student006/shop/backend/php/header.php');
     include($root_DIR . '/student006/shop/backend/db/db_videogame_select.php');
@@ -18,6 +19,11 @@
             📊 Ver Estadísticas
         </a>
     <?php endif; ?>
+
+    <!-- Botón para ver productos externos -->
+    <a href="/student006/shop/backend/php/others.php" class="btn-otros-productos">
+        🛒 Otros Productos
+    </a>
 </div>
 
 <hr>

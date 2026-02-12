@@ -1,0 +1,71 @@
+/* Contenedor del header */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-container h1 {
+    margin: 0;
+}
+
+/* Mensajes de estado */
+.mensaje-cargando {
+    color: #00CCFF;
+}
+
+.mensaje-error {
+    color: #FF3366;
+}
+
+.mensaje-vacio {
+    color: #E6E6E6;
+}
+
+/* Entrada individual de producto */
+.product-entry {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Icono del producto */
+.product-icon {
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+/* Detalles del producto */
+.product-details {
+    flex-grow: 1;
+}
+
+.product-details h3 {
+    color: #FCFCFC;
+    margin-bottom: 5px;
+}
+
+.product-details p {
+    color: #E6E6E6;
+    margin-bottom: 5px;
+}
+
+/* Información secundaria */
+.info-secundaria {
+    font-size: smaller;
+    color: #555;
+}
+
+/* Enlace volver */
+.enlace-volver {
+    display: block;
+    margin-top: 20px;
+    color: #00CCFF;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.enlace-volver:hover {
+    color: #FF3366;
+}

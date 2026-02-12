@@ -147,3 +147,22 @@
     color: var(--color-text);
     transform: translateY(-2px);
 }
+
+/* Botón otros productos */
+.btn-otros-productos {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-otros-productos:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    transform: translateY(-2px);
+}
