@@ -89,3 +89,7 @@
         max-height: 300px;
     }
 }
+
+canvas {
+    height: 400px !important;
+}
