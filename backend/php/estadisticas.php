@@ -38,7 +38,7 @@
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Declaramos una variable con las opciones comunes para todos los gráficos, para evitar repetir código.
+    // Declaramos una variable con las opciones comunes para todos los gráficos de barras, para evitar repetir código.
     const opcionesComunes = {
         responsive: true, // El gráfico se adapta al tamaño del contenedor.
         maintainAspectRatio: false, // Permitimos que el gráfico ocupe todo el espacio disponible.
@@ -55,16 +55,34 @@
 
     // Creamos una función para generar un gráfico de barras, recibiendo el id del canvas, las etiquetas, los datos y la etiqueta del dataset:
     function crearGrafico(id, labels, data, label) {
-        // Usamos Chart.js para crear un gráfico de barras en el canvas con el id especificado, utilizando las etiquetas, datos y opciones comunes:
+        // Usamos Chart.js para crear un gráfico de barras en el canvas con el id especificado:
         new Chart(document.getElementById(id), {
             type: 'bar', // Tipo de gráfico: barras.
-            // Data para el gráfico, con las etiquetas y el dataset:
             data: {
                 labels: labels,
                 // Configuración del dataset, con colores personalizados para las barras y bordes:
                 datasets: [{ label, data, backgroundColor: '#00CCFF', borderColor: '#FF3366', borderWidth: 2, maxBarThickness: 80 }]
             },
-            options: opcionesComunes // Aquí aplicamos las opciones comunes que definimos antes para mantener un estilo consistente en todos los gráficos.
+            options: opcionesComunes // Aplicamos las opciones comunes para mantener un estilo consistente.
+        });
+    }
+
+    // Creamos una función para generar un gráfico de queso (doughnut), recibiendo el id del canvas, las etiquetas y los datos:
+    function crearGraficoQueso(id, labels, data) {
+        // Usamos Chart.js para crear un gráfico doughnut con la paleta de colores de la tienda:
+        new Chart(document.getElementById(id), {
+            type: 'doughnut', // Tipo de gráfico: queso/donut.
+            data: {
+                labels: labels,
+                // Cada sector recibe un color distinto de la paleta de la tienda:
+                datasets: [{ data, backgroundColor: ['#FF3366','#00CCFF','#FF9900','#9B59B6','#2ECC71','#E74C3C','#3498DB'], borderColor: '#0A0A0A', borderWidth: 3 }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                // Leyenda con el mismo estilo que los demás gráficos:
+                plugins: { legend: { labels: { color: '#FCFCFC', font: { size: 14 } } } }
+            }
         });
     }
 
@@ -72,11 +90,11 @@
     fetch('/student006/shop/backend/endpoints/get_estadisticas.php')
         .then(r => r.json()) // Convertimos la respuesta a JSON.
 
-        // Con los datos recibidos, llamamos a la función crearGrafico para cada tipo de estadística, pasando las etiquetas y datos correspondientes:
+        // Con los datos recibidos, llamamos a la función correspondiente para cada tipo de estadística:
         .then(datos => {
-            crearGrafico('graficoPorMes',      datos.por_mes.map(d => d.mes),      datos.por_mes.map(d => d.total_pedidos),      'Pedidos');
-            crearGrafico('graficoPorCliente',  datos.por_cliente.map(d => d.cliente),  datos.por_cliente.map(d => d.total_pedidos),  'Pedidos');
-            crearGrafico('graficoPorProducto', datos.por_producto.map(d => d.producto), datos.por_producto.map(d => d.total_pedidos), 'Pedidos');
+            crearGrafico('graficoPorMes',      datos.por_mes.map(d => d.mes),           datos.por_mes.map(d => d.total_pedidos),      'Pedidos');
+            crearGrafico('graficoPorCliente',  datos.por_cliente.map(d => d.cliente),    datos.por_cliente.map(d => d.total_pedidos),  'Pedidos');
+            crearGraficoQueso('graficoPorProducto', datos.por_producto.map(d => d.producto), datos.por_producto.map(d => d.total_pedidos)); // Gráfico de queso para productos.
         })
         .catch(err => console.error('Error:', err));
 </script>
