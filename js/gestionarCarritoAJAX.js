@@ -61,3 +61,18 @@ document.querySelectorAll('form[action*="db_cart_incrementar.php"]').forEach(for
         });
     });
 });
+
+// Formulario de decrementar cantidad con AJAX
+document.querySelectorAll('form[action*="db_cart_decrementar.php"]').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch(this.action, { method: 'POST', body: new FormData(this) })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                document.querySelector('.badge').textContent = data.cart_count;
+                location.reload();
+            }
+        });
+    });
+});

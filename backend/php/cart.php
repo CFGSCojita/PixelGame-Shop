@@ -62,6 +62,12 @@
                             <input type="hidden" name="cart_id" value="<?php echo $item['cart_id']; ?>">
                             <button type="submit">+</button>
                         </form>
+
+                        <!-- Botón para restar -1 -->
+                        <form method="POST" action="/student006/shop/backend/db/db_cart_decrementar.php">
+                            <input type="hidden" name="cart_id" value="<?php echo $item['cart_id']; ?>">
+                            <button type="submit">-</button>
+                        </form>
                         
                         <!-- Botón para eliminar -->
                         <form method="POST" action="/student006/shop/backend/db/db_cart_delete.php">
