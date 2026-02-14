@@ -49,13 +49,6 @@
                 ?>
 
                 <?php if ($_SESSION['role'] === 'admin'): ?>
-                    <!-- Solo admin puede UPDATE y DELETE -->
-
-                    <!-- UPDATE: Envía directamente al formulario de actualización -->
-                    <form method="POST" action="/student006/shop/backend/forms/form_order_update.php">
-                        <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
-                        <button type="submit">UPDATE</button>
-                    </form>
 
                     <!-- DELETE: Confirmación con JavaScript antes de eliminar -->
                     <form method="POST" action="/student006/shop/backend/db/db_order_delete.php"
@@ -103,7 +96,9 @@
     Volver al Panel Principal
 </a>
 
+<!-- Scripts -->
 <script src="/student006/shop/js/gestionarReviewsAJAX.js"></script>
+<script src="/student006/shop/js/gestionarPedidosAJAX.js"></script>
 
 <?php
     mysqli_close($conn);

@@ -1,28 +1,24 @@
 <?php
-    // Llamada a la base de datos y el header a través del directorio root.
+    // Llamada y conexión a la base de datos a través del directorio root.
     $root_DIR = $_SERVER['DOCUMENT_ROOT'];
     include($root_DIR . '/student006/shop/backend/config/db_connect.php');
-    require($root_DIR . '/student006/shop/backend/php/header.php');
+    session_start();
 
-    print_r($_POST); // Mostrar los datos recibidos por el POST.
+    // Obtenemos el ID del pedido recibido por POST.
+    $order_id = $_POST['order_id'];
 
-    // Obtenemos y limpiamos el ID del pedido recibido por el POST.
-    $order_id = $_POST['order_id']; 
-
-    // Declaramos la consulta SQL para eliminar el pedido con el ID proporcionado.
-    $sql = "DELETE FROM 006_orders 
-            WHERE order_id = ?"; 
+    // Consulta SQL para eliminar el pedido con el ID proporcionado.
+    $sql = "DELETE FROM 006_orders WHERE order_id = ?";
 
     // Estructura de control 'if'.
-    // Si la consulta se ejecuta correctamente, mostramos un mensaje de éxito. En caso contrario, también lo indicamos.
+    // Si la consulta se ejecuta correctamente, devolvemos éxito. En caso contrario, devolvemos el error.
     if (mysqli_execute_query($conn, $sql, [$order_id])) {
-        echo "> Se ha eliminado el pedido correctamente.";
+        echo json_encode(['success' => true]);
     } else {
-        echo "No se ha podido eliminar el pedido por algún error: " . mysqli_error($conn);
+        echo json_encode(['success' => false, 'error' => mysqli_error($conn)]);
     }
 
-    mysqli_close($conn); // Cerramos la conexión con la base de datos.
-
-    // Llamada al footer a través del directorio root.
-    require($root_DIR . '/student006/shop/backend/php/footer.php');
+    mysqli_close($conn);
+    header('Content-Type: application/json');
+    exit();
 ?>

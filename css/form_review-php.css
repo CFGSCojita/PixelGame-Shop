@@ -1,0 +1,167 @@
+/* Variables de colores del proyecto */
+:root {
+    --color-primary: #FF3366;
+    --color-accent: #00CCFF;
+    --color-bg: #0A0A0A;
+    --color-card-bg: #1A1A1A;
+    --color-text: #FCFCFC;
+    --color-text-secondary: #E6E6E6;
+    --color-border: #2A2A2A;
+}
+
+/* Contenedor principal del formulario */
+.contenedor-form {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: var(--color-card-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    padding: 40px;
+}
+
+/* Título del formulario */
+.contenedor-form h1 {
+    color: var(--color-text);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Subtítulo con el nombre del videojuego */
+.contenedor-form h3 {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Estilos del formulario */
+.contenedor-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Grupo de input (label + select/textarea) */
+.form-elemento {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Labels */
+.form-elemento label {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Selects */
+.form-elemento select {
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.form-elemento select:focus {
+    border-color: var(--color-accent);
+    background-color: #0F0F0F;
+}
+
+.form-elemento select option {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+.form-elemento select:valid {
+    border-color: #4CAF50;
+}
+
+.form-elemento select:invalid {
+    border-color: var(--color-primary);
+}
+
+/* Textareas */
+.form-elemento textarea {
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-elemento textarea:focus {
+    border-color: var(--color-accent);
+    background-color: #0F0F0F;
+}
+
+.form-elemento textarea::placeholder {
+    color: #666;
+}
+
+/* Botón de envío */
+.btn-enviar {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+}
+
+.btn-enviar:active {
+    transform: translateY(0);
+}
+
+/* Enlace de volver */
+.link-volver {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.link-volver:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Responsive - Móvil */
+@media (max-width: 768px) {
+    .contenedor-form {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .contenedor-form h1 {
+        font-size: 1.6rem;
+    }
+}
