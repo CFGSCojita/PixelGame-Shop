@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,13 @@
     <!-- Header i Footer -->
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
-    
+
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="../css/output.css">
 </head>
+
 <body class="flex flex-col min-h-screen">
-    
+
     <!-- Header carregat dinàmicament -->
     <div id="contenidor-header"></div>
 
@@ -30,79 +32,52 @@
 
             <!-- Grid de dues columnes: formulari + informació -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                
+
                 <!-- Columna esquerra: Formulari de contacte -->
                 <div class="bg-blanc p-8 rounded-lg shadow-lg">
                     <h2 class="text-2xl md:text-3xl font-bold text-rosa mb-6">
                         Envíanos un mensaje
                     </h2>
-                    
-                    <form class="space-y-6">
-                        <!-- Nom -->
+
+                    <form class="space-y-6" novalidate aria-label="Formulario de contacto">
+
                         <div>
-                            <label for="nombre" class="block text-negre font-semibold mb-2">
-                                Nombre completo *
-                            </label>
-                            <input 
-                                type="text" 
-                                id="nombre" 
-                                name="nombre" 
-                                required
+                            <label for="nombre" class="block text-negre font-semibold mb-2">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required autocomplete="name"
+                                aria-required="true" aria-describedby="nombre-help"
                                 class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-rosa focus:outline-none transition"
-                                placeholder="Tu nombre"
-                            >
+                                placeholder="Tu nombre">
+                            <small id="nombre-help" class="text-gray-500">Introduce tu nombre completo.</small>
                         </div>
 
-                        <!-- Email -->
                         <div>
-                            <label for="email" class="block text-negre font-semibold mb-2">
-                                Email *
-                            </label>
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
-                                required
+                            <label for="email" class="block text-negre font-semibold mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required autocomplete="email"
+                                aria-required="true" aria-describedby="email-help"
                                 class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-rosa focus:outline-none transition"
-                                placeholder="tu@email.com"
-                            >
+                                placeholder="tu@email.com">
+                            <small id="email-help" class="text-gray-500">Nunca compartiremos tu email.</small>
                         </div>
 
-                        <!-- Assumpte -->
                         <div>
-                            <label for="asunto" class="block text-negre font-semibold mb-2">
-                                Asunto *
-                            </label>
-                            <input 
-                                type="text" 
-                                id="asunto" 
-                                name="asunto" 
-                                required
+                            <label for="asunto" class="block text-negre font-semibold mb-2">Asunto *</label>
+                            <input type="text" id="asunto" name="asunto" required autocomplete="off"
+                                aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-rosa focus:outline-none transition"
-                                placeholder="¿En qué podemos ayudarte?"
-                            >
+                                placeholder="¿En qué podemos ayudarte?">
                         </div>
 
-                        <!-- Missatge -->
                         <div>
-                            <label for="mensaje" class="block text-negre font-semibold mb-2">
-                                Mensaje *
-                            </label>
-                            <textarea 
-                                id="mensaje" 
-                                name="mensaje" 
-                                rows="5" 
-                                required
+                            <label for="mensaje" class="block text-negre font-semibold mb-2">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required aria-required="true"
                                 class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-rosa focus:outline-none transition resize-none"
-                                placeholder="Escribe tu mensaje aquí..."
-                            ></textarea>
+                                placeholder="Escribe tu mensaje aquí..."></textarea>
                         </div>
 
-                        <!-- Button d'enviar -->
-                        <button 
-                            type="submit"
-                            class="w-full bg-rosa text-blanc font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition"
-                        >
+                        <div id="msg-envio" aria-live="polite"></div>
+
+                        <button type="submit"
+                            class="w-full bg-rosa text-blanc font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition">
                             Enviar mensaje
                         </button>
                     </form>
@@ -115,11 +90,11 @@
                         <h3 class="text-2xl font-bold text-cyan mb-6">
                             Información de contacto
                         </h3>
-                        
+
                         <div class="space-y-4 text-negre">
                             <!-- Email -->
                             <div class="flex items-start gap-4">
-                                <i data-lucide="mail" class="text-rosa mt-1 shrink-0"></i>
+                                <i data-lucide="mail" aria-hidden="true" class="text-rosa mt-1 shrink-0"></i>
                                 <div>
                                     <p class="font-semibold">Email</p>
                                     <p class="text-gris-fosc">info@pixelgameshop.com</p>
@@ -128,7 +103,7 @@
 
                             <!-- Telèfon -->
                             <div class="flex items-start gap-4">
-                                <i data-lucide="phone" class="text-rosa mt-1 shrink-0"></i>
+                                <i data-lucide="phone" aria-hidden="true" class="text-rosa mt-1 shrink-0"></i>
                                 <div>
                                     <p class="font-semibold">Teléfono</p>
                                     <p class="text-gris-fosc">+34 971 123 456</p>
@@ -137,7 +112,7 @@
 
                             <!-- Direcció -->
                             <div class="flex items-start gap-4">
-                                <i data-lucide="map-pin" class="text-rosa mt-1 shrink-0"></i>
+                                <i data-lucide="map-pin" aria-hidden="true" class="text-rosa mt-1 shrink-0"></i>
                                 <div>
                                     <p class="font-semibold">Dirección</p>
                                     <p class="text-gris-fosc">
@@ -159,9 +134,10 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/student006/shop/js/accesibilitat.js"></script> 
+    <script src="/student006/shop/js/accesibilitat.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../js/cargaHeaderYFooter.js"></script>
 
 </body>
+
 </html>
