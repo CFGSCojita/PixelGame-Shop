@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accesibilidad - PixelGame Shop</title>
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../css/accesibilitat.css" />
+</head>
+<body>
+  <div id="contenidor-header"></div>
+
+  <main>
+    <h1>Opciones de accesibilidad</h1>
+
+    <!-- Contrast -->
+    <section>
+      <h2>Contraste</h2>
+      <button data-filtre="cap">Normal</button>
+      <button data-filtre="grisos">Escala de grises</button>
+      <button data-filtre="contrast-fosc">Contraste oscuro</button>
+      <button data-filtre="contrast-clar">Contraste claro</button>
+      <button data-filtre="saturacio-alta">Saturación alta</button>
+      <button data-filtre="saturacio-baixa">Saturación baja</button>
+    </section>
+
+    <!-- Tipografia -->
+    <section>
+      <h2>Tipografía</h2>
+      <label>Tamaño de letra
+        <input type="range" id="mida" min="0.8" max="1.5" step="0.1" value="1">
+      </label>
+      <label>Interlineado
+        <input type="range" id="interlineat" min="1" max="2.5" step="0.1" value="1.5">
+      </label>
+      <label>Espaciado entre palabras
+        <input type="range" id="espai-paraules" min="0" max="0.5" step="0.05" value="0">
+      </label>
+      <label>Espaciado entre letras
+        <input type="range" id="espai-lletres" min="0" max="0.2" step="0.01" value="0">
+      </label>
+    </section>
+
+    <!-- Reset -->
+    <button id="btn-reset">Restablecer todo</button>
+  </main>
+
+  <div id="contenidor-footer"></div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/cargaHeaderYFooter.js"></script>
+  <script src="../js/accesibilitat.js"></script>
+</body>
+</html>
