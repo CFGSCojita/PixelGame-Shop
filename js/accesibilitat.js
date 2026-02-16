@@ -1,5 +1,5 @@
 
-// Cream un objecte amb els filtres CSS disponibles:
+// Cream un objecte per a cada filtre i empram les funcions de jQuery per a aplicar les preferències emmagatzemades a localStorage.
 const filtres = {
     'grisos': 'grayscale(100%)',
     'contrast-fosc': 'contrast(150%) brightness(50%)',
@@ -8,7 +8,7 @@ const filtres = {
     'saturacio-baixa': 'saturate(30%)'
 };
 
-// Cream una funció per aplicar les preferències emmagatzemades a l'estil de la pàgina:
+// Cream una funció per a aplicar les preferències d'accessibilitat emmagatzemades a localStorage a l'element <html>.
 function aplicarPreferencies() {
     $('html').css({
         'filter': filtres[localStorage.getItem('filtre')] || '',
@@ -19,36 +19,48 @@ function aplicarPreferencies() {
     });
 }
 
-// Aplicam delegació d'esdeveniments quan el document està llest:
+// Cream una funció per a marcar el filtre actiu a la interfície d'accessibilitat.
+function marcarFiltreActiu() {
+    const filtreActiu = localStorage.getItem('filtre') || 'cap';
+    $('[data-filtre]').removeClass('actiu');
+    $('[data-filtre="' + filtreActiu + '"]').addClass('actiu');
+}
+
+// Empram delegació d'esdeveniments per a gestionar els canvis en els filtres i les preferències d'accessibilitat, així com el restabliment de les preferències.
 $(document).ready(function () {
 
-    aplicarPreferencies(); // Aplicam les preferències emmagatzemades en carregar la pàgina.
+    aplicarPreferencies(); // Aplicam les preferències emmagatzemades a localStorage en carregar la pàgina.
 
+    // Si no existeix el botó de restabliment, no cal gestionar les preferències d'accessibilitat.
     if (!$('#btn-reset').length) {
         return;
     }
 
-    // Sincronitzem sliders
+    marcarFiltreActiu(); // Marcam el filtre actiu en carregar la pàgina.
+
+    // Carregam els valors dels controls de preferències d'accessibilitat des de localStorage.
     ['mida', 'interlineat', 'espai-paraules', 'espai-lletres'].forEach(id => {
         $('#' + id).val(localStorage.getItem(id));
     });
 
-    // Contrast
+    // Gestionam els clics en els botons de filtre per a emmagatzemar la preferència i aplicar-la.
     $('[data-filtre]').click(function () {
         localStorage.setItem('filtre', $(this).data('filtre'));
         aplicarPreferencies();
+        marcarFiltreActiu();
     });
 
-    // Sliders
+    // Gestionam els canvis en els controls de preferències d'accessibilitat per a emmagatzemar les preferències i aplicar-les.
     $('input[type=range]').on('input', function () {
         localStorage.setItem($(this).attr('id'), $(this).val());
         aplicarPreferencies();
     });
 
-    // Reset
+    // Gestionam el clic en el botó de restabliment per a esborrar les preferències emmagatzemades i restablir les preferències per defecte.
     $('#btn-reset').click(function () {
         localStorage.clear();
         aplicarPreferencies();
+        marcarFiltreActiu();
         ['mida', 'interlineat', 'espai-paraules', 'espai-lletres'].forEach(id => {
             $('#' + id).val($('#' + id).attr('value'));
         });
