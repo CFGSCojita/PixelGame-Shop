@@ -23,7 +23,8 @@
 
     <main class="grow bg-gris py-6 px-5 md:py-8 md:px-10 lg:py-10 lg:px-20">
 
-        <nav class="mb-6">
+        <!-- Breadcrumb amb aria-label -->
+        <nav class="mb-6" aria-label="Ruta de navegación">
             <ul class="flex gap-2 text-sm text-negre">
                 <li><a href="../index.html" class="hover:text-rosa">Inicio</a></li>
                 <li>/</li>
@@ -41,9 +42,9 @@
                 <div class="targeta-blanc">
                     <div class="relative w-full max-w-md mx-auto">
                         <span class="badge-nou">NUEVO</span>
-                        <div
-                            class="imatge-principal w-full aspect-3/4 bg-gray-200 rounded flex items-center justify-center">
-                            <i class="w-20 h-20 text-gray-400" data-lucide="image"></i>
+                        <div class="imatge-principal w-full aspect-3/4 bg-gray-200 rounded flex items-center justify-center">
+                            <!-- Icona decorativa -->
+                            <i class="w-20 h-20 text-gray-400" data-lucide="image" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -59,25 +60,28 @@
             <div class="targeta-blanc">
                 <div class="flex justify-between items-start mb-4">
                     <h1 class="text-3xl font-bold text-negre">Cyberpunk 2077</h1>
-                    <i class="icona-preferit" data-lucide="heart"></i>
+                    <!-- Icona decorativa -->
+                    <i class="icona-preferit" data-lucide="heart" aria-hidden="true"></i>
                 </div>
 
                 <div class="flex items-center gap-3 mb-6">
-                    <div class="flex gap-1">
+                    <!-- Estrellas decoratives, la valoració és al span de text -->
+                    <div class="flex gap-1" aria-hidden="true">
                         <i class="icona-estrella" data-lucide="star"></i>
                         <i class="icona-estrella" data-lucide="star"></i>
                         <i class="icona-estrella" data-lucide="star"></i>
                         <i class="icona-estrella" data-lucide="star"></i>
                         <i class="icona-estrella" data-lucide="star"></i>
                     </div>
+                    <span class="sr-only">Valoración: 4.8 de 5</span>
                     <span class="text-sm text-gray-600">(4.8) | 2k reviews</span>
                 </div>
 
                 <div class="mb-6">
                     <p class="etiqueta-seccio">Elige una plataforma</p>
                     <div class="flex gap-3 flex-wrap">
-                        <button class="plataforma-btn">PS5</button>
-                        <button class="plataforma-btn">PC</button>
+                        <button class="plataforma-btn" aria-label="Seleccionar plataforma PS5">PS5</button>
+                        <button class="plataforma-btn" aria-label="Seleccionar plataforma PC">PC</button>
                     </div>
                 </div>
 
@@ -90,9 +94,9 @@
                 <div class="mb-6">
                     <p class="etiqueta-seccio">Cantidad</p>
                     <div class="flex items-center gap-4">
-                        <button class="btn-quantitat">-</button>
+                        <button class="btn-quantitat" aria-label="Reducir cantidad">-</button>
                         <span class="text-xl font-semibold w-8 text-center">1</span>
-                        <button class="btn-quantitat">+</button>
+                        <button class="btn-quantitat" aria-label="Aumentar cantidad">+</button>
                     </div>
                 </div>
 
@@ -103,11 +107,12 @@
             </div>
         </div>
 
+        <!-- Pestanyes amb role -->
         <div class="contenidor-tabs">
-            <div class="barra-tabs">
-                <button class="tab-btn">Descripción</button>
-                <button class="tab-btn">Especificación</button>
-                <button class="tab-btn">Reviews</button>
+            <div class="barra-tabs" role="tablist">
+                <button class="tab-btn" role="tab">Descripción</button>
+                <button class="tab-btn" role="tab">Especificación</button>
+                <button class="tab-btn" role="tab">Reviews</button>
             </div>
 
             <div class="contingut-tab">
