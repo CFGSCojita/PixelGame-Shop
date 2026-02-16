@@ -1,9 +1,9 @@
 <?php
 
     // Importamos los archivos de PHPMailer:
-    require_once $_SERVER['DOCUMENT_ROOT'].'/PHPMailer/src/Exception.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/PHPMailer/src/PHPMailer.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/PHPMailer/src/SMTP.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/PHPMailer/PHPMailer/src/Exception.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/PHPMailer/PHPMailer/src/PHPMailer.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/PHPMailer/PHPMailer/src/SMTP.php';
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
